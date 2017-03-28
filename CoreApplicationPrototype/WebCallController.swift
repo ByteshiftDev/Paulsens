@@ -295,7 +295,9 @@ class WebCallController: URLSession {
     func printBeaconList() {
         // Test logging in
         // Catch an error if it occurs
-/*        webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) {(dataJson) in
+        
+        /*
+        webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) {(dataJson) in
             if let error = dataJson["error"] as? String {
                 print("There was an error: " + error)
             }
@@ -309,15 +311,17 @@ class WebCallController: URLSession {
                     print("\n-----\n")
                     i = i+1
                 }
-            }
-        }*/
-    }
+            } */
+        }
     
     
     // Returns an array of dictionaries, where each dictionary represents a beacon in the web server
     // Returns nil if the web server call does not correctly return data
     // NOTE: Returns data via closure
     func getBeaconList(callback: @escaping ((Bool, String, Array<Dictionary<String, Any>>?)) -> ()) {
+        
+        
+        
         // Log in
         // Catch an error if it occurs
         webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) { (dataJson) in
@@ -326,6 +330,7 @@ class WebCallController: URLSession {
             }
         }
         
+ 
         
         // Call the web server to return the beacon list
         self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/beacons.json") { (beaconJson) in
@@ -349,11 +354,16 @@ class WebCallController: URLSession {
     func getHistoricalEventList(callback: @escaping ((Bool, String, Array<Dictionary<String, Any>>?)) -> ()) {
         // Log in
         // Catch an error if it occurs
+        
+        /*
         webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) {(dataJson) in
             if let error = dataJson["error"] as? String {
                 callback((true, error, nil))
             }
         }
+ 
+        */
+        
         // Call web server to return list of historical events
         self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/historical_events.json") { (historicalEventsJson) in
             // If the historical event list was returned correctly, pass it to the closure
@@ -374,6 +384,9 @@ class WebCallController: URLSession {
     // Returns nil if the web server call does not correctly return data
     // NOTE: Returns data via closure
     func getRewardsList(callback: @escaping ((Bool, String, Array<Dictionary<String, Any>>?)) -> ()) {
+        
+        
+        /*
         // Log in
         // Catch an error if it occurs
         webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) {(dataJson) in
@@ -381,6 +394,7 @@ class WebCallController: URLSession {
                 callback((true, error, nil))
             }
         }
+        */
         
         // Call web server to return rewards list
         self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/promotions.json") { (promotionsJson) in
@@ -408,6 +422,8 @@ class WebCallController: URLSession {
     // Returns nil if the web server call does not correctly return data
     // NOTE: Returns data via closure
     func getDailyDealList(callback: @escaping ((Bool, String, Array<Dictionary<String, Any>>?)) -> ()) {
+        
+        /*
         // Log in
         // Catch an error if it occurs
         webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) {(dataJson) in
@@ -415,6 +431,8 @@ class WebCallController: URLSession {
                 callback((true, error, nil))
             }
         }
+ */
+        
         // Call web server to return daily deals list
         self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/promotions.json") { (promotionsJson) in
             // If the promotions list was returned correctly, extract all daily deals and pass them to the closure
@@ -548,7 +566,10 @@ class WebCallController: URLSession {
         semaphore.wait()
         return toReturn
     }
+    
 }
+
+
 
 
 

@@ -348,7 +348,7 @@
 				TargetAttributes = {
 					DF2556ED1DE422EC006B3CC5 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = ZN787LK3P5;
+						DevelopmentTeam = 9PUG3ZA4ME;
 						ProvisioningStyle = Automatic;
 					};
 					DF2557011DE422EC006B3CC5 = {
@@ -538,7 +538,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -583,7 +583,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -595,14 +595,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZN787LK3P5;
+				DEVELOPMENT_TEAM = 9PUG3ZA4ME;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CoreApplicationPrototype",
 				);
 				INFOPLIST_FILE = CoreApplicationPrototype/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = InboundRXCapstone.CoreApplicationPrototype;
+				PRODUCT_BUNDLE_IDENTIFIER = CoreApplicationPrototype;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = CoreApplicationPrototype/ObjCBridge.h;
 				SWIFT_VERSION = 3.0;
@@ -613,14 +613,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZN787LK3P5;
+				DEVELOPMENT_TEAM = 9PUG3ZA4ME;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CoreApplicationPrototype",
 				);
 				INFOPLIST_FILE = CoreApplicationPrototype/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = InboundRXCapstone.CoreApplicationPrototype;
+				PRODUCT_BUNDLE_IDENTIFIER = CoreApplicationPrototype;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = CoreApplicationPrototype/ObjCBridge.h;
 				SWIFT_VERSION = 3.0;

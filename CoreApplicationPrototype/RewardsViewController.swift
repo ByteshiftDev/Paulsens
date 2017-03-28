@@ -203,13 +203,46 @@ extension RewardsViewController: UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rewardsCollectionCell", for: indexPath) as! RewardsCollectionViewCell
         cell.product = products[indexPath.row]
         cell.productLabel.text = products[indexPath.row].title
-        cell.productButton.setImage(products[indexPath.row].image, for: UIControlState.normal)
+        downlaodImageFromURL("https://www.getupandgobaked.com/wp-content/uploads/2015/03/smart-cookie-pic-copy.jpg", cell: cell)
         cell.productCost.text = String(describing: products[indexPath.row].cost)
         cell.layer.borderColor = UIColor(red: 0.24, green: 0.34, blue: 0.45, alpha: 1.0).cgColor
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 5
         return cell
+        
     }
     
+    func downlaodImageFromURL(_ url: String, cell: RewardsCollectionViewCell) {
+            let catPictureURL = URL(string: url)!
+            
+            // Creating a session object with the default configuration.
+            // You can read more about it here https://developer.apple.com/reference/foundation/urlsessionconfiguration
+            let session = URLSession(configuration: .default)
+            
+            // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
+            let downloadPicTask = session.dataTask(with: catPictureURL) { (data, response, error) in
+                // The download has finished.
+                if let e = error {
+                    print("Error downloading cat picture: \(e)")
+                } else {
+                    // No errors found.
+                    // It would be weird if we didn't have a response, so check for that too.
+                    if let res = response as? HTTPURLResponse {
+                        print("Downloaded sample picture with response code \(res.statusCode)")
+                        if let imageData = data {
+                            // Finally convert that Data into an image and do what you wish with it.
+                            let image = UIImage(data: imageData)
+                            cell.productButton.setImage(image, for: UIControlState.normal)
+                        } else {
+                            print("Couldn't get image: Image is nil")
+                        }
+                    } else {
+                        print("Couldn't get response code for some reason")
+                    }
+                }
+            }
+            
+            downloadPicTask.resume()
+        }
 
 }
