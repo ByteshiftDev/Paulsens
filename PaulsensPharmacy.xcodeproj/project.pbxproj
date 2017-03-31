@@ -83,17 +83,17 @@
 		A3C2E9A21E63CF07001BC63B /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		DF0DA5C61E7FB713003762D4 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		DF2538A81E642B0C00360F8C /* WebCallController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCallController.swift; sourceTree = "<group>"; };
-		DF2556EE1DE422EC006B3CC5 /* CoreApplicationPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreApplicationPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF2556EE1DE422EC006B3CC5 /* PaulsensPharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaulsensPharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2556F11DE422EC006B3CC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF2556F31DE422EC006B3CC5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DF2556F61DE422EC006B3CC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF2556F81DE422EC006B3CC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF2556FB1DE422EC006B3CC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF2556FD1DE422EC006B3CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF2557021DE422EC006B3CC5 /* CoreApplicationPrototypeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreApplicationPrototypeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF2557021DE422EC006B3CC5 /* PaulsensPharmacyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaulsensPharmacyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2557061DE422EC006B3CC5 /* CoreApplicationPrototypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreApplicationPrototypeTests.swift; sourceTree = "<group>"; };
 		DF2557081DE422EC006B3CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF25570D1DE422EC006B3CC5 /* CoreApplicationPrototypeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreApplicationPrototypeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF25570D1DE422EC006B3CC5 /* PaulsensPharmacyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaulsensPharmacyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2557111DE422EC006B3CC5 /* CoreApplicationPrototypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreApplicationPrototypeUITests.swift; sourceTree = "<group>"; };
 		DF2557131DE422EC006B3CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,9 +237,9 @@
 		DF2556EF1DE422EC006B3CC5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DF2556EE1DE422EC006B3CC5 /* CoreApplicationPrototype.app */,
-				DF2557021DE422EC006B3CC5 /* CoreApplicationPrototypeTests.xctest */,
-				DF25570D1DE422EC006B3CC5 /* CoreApplicationPrototypeUITests.xctest */,
+				DF2556EE1DE422EC006B3CC5 /* PaulsensPharmacy.app */,
+				DF2557021DE422EC006B3CC5 /* PaulsensPharmacyTests.xctest */,
+				DF25570D1DE422EC006B3CC5 /* PaulsensPharmacyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -283,9 +283,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DF2556ED1DE422EC006B3CC5 /* CoreApplicationPrototype */ = {
+		DF2556ED1DE422EC006B3CC5 /* PaulsensPharmacy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF2557161DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "CoreApplicationPrototype" */;
+			buildConfigurationList = DF2557161DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "PaulsensPharmacy" */;
 			buildPhases = (
 				DF2556EA1DE422EC006B3CC5 /* Sources */,
 				DF2556EB1DE422EC006B3CC5 /* Frameworks */,
@@ -295,14 +295,14 @@
 			);
 			dependencies = (
 			);
-			name = CoreApplicationPrototype;
+			name = PaulsensPharmacy;
 			productName = CoreApplicationPrototype;
-			productReference = DF2556EE1DE422EC006B3CC5 /* CoreApplicationPrototype.app */;
+			productReference = DF2556EE1DE422EC006B3CC5 /* PaulsensPharmacy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DF2557011DE422EC006B3CC5 /* CoreApplicationPrototypeTests */ = {
+		DF2557011DE422EC006B3CC5 /* PaulsensPharmacyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF2557191DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "CoreApplicationPrototypeTests" */;
+			buildConfigurationList = DF2557191DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "PaulsensPharmacyTests" */;
 			buildPhases = (
 				DF2556FE1DE422EC006B3CC5 /* Sources */,
 				DF2556FF1DE422EC006B3CC5 /* Frameworks */,
@@ -313,14 +313,14 @@
 			dependencies = (
 				DF2557041DE422EC006B3CC5 /* PBXTargetDependency */,
 			);
-			name = CoreApplicationPrototypeTests;
+			name = PaulsensPharmacyTests;
 			productName = CoreApplicationPrototypeTests;
-			productReference = DF2557021DE422EC006B3CC5 /* CoreApplicationPrototypeTests.xctest */;
+			productReference = DF2557021DE422EC006B3CC5 /* PaulsensPharmacyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DF25570C1DE422EC006B3CC5 /* CoreApplicationPrototypeUITests */ = {
+		DF25570C1DE422EC006B3CC5 /* PaulsensPharmacyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF25571C1DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "CoreApplicationPrototypeUITests" */;
+			buildConfigurationList = DF25571C1DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "PaulsensPharmacyUITests" */;
 			buildPhases = (
 				DF2557091DE422EC006B3CC5 /* Sources */,
 				DF25570A1DE422EC006B3CC5 /* Frameworks */,
@@ -331,9 +331,9 @@
 			dependencies = (
 				DF25570F1DE422EC006B3CC5 /* PBXTargetDependency */,
 			);
-			name = CoreApplicationPrototypeUITests;
+			name = PaulsensPharmacyUITests;
 			productName = CoreApplicationPrototypeUITests;
-			productReference = DF25570D1DE422EC006B3CC5 /* CoreApplicationPrototypeUITests.xctest */;
+			productReference = DF25570D1DE422EC006B3CC5 /* PaulsensPharmacyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -365,7 +365,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DF2556E91DE422EC006B3CC5 /* Build configuration list for PBXProject "CoreApplicationPrototype" */;
+			buildConfigurationList = DF2556E91DE422EC006B3CC5 /* Build configuration list for PBXProject "PaulsensPharmacy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -378,9 +378,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DF2556ED1DE422EC006B3CC5 /* CoreApplicationPrototype */,
-				DF2557011DE422EC006B3CC5 /* CoreApplicationPrototypeTests */,
-				DF25570C1DE422EC006B3CC5 /* CoreApplicationPrototypeUITests */,
+				DF2556ED1DE422EC006B3CC5 /* PaulsensPharmacy */,
+				DF2557011DE422EC006B3CC5 /* PaulsensPharmacyTests */,
+				DF25570C1DE422EC006B3CC5 /* PaulsensPharmacyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -466,12 +466,12 @@
 /* Begin PBXTargetDependency section */
 		DF2557041DE422EC006B3CC5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF2556ED1DE422EC006B3CC5 /* CoreApplicationPrototype */;
+			target = DF2556ED1DE422EC006B3CC5 /* PaulsensPharmacy */;
 			targetProxy = DF2557031DE422EC006B3CC5 /* PBXContainerItemProxy */;
 		};
 		DF25570F1DE422EC006B3CC5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF2556ED1DE422EC006B3CC5 /* CoreApplicationPrototype */;
+			target = DF2556ED1DE422EC006B3CC5 /* PaulsensPharmacy */;
 			targetProxy = DF25570E1DE422EC006B3CC5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -638,7 +638,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.InboundRXCapstone.CoreApplicationPrototypeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreApplicationPrototype.app/CoreApplicationPrototype";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PaulsensPharmacy.app/PaulsensPharmacy";
 			};
 			name = Debug;
 		};
@@ -653,7 +653,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.InboundRXCapstone.CoreApplicationPrototypeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreApplicationPrototype.app/CoreApplicationPrototype";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PaulsensPharmacy.app/PaulsensPharmacy";
 			};
 			name = Release;
 		};
@@ -688,7 +688,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DF2556E91DE422EC006B3CC5 /* Build configuration list for PBXProject "CoreApplicationPrototype" */ = {
+		DF2556E91DE422EC006B3CC5 /* Build configuration list for PBXProject "PaulsensPharmacy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF2557141DE422EC006B3CC5 /* Debug */,
@@ -697,7 +697,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF2557161DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "CoreApplicationPrototype" */ = {
+		DF2557161DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "PaulsensPharmacy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF2557171DE422EC006B3CC5 /* Debug */,
@@ -706,7 +706,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF2557191DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "CoreApplicationPrototypeTests" */ = {
+		DF2557191DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "PaulsensPharmacyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF25571A1DE422EC006B3CC5 /* Debug */,
@@ -715,7 +715,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF25571C1DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "CoreApplicationPrototypeUITests" */ = {
+		DF25571C1DE422EC006B3CC5 /* Build configuration list for PBXNativeTarget "PaulsensPharmacyUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF25571D1DE422EC006B3CC5 /* Debug */,
