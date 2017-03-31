@@ -25,6 +25,8 @@
  (If this still doesn't work, clean the project (Shift+Command+k))
 */
 
+import UIKit
+
 class WebCallController: URLSession {
     
     // --------------------------
@@ -313,6 +315,54 @@ class WebCallController: URLSession {
                 }
             } */
         }
+    
+    
+    
+    func downloadImageFromURL(_ url: String, cell: UICollectionViewCell, indexPath: Int) {
+        let pictureURL = URL(string: url)!
+        
+        // Creating a session object with the default configuration.
+        // You can read more about it here https://developer.apple.com/reference/foundation/urlsessionconfiguration
+        let session = URLSession(configuration: .default)
+        
+        // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
+        let downloadPicTask = session.dataTask(with: pictureURL) { (data, response, error) in
+            // The download has finished.
+            if let e = error {
+                print("Error downloading picture: \(e)")
+            } else {
+                // No errors found.
+                // It would be weird if we didn't have a response, so check for that too.
+                if let res = response as? HTTPURLResponse {
+                    print("Downloaded sample picture with response code \(res.statusCode)")
+                    if let imageData = data {
+                        // Finally convert that Data into an image and do what you wish with it.
+                        
+                        
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            let image = UIImage(data: imageData)
+                            if let Cell = cell as? RewardsCollectionViewCell {
+                                Cell.productButton.setImage(image, for: UIControlState.normal)
+                            }
+                            else if let Cell = cell as? DealsCollectionViewCell {
+                                Cell.dealsImage.image = image
+                            }
+                            else {
+                                print("Cell Error")
+                            }
+                            
+                        })
+                    } else {
+                        print("Couldn't get image: Image is nil")
+                    }
+                } else {
+                    print("Couldn't get response code for some reason")
+                }
+            }
+        }
+        
+        downloadPicTask.resume()
+    }
     
     
     // Returns an array of dictionaries, where each dictionary represents a beacon in the web server

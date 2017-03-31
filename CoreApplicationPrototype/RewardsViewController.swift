@@ -25,13 +25,15 @@ struct Product {
     var description: String
     var cost: Int
     var image: UIImage
+    var URLString: String
     var id: Int
     
-    init(title: String, description: String, cost: Int, image: UIImage, id: Int){
+    init(title: String, description: String, cost: Int, image: UIImage, URLString: String, id: Int){
         self.title = title
         self.description = description
         self.cost = cost
         self.image = image
+        self.URLString = URLString
         self.id = id
     }
 }
@@ -101,7 +103,7 @@ class RewardsViewController: UIViewController{
             }
             if rewardsList != nil {
                 for dict in rewardsList! {
-                    newProducts.append(Product(title: dict["title"] as! String, description: dict["description"] as! String, cost: dict["cost"] as! Int, image: UIImage(named: "Paulsens_Logo_Gold3")!, id: dict["id"] as! Int))
+                    newProducts.append(Product(title: dict["title"] as! String, description: dict["description"] as! String, cost: dict["cost"] as! Int, image: UIImage(named: "Paulsens_Logo_Gold3")!, URLString: dict["image"] as! String, id: dict["id"] as! Int))
                 }
                 self.products = newProducts
             }
@@ -178,7 +180,9 @@ class RewardsViewController: UIViewController{
             let content = button.superview
             let cell = content?.superview as! RewardsCollectionViewCell
             let nextScene = segue.destination as! PopUpViewController
+            
             nextScene.product = cell.product
+            nextScene.product?.image = cell.productButton.image(for: .normal)!
         }
     }
     
@@ -200,10 +204,13 @@ extension RewardsViewController: UICollectionViewDelegate, UICollectionViewDataS
     // This function sets the cell's respective elements to the correct information by pulling it from the 
     // corresponding spot in the products list, and applies a colored border to the cell.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let wc = WebCallController()
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rewardsCollectionCell", for: indexPath) as! RewardsCollectionViewCell
         cell.product = products[indexPath.row]
         cell.productLabel.text = products[indexPath.row].title
-        downlaodImageFromURL("https://www.getupandgobaked.com/wp-content/uploads/2015/03/smart-cookie-pic-copy.jpg", cell: cell)
+        let url = "https://paulsens-beacon.herokuapp.com" + products[indexPath.row].URLString
+        wc.downloadImageFromURL(url, cell: cell, indexPath: indexPath.row)
         cell.productCost.text = String(describing: products[indexPath.row].cost)
         cell.layer.borderColor = UIColor(red: 0.24, green: 0.34, blue: 0.45, alpha: 1.0).cgColor
         cell.layer.borderWidth = 2
@@ -212,37 +219,6 @@ extension RewardsViewController: UICollectionViewDelegate, UICollectionViewDataS
         
     }
     
-    func downlaodImageFromURL(_ url: String, cell: RewardsCollectionViewCell) {
-            let catPictureURL = URL(string: url)!
-            
-            // Creating a session object with the default configuration.
-            // You can read more about it here https://developer.apple.com/reference/foundation/urlsessionconfiguration
-            let session = URLSession(configuration: .default)
-            
-            // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
-            let downloadPicTask = session.dataTask(with: catPictureURL) { (data, response, error) in
-                // The download has finished.
-                if let e = error {
-                    print("Error downloading cat picture: \(e)")
-                } else {
-                    // No errors found.
-                    // It would be weird if we didn't have a response, so check for that too.
-                    if let res = response as? HTTPURLResponse {
-                        print("Downloaded sample picture with response code \(res.statusCode)")
-                        if let imageData = data {
-                            // Finally convert that Data into an image and do what you wish with it.
-                            let image = UIImage(data: imageData)
-                            cell.productButton.setImage(image, for: UIControlState.normal)
-                        } else {
-                            print("Couldn't get image: Image is nil")
-                        }
-                    } else {
-                        print("Couldn't get response code for some reason")
-                    }
-                }
-            }
-            
-            downloadPicTask.resume()
-        }
+
 
 }
