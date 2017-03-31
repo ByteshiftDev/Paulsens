@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/chermoua/Desktop/Paulsens-iOS-App/PaulsensPharmacy.xcodeproj">
+      location = "self:CoreApplicationPrototype.xcodeproj">
    </FileRef>
 </Workspace>

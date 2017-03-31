@@ -25,13 +25,25 @@ class SettingsViewController: UIViewController {
     var notificationsOn = true
     
     /************ View Outlets **********/
-        
+    
+    @IBOutlet weak var NotificationLabel: UILabel!
+    
     @IBOutlet weak var logButton: UIButton!
     
     @IBOutlet weak var acctMod: UIButton!
 
     /************ View Actions **********/
 
+    @IBAction func toggleNotifications(_ sender: UISwitch) {
+        if (sender.isOn)    {
+            NotificationLabel.text = "Notifications: On"
+            notificationsOn = true
+        }
+        else {
+            NotificationLabel.text = "Notifications: Off"
+            notificationsOn = false
+        }
+    }
     
     
     // This function operates differently depending on the user login status.
@@ -111,7 +123,12 @@ class SettingsViewController: UIViewController {
     // and logButton and acctMod button to the correct title depending on login status.
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if(notificationsOn){
+            NotificationLabel.text = "Notifications: On"
+        }
+        else{
+            NotificationLabel.text = "Notifications: Off"
+        }
         
         // Fetch the user to check login status
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
