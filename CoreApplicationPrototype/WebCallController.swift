@@ -25,6 +25,8 @@
  (If this still doesn't work, clean the project (Shift+Command+k))
 */
 
+import UIKit
+
 class WebCallController: URLSession {
     
     // --------------------------
@@ -295,7 +297,9 @@ class WebCallController: URLSession {
     func printBeaconList() {
         // Test logging in
         // Catch an error if it occurs
-/*        webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) {(dataJson) in
+        
+        /*
+        webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) {(dataJson) in
             if let error = dataJson["error"] as? String {
                 print("There was an error: " + error)
             }
@@ -309,8 +313,55 @@ class WebCallController: URLSession {
                     print("\n-----\n")
                     i = i+1
                 }
+            } */
+        }
+    
+    
+    
+    func downloadImageFromURL(_ url: String, cell: UICollectionViewCell, indexPath: Int) {
+        let pictureURL = URL(string: url)!
+        
+        // Creating a session object with the default configuration.
+        // You can read more about it here https://developer.apple.com/reference/foundation/urlsessionconfiguration
+        let session = URLSession(configuration: .default)
+        
+        // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
+        let downloadPicTask = session.dataTask(with: pictureURL) { (data, response, error) in
+            // The download has finished.
+            if let e = error {
+                print("Error downloading picture: \(e)")
+            } else {
+                // No errors found.
+                // It would be weird if we didn't have a response, so check for that too.
+                if let res = response as? HTTPURLResponse {
+                    print("Downloaded sample picture with response code \(res.statusCode)")
+                    if let imageData = data {
+                        // Finally convert that Data into an image and do what you wish with it.
+                        
+                        
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            let image = UIImage(data: imageData)
+                            if let Cell = cell as? RewardsCollectionViewCell {
+                                Cell.productButton.setImage(image, for: UIControlState.normal)
+                            }
+                            else if let Cell = cell as? DealsCollectionViewCell {
+                                Cell.dealsImage.image = image
+                            }
+                            else {
+                                print("Cell Error")
+                            }
+                            
+                        })
+                    } else {
+                        print("Couldn't get image: Image is nil")
+                    }
+                } else {
+                    print("Couldn't get response code for some reason")
+                }
             }
-        }*/
+        }
+        
+        downloadPicTask.resume()
     }
     
     
@@ -318,6 +369,9 @@ class WebCallController: URLSession {
     // Returns nil if the web server call does not correctly return data
     // NOTE: Returns data via closure
     func getBeaconList(callback: @escaping ((Bool, String, Array<Dictionary<String, Any>>?)) -> ()) {
+        
+        
+        
         // Log in
         // Catch an error if it occurs
         webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) { (dataJson) in
@@ -326,6 +380,7 @@ class WebCallController: URLSession {
             }
         }
         
+ 
         
         // Call the web server to return the beacon list
         self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/beacons.json") { (beaconJson) in
@@ -349,11 +404,16 @@ class WebCallController: URLSession {
     func getHistoricalEventList(callback: @escaping ((Bool, String, Array<Dictionary<String, Any>>?)) -> ()) {
         // Log in
         // Catch an error if it occurs
+        
+        /*
         webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) {(dataJson) in
             if let error = dataJson["error"] as? String {
                 callback((true, error, nil))
             }
         }
+ 
+        */
+        
         // Call web server to return list of historical events
         self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/historical_events.json") { (historicalEventsJson) in
             // If the historical event list was returned correctly, pass it to the closure
@@ -374,6 +434,9 @@ class WebCallController: URLSession {
     // Returns nil if the web server call does not correctly return data
     // NOTE: Returns data via closure
     func getRewardsList(callback: @escaping ((Bool, String, Array<Dictionary<String, Any>>?)) -> ()) {
+        
+        
+        /*
         // Log in
         // Catch an error if it occurs
         webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) {(dataJson) in
@@ -381,6 +444,7 @@ class WebCallController: URLSession {
                 callback((true, error, nil))
             }
         }
+        */
         
         // Call web server to return rewards list
         self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/promotions.json") { (promotionsJson) in
@@ -408,6 +472,8 @@ class WebCallController: URLSession {
     // Returns nil if the web server call does not correctly return data
     // NOTE: Returns data via closure
     func getDailyDealList(callback: @escaping ((Bool, String, Array<Dictionary<String, Any>>?)) -> ()) {
+        
+        /*
         // Log in
         // Catch an error if it occurs
         webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) {(dataJson) in
@@ -415,6 +481,8 @@ class WebCallController: URLSession {
                 callback((true, error, nil))
             }
         }
+ */
+        
         // Call web server to return daily deals list
         self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/promotions.json") { (promotionsJson) in
             // If the promotions list was returned correctly, extract all daily deals and pass them to the closure
@@ -548,7 +616,10 @@ class WebCallController: URLSession {
         semaphore.wait()
         return toReturn
     }
+    
 }
+
+
 
 
 

@@ -64,6 +64,7 @@ class DealsViewController: UIViewController {
             let cell = sender as! DealsCollectionViewCell
             let next = segue.destination as! DetailsViewController
             next.products = cell.product
+            next.products?.image = cell.dealsImage.image!
         }
     }
     
@@ -81,6 +82,7 @@ class DealsViewController: UIViewController {
                                         description: dict["description"] as! String,
                                         cost: dict["cost"] as! Int,
                                         image: UIImage(named: "640x360_advil")!,
+                                        URLString: dict["image"] as! String,
                                         id: dict["id"] as! Int))
                 }
                 self.products = newProducts
@@ -122,9 +124,15 @@ extension DealsViewController : UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let wc = WebCallController()
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dealCell", for: indexPath) as! DealsCollectionViewCell
         cell.product = products[indexPath.row]
         cell.dealsTitle.text = products[indexPath.row].title
+        
+        let url = "https://paulsens-beacon.herokuapp.com" + products[indexPath.row].URLString
+        wc.downloadImageFromURL(url, cell: cell, indexPath: indexPath.row)
+        
         cell.dealsImage.image = products[indexPath.row].image
         //cell.dealsDescription.text = products![indexPath.row].description
         //cell.dealsCost.text = String(describing: products![indexPath.row].cost)
