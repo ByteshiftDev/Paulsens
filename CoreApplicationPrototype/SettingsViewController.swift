@@ -19,6 +19,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet var NewEditSettings: UIButton!
     
     /************ Class Varibles ********/
    
