@@ -1306,6 +1306,7 @@ https://www.paulsenspharmacy.com
                         <outlet property="LocationTextField" destination="UhH-CS-L1e" id="hNZ-ai-RM0"/>
                         <outlet property="addressTextField" destination="SpB-Hi-Qxu" id="gNT-x6-65u"/>
                         <outlet property="currentPhoneNumberLabel" destination="rw3-xI-UR5" id="Nri-pL-tpr"/>
+                        <outlet property="editAddressSubmit" destination="Kmh-Wx-Zdv" id="dyq-As-4fk"/>
                         <outlet property="editEmailSubmit" destination="QQY-Xp-1pK" id="jqU-bh-ltr"/>
                         <outlet property="editEmailTextField" destination="3D6-fG-XHe" id="cfn-4C-LqP"/>
                         <outlet property="editPasswordSubmit" destination="TY1-th-Uyz" id="k8C-Vp-BXj"/>
