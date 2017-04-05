@@ -85,21 +85,6 @@ https://www.paulsenspharmacy.com
                                     <segue destination="35z-UT-98c" kind="show" identifier="logSegue" id="2sE-bo-Aic"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Up0-0a-7uQ">
-                                <rect key="frame" x="0.0" y="191" width="320" height="72"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.23921568630000001" green="0.3411764706" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNw-y2-Uc1">
-                                <rect key="frame" x="268" y="213" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="toggleNotifications:" destination="19S-uU-fn0" eventType="valueChanged" id="qL1-aP-ToW"/>
-                                </connections>
-                            </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Paulsens Logo White" translatesAutoresizingMaskIntoConstraints="NO" id="Grn-LB-FgT">
                                 <rect key="frame" x="8" y="72" width="304" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -119,7 +104,6 @@ https://www.paulsenspharmacy.com
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="NotificationLabel" destination="Up0-0a-7uQ" id="fFi-uy-c4K"/>
                         <outlet property="acctMod" destination="JDW-tA-6wK" id="8Vt-1h-Igv"/>
                         <outlet property="logButton" destination="h64-J0-kwR" id="vJq-90-9sx"/>
                         <segue destination="K1h-S1-ycJ" kind="show" identifier="createAccount" id="XGi-6i-n2c"/>
@@ -436,7 +420,7 @@ https://www.paulsenspharmacy.com
                                 <rect key="frame" x="0.0" y="28" width="320" height="355"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Zn-dx-0G0" id="xRB-xs-dKJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="354.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="355"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xz-Cz-OPi">
