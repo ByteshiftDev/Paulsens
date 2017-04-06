@@ -21,6 +21,7 @@ import UIKit
 class AccountCreationViewController: UIViewController {
 
     /************** View Outlets **************/
+    @IBOutlet weak var ScrollView: UIScrollView!
     
     @IBOutlet weak var email: UITextField!
     
@@ -94,6 +95,12 @@ extension AccountCreationViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
 
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        ScrollView.setContentOffset(CGPoint(x:0,y:50), animated: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        ScrollView.setContentOffset(CGPoint(x:0,y:-10), animated: true)    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
