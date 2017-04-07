@@ -23,6 +23,8 @@ class AccountCreationViewController: UIViewController {
     /************** View Outlets **************/
     @IBOutlet weak var ScrollView: UIScrollView!
     
+    var screenHight = UIScreen.main.nativeBounds.height
+    
     @IBOutlet weak var email: UITextField!
     
     @IBOutlet weak var password: UITextField!
@@ -96,11 +98,27 @@ extension AccountCreationViewController: UITextFieldDelegate {
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        ScrollView.setContentOffset(CGPoint(x:0,y:50), animated: true)
+        switch screenHight{
+        case 960:
+            if(textField == address){
+                ScrollView.setContentOffset(CGPoint(x:0,y:25), animated: true)}
+            break
+        case 1334:
+            if(textField == address){
+                ScrollView.setContentOffset(CGPoint(x:0,y:25), animated: true)}
+            break
+        case 2208:
+            if(textField == address){
+                ScrollView.setContentOffset(CGPoint(x:0,y:25), animated: true)}
+            break
+        default:
+            break
+        }
+
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        ScrollView.setContentOffset(CGPoint(x:0,y:-10), animated: true)    }
+        ScrollView.setContentOffset(CGPoint(x:0,y:-25), animated: true)    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
