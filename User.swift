@@ -27,6 +27,13 @@ class User: NSObject {
     
     private var points: Int = 0 //This stores the current users points value (for display only)
     
+    private var password: String = ""
+    
+    private var phoneNumber: String = ""
+    
+    private var address: String = ""
+    
+    
     /*************** Constructor **************/
     
     init(userEmail: String){
@@ -172,7 +179,7 @@ class User: NSObject {
     // This function retrieves the dictionary for the currently logged in user, then updates the stored password (if changed)
     // The password storage will be removed upon server, as such, the server code exists, to create the dictionary to send
     // However at this time it is not used.
-    func editAccount(email: String?, currentPassword: String?, password: String?, repeatPassword: String?, phone: String?, address: String?) -> (Bool, String){
+    func editAccount(email: String!, currentPassword: String!, password: String!, repeatPassword: String!, phone: String!, address: String!) -> (Bool, String){
         
         //Read in the dictionary for the current user from storage in UserDefaults.
         var toServer = [String: String]()
@@ -183,7 +190,7 @@ class User: NSObject {
         
         toServer["current_password"] = currentPassword
         // If the user did not leave the password field blank.
-        if(password != nil){
+        if(password != ""){
             //If their password does not match the password repetition, return an error
             if(password != repeatPassword){
                 return (false, "Passwords do not match")
@@ -191,17 +198,23 @@ class User: NSObject {
             // Populate a locally stored dictionary entry and to server dictionary entry with this new password.
             toServer["password"] = password
             toServer["password_confirmation"] = repeatPassword
+        }else{
+            toServer["password"] = currentPassword
+            toServer["repeatPassword"] = currentPassword
         }
         
         // If the phone entry is not empty, add its updated info to the dictionary.
-        if(phone != ""){
+        //if(phone != ""){
             toServer["phone"] = phone
-        }
+        //}
         
         //If the address entry is not empty, add its updated info to the dictionary.
-        if(address != ""){
+        //if(address != ""){
             toServer["address"] = address
-        }
+        //}
+        
+        print("LOOK HERE: \n")
+        print(toServer)
         
         // Create the Web call controller then make the edit web call
         let webCallController = WebCallController()

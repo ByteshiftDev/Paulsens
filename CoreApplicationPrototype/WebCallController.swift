@@ -585,6 +585,24 @@ class WebCallController: URLSession {
         }
     }
     
+    // Returns a string representing the point value of the currently logged in user
+    // Returns nil if point value cannot be extracted from the web call
+    func getUserPhoneAddress(callback: @escaping ((Bool, String, String?)) -> ()) {
+        // Call web server to return the user's points
+        webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/account/users.json") { (userJson) in
+            if let phone = userJson["value"] as? String, let address = userJson["value"] {
+                print(phone)
+                print(address)
+                callback((false, "No error.", phone))
+            }
+            else if let error = userJson["error"] as? String {
+                callback((true, error, nil))
+            } else {
+                callback((true, "An unexpected error occured while attempting to get the user's phone and address", nil))
+            }
+        }
+    }
+    
     
     // Edit an existing user's info
     // Expected dictionary formats:

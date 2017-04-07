@@ -14,10 +14,6 @@
 import UIKit
 
 class EditAccountTableViewController: UITableViewController , UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
-
-    //Edit Email Variables
-    @IBOutlet var editEmailTextField: UITextField!
-    @IBOutlet var editEmailSubmit: UIButton!
     
     //Edit Password Variables
     @IBOutlet var oldPasswordTextField: UITextField!
@@ -31,6 +27,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     @IBOutlet var editPhoneNumberSubmit: UIButton!
     
     //Edit Address Variables
+    @IBOutlet var currentAddressLabel: UILabel!
     @IBOutlet var addressTextField: UITextField!
     @IBOutlet var locationTextField: UITextField!
     @IBOutlet var stateTextField: UITextField!
@@ -51,7 +48,6 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         stateTextField.inputView = statePicker
         
         //Need to make textfields into delegates so they can use keyboards and be dismissed
-        self.editEmailTextField.delegate = self
         self.oldPasswordTextField.delegate = self
         self.newPasswordTextField.delegate = self
         self.repeatNewPasswordTextField.delegate = self
@@ -67,6 +63,13 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         //Keypad dismissed when clicking outside of the keyboard
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action:
             #selector(EditAccountTableViewController.dismissKeyboard)))
+        
+        // First grab the user for the application
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //let editUser = appDelegate.user
+        
+        currentPhoneNumberLabel.text = "TEST"
+        currentAddressLabel.text = "TEST"
         
     }
     
@@ -96,7 +99,6 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     
     //Next four functions are for keyboards with textfields
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        editEmailTextField.resignFirstResponder()
         oldPasswordTextField.resignFirstResponder()
         newPasswordTextField.resignFirstResponder()
         repeatNewPasswordTextField.resignFirstResponder()
@@ -117,7 +119,6 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     }
     
     func dismissKeyboard(){
-        editEmailTextField.resignFirstResponder()
         oldPasswordTextField.resignFirstResponder()
         newPasswordTextField.resignFirstResponder()
         repeatNewPasswordTextField.resignFirstResponder()

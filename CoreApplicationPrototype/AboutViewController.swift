@@ -63,7 +63,7 @@ class AboutViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         // Handler used to transition to other code, cancel confirmation
-        let noButton  = UIAlertAction(title: "NO",  style: UIAlertActionStyle.destructive, handler: nil)
+        let noButton  = UIAlertAction(title: "NO",  style: UIAlertActionStyle.cancel, handler: nil)
         
         alert.addAction(action)     // Add YES button to Alert controller
         alert.addAction(noButton)   // Add NO  button to Alert controller

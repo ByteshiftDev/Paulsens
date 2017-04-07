@@ -100,8 +100,8 @@ https://www.paulsenspharmacy.com
                                     <action selector="handleAcctTouch:" destination="19S-uU-fn0" eventType="touchUpInside" id="UqL-9X-8A1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3s-rf-H5d">
-                                <rect key="frame" x="79" y="427" width="163" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3s-rf-H5d">
+                                <rect key="frame" x="190" y="389" width="114" height="30"/>
                                 <state key="normal" title="NewEditSettings"/>
                                 <connections>
                                     <segue destination="auL-ip-QIT" kind="show" id="0D0-D6-UKR"/>
@@ -1143,39 +1143,13 @@ https://www.paulsenspharmacy.com
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Edit Email" id="YVV-UD-AnM" userLabel="Edit Email">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="AD6-q5-laT">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="85"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AD6-q5-laT" id="nTz-tO-rMK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3D6-fG-XHe">
-                                                    <rect key="frame" x="8" y="8" width="304" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                                </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQY-Xp-1pK">
-                                                    <rect key="frame" x="135" y="46" width="50" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Submit"/>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Edit Password" id="fms-cI-jwW" userLabel="Edit Password">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="164" id="bnN-uF-dJp">
-                                        <rect key="frame" x="0.0" y="196.5" width="320" height="164"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="164"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnN-uF-dJp" id="ftE-oq-xu3">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="163"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="163.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmv-Qy-6Vd">
@@ -1212,10 +1186,10 @@ https://www.paulsenspharmacy.com
                             <tableViewSection headerTitle="Edit Phone Number" id="hhU-Gf-JZb" userLabel="Edit Phone Number">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="121" id="M4n-LB-1EH">
-                                        <rect key="frame" x="0.0" y="416.5" width="320" height="121"/>
+                                        <rect key="frame" x="0.0" y="275.5" width="320" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4n-LB-1EH" id="7ql-gp-WsD">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhN-OS-5L5">
@@ -1245,10 +1219,10 @@ https://www.paulsenspharmacy.com
                             <tableViewSection headerTitle="Edit Address" id="0TK-Ax-u3t">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="235" id="Ey9-B1-Ehm">
-                                        <rect key="frame" x="0.0" y="593.5" width="320" height="235"/>
+                                        <rect key="frame" x="0.0" y="452.5" width="320" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ey9-B1-Ehm" id="OSN-QW-xAy">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="234"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="234.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhB-Uv-1uj">
@@ -1305,10 +1279,9 @@ https://www.paulsenspharmacy.com
                     <connections>
                         <outlet property="LocationTextField" destination="UhH-CS-L1e" id="hNZ-ai-RM0"/>
                         <outlet property="addressTextField" destination="SpB-Hi-Qxu" id="gNT-x6-65u"/>
+                        <outlet property="currentAddressLabel" destination="QhB-Uv-1uj" id="Yzp-tq-E73"/>
                         <outlet property="currentPhoneNumberLabel" destination="rw3-xI-UR5" id="Nri-pL-tpr"/>
                         <outlet property="editAddressSubmit" destination="Kmh-Wx-Zdv" id="dyq-As-4fk"/>
-                        <outlet property="editEmailSubmit" destination="QQY-Xp-1pK" id="jqU-bh-ltr"/>
-                        <outlet property="editEmailTextField" destination="3D6-fG-XHe" id="cfn-4C-LqP"/>
                         <outlet property="editPasswordSubmit" destination="TY1-th-Uyz" id="k8C-Vp-BXj"/>
                         <outlet property="editPhoneNumberSubmit" destination="mhN-OS-5L5" id="46D-oj-egd"/>
                         <outlet property="newPasswordTextField" destination="F2z-fU-KmT" id="VNv-k6-Rer"/>
