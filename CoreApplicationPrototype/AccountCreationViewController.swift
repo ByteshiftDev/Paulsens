@@ -101,16 +101,22 @@ extension AccountCreationViewController: UITextFieldDelegate {
         //print(UIDevice.current.modelName)
         switch screenHight{
         case 1136:
+            if(textField == phone){
+                ScrollView.setContentOffset(CGPoint(x:0,y:40), animated: true)
+            }
             if(textField == address){
-                ScrollView.setContentOffset(CGPoint(x:0,y:25), animated: true)}
+                ScrollView.setContentOffset(CGPoint(x:0,y:45), animated: true)
+            }
             break
         case 1334:
             if(textField == address){
-                ScrollView.setContentOffset(CGPoint(x:0,y:25), animated: true)}
+                ScrollView.setContentOffset(CGPoint(x:0,y:25), animated: true)
+            }
             break
         case 1920:
             if(textField == address){
-                ScrollView.setContentOffset(CGPoint(x:0,y:25), animated: true)}
+                ScrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+            }
             break
         default:
             break
