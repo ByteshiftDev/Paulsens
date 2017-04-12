@@ -100,26 +100,14 @@ https://www.paulsenspharmacy.com
                                     <action selector="handleAcctTouch:" destination="19S-uU-fn0" eventType="touchUpInside" id="UqL-9X-8A1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3s-rf-H5d">
-                                <rect key="frame" x="190" y="389" width="114" height="30"/>
-                                <state key="normal" title="NewEditSettings"/>
-                                <connections>
-                                    <segue destination="auL-ip-QIT" kind="show" id="0D0-D6-UKR"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="R3s-rf-H5d" secondAttribute="trailing" id="7Mc-Xu-T1W"/>
-                            <constraint firstItem="XtP-nm-ajV" firstAttribute="top" secondItem="R3s-rf-H5d" secondAttribute="bottom" constant="100" id="ODI-j9-13U"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="NewEditSettings" destination="R3s-rf-H5d" id="Vl6-vG-j20"/>
                         <outlet property="acctMod" destination="JDW-tA-6wK" id="8Vt-1h-Igv"/>
                         <outlet property="logButton" destination="h64-J0-kwR" id="vJq-90-9sx"/>
                         <segue destination="K1h-S1-ycJ" kind="show" identifier="createAccount" id="XGi-6i-n2c"/>
-                        <segue destination="u5I-Ea-zlm" kind="show" identifier="editAccount" id="KnM-t7-rkw"/>
+                        <segue destination="auL-ip-QIT" kind="show" identifier="editAccount" id="0vm-GP-A7S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soh-An-Ys1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -432,7 +420,7 @@ https://www.paulsenspharmacy.com
                                 <rect key="frame" x="0.0" y="28" width="320" height="355"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Zn-dx-0G0" id="xRB-xs-dKJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="354.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="354"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xz-Cz-OPi">
@@ -519,7 +507,7 @@ https://www.paulsenspharmacy.com
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dealCell" id="Ebn-du-Tpd" userLabel="dealCell" customClass="DealsCollectionViewCell" customModule="CoreApplicationPrototype" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1.5" width="320" height="177"/>
+                                        <rect key="frame" x="0.0" y="2" width="320" height="177"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="177"/>
@@ -954,11 +942,11 @@ https://www.paulsenspharmacy.com
                         <viewControllerLayoutGuide type="bottom" id="E33-yF-CEW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rv2-5a-Skl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="CFf-v5-6bI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2u-Sg-SPG">
                                         <rect key="frame" x="0.0" y="148" width="320" height="732"/>
@@ -1132,7 +1120,7 @@ https://www.paulsenspharmacy.com
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iw7-I9-KIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xv3-E9-nvN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3723.188405797102" y="-1237.5"/>
+            <point key="canvasLocation" x="3724" y="-1850"/>
         </scene>
         <!--New Edit Account-->
         <scene sceneID="LF8-9G-E5U">
@@ -1149,7 +1137,7 @@ https://www.paulsenspharmacy.com
                                         <rect key="frame" x="0.0" y="55.5" width="320" height="164"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnN-uF-dJp" id="ftE-oq-xu3">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="163.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="163"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmv-Qy-6Vd">
@@ -1189,7 +1177,7 @@ https://www.paulsenspharmacy.com
                                         <rect key="frame" x="0.0" y="275.5" width="320" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4n-LB-1EH" id="7ql-gp-WsD">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhN-OS-5L5">
@@ -1222,7 +1210,7 @@ https://www.paulsenspharmacy.com
                                         <rect key="frame" x="0.0" y="452.5" width="320" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ey9-B1-Ehm" id="OSN-QW-xAy">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="234.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="234"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhB-Uv-1uj">
@@ -1294,7 +1282,7 @@ https://www.paulsenspharmacy.com
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13O-RH-ncz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4522.5" y="-1229.5774647887324"/>
+            <point key="canvasLocation" x="2966" y="-1240"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="J50-bG-PQN">

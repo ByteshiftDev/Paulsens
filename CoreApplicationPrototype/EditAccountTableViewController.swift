@@ -16,23 +16,23 @@ import UIKit
 class EditAccountTableViewController: UITableViewController , UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
     //Edit Password Variables
-    @IBOutlet var oldPasswordTextField: UITextField!
-    @IBOutlet var newPasswordTextField: UITextField!
-    @IBOutlet var repeatNewPasswordTextField: UITextField!
-    @IBOutlet var editPasswordSubmit: UIButton!
+    @IBOutlet weak var oldPasswordTextField: UITextField!
+    @IBOutlet weak var newPasswordTextField: UITextField!
+    @IBOutlet weak var repeatNewPasswordTextField: UITextField!
+    @IBOutlet weak var editPasswordSubmit: UIButton!
 
     //Edit Phone Number Variables
-    @IBOutlet var currentPhoneNumberLabel: UILabel!
-    @IBOutlet var newPhoneNumberTextField: UITextField!
-    @IBOutlet var editPhoneNumberSubmit: UIButton!
+    @IBOutlet weak var currentPhoneNumberLabel: UILabel!
+    @IBOutlet weak var newPhoneNumberTextField: UITextField!
+    @IBOutlet weak var editPhoneNumberSubmit: UIButton!
     
     //Edit Address Variables
-    @IBOutlet var currentAddressLabel: UILabel!
-    @IBOutlet var addressTextField: UITextField!
-    @IBOutlet var locationTextField: UITextField!
-    @IBOutlet var stateTextField: UITextField!
-    @IBOutlet var zipCodeTextField: UITextField!
-    @IBOutlet var editAddressSubmit: UIButton!
+    @IBOutlet weak var currentAddressLabel: UILabel!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var stateTextField: UITextField!
+    @IBOutlet weak var zipCodeTextField: UITextField!
+    @IBOutlet weak var editAddressSubmit: UIButton!
     let statesAbbrev = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
     let statePicker = UIPickerView()
     
