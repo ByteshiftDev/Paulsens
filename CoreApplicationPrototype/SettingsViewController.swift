@@ -81,14 +81,14 @@ class SettingsViewController: UIViewController {
         let user = appDelegate.user
         //If logged in, perform the editAccount segue, otherwise, perform the createAccount segue.
         if(user.loggedIn()){
-            performSegue(withIdentifier: "segueBackToHome", sender: self)
+            //performSegue(withIdentifier: "segueBackToHome", sender: self)
+            self.logOutPush()
+            self.performSegue(withIdentifier: "unwindSettingstoHome", sender: self)
         }
         else{
             performSegue(withIdentifier: "segueToLogIn", sender: self)
         }
     }
-    
-    
     
     /************ Additional Controller Functions ******/
     
