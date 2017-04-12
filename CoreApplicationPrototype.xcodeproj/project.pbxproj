@@ -29,6 +29,7 @@
 		7F70D6E31E76BAB1004C207D /* DealsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70D6E21E76BAB1004C207D /* DealsCollectionViewCell.swift */; };
 		7F70D6E71E76CAB0004C207D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70D6E61E76CAB0004C207D /* DetailsViewController.swift */; };
 		A364DB541E469BAB00B38C11 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364DB531E469BAB00B38C11 /* User.swift */; };
+		A3C15B861E9565F9000785C8 /* EditAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */; };
 		A3C2E9A31E63CF07001BC63B /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C2E9A21E63CF07001BC63B /* PopUpViewController.swift */; };
 		DF0DA5C71E7FB713003762D4 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = DF0DA5C61E7FB713003762D4 /* license.txt */; };
 		DF2538A91E642B0C00360F8C /* WebCallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2538A81E642B0C00360F8C /* WebCallController.swift */; };
@@ -80,6 +81,7 @@
 		7F70D6E21E76BAB1004C207D /* DealsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F70D6E61E76CAB0004C207D /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		A364DB531E469BAB00B38C11 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
+		A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountTableViewController.swift; sourceTree = "<group>"; };
 		A3C2E9A21E63CF07001BC63B /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		DF0DA5C61E7FB713003762D4 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		DF2538A81E642B0C00360F8C /* WebCallController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCallController.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				DF2556F51DE422EC006B3CC5 /* Main.storyboard */,
+				A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */,
 				DF2538A51E642A1A00360F8C /* WebCallFiles */,
 				7ECF68D21E3AC47E00AF3511 /* BeaconFiles */,
 				A3A19B8E1E7894BC00F7FDFC /* Deals */,
@@ -420,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2325D4291E42EE3900996C33 /* BeaconNotificationsManager.swift in Sources */,
+				A3C15B861E9565F9000785C8 /* EditAccountTableViewController.swift in Sources */,
 				7F70D6E71E76CAB0004C207D /* DetailsViewController.swift in Sources */,
 				23E7282B1E29D6F800B25F3D /* HistoryTableViewCell.swift in Sources */,
 				7E577B341E4E7912009B8BEA /* Notification.swift in Sources */,
