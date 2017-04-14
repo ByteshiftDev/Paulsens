@@ -74,6 +74,22 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func handdleLogTouch(_ sender: Any) {
+        // Get the application user object
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        //If logged in, perform the editAccount segue, otherwise, perform the createAccount segue.
+        if(user.loggedIn()){
+            //performSegue(withIdentifier: "segueBackToHome", sender: self)
+            self.logOutPush()
+            self.performSegue(withIdentifier: "unwindSettingstoHome", sender: self)
+        }
+        else{
+            performSegue(withIdentifier: "segueToLogIn", sender: self)
+        }
+    }
+    
     /************ Additional Controller Functions ******/
     
     // If the user has pushed the logout button, log the user out, if there is a failure, display it.
@@ -135,11 +151,4 @@ class SettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    
-    // If the segue being performed is the logSegue, perform the actions related to that button touch.
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "logSegue"){
-            self.handleLogTouch()
-        }
-    }
 }
