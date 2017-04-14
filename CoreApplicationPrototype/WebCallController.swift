@@ -659,9 +659,34 @@ class WebCallController: URLSession {
             } else {
                 callback((true, "An unexpected error occured while attempting to get the user's phone and address", nil))
             }
+    //Purchase an item with the given id and price
+    func purchaseReward(productID: Int, cost: Int) -> Bool {
+        
+        //create dictionary to pass to PUT call
+        let data = ["productID": productID, "cost": cost]
+        let url = "PUT http://paulsens-beacon.herokuapp.com/points/POINT_ID?param=value&param=value"
+        
+        putRequest(urlToCall: url, data: data) { (serverResponse) in
+            <#code#>
         }
+        
+        return true
     }
     
+    /*
+    self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/beacons.json") { (dictionaryArray) in
+    var i = 1
+    let beaconsList = dictionaryArray["beacons"] as? Array<Dictionary<String, Any>>
+    for dictionary in beaconsList! {
+    print("Dictionary \(i):\n")
+    print(dictionary)
+    print("\n-----\n")
+    i = i+1
+    }
+    } */
+    
+    /*
+ func putRequest(urlToCall: String, data: Dictionary<String, Any>, */
     
     // Edit an existing user's info
     // Expected dictionary formats:

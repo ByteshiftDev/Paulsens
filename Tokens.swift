@@ -13,7 +13,7 @@ import JWT
 class Tokens: NSObject{
     
     let secret = "super random key"
-    //REMEMBER TO RETURN SOMETHING
+
     
     func decodeToken(tokenAuth: String) -> (String,ClaimSet?){
         do {
