@@ -28,9 +28,12 @@ class WalletViewController: UITableViewController{
     let cellID = "WalletCell"
     var selectedIndexPath = -1
     private var rewardArray = [Reward]()
+    //var wallet = [Reward]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        rewardArray.append(Reward(title: "Dope reward" , des: "Cool Beans!" ))
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,7 +42,7 @@ class WalletViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let dequeued = tableView.dequeueReusableCell(withIdentifier: cellID, for: <#T##IndexPath#>)
+        let dequeued = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
         let cell = dequeued as! WalletTableViewCell
         
@@ -58,7 +61,17 @@ class WalletViewController: UITableViewController{
             selectedIndexPath = indexPath.row
         }
         
-        tableView.reloadRows(at: <#T##[IndexPath]#>, with: <#T##UITableViewRowAnimation#>)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == selectedIndexPath{
+            return WalletTableViewCell.expandHeight
+        }
+        else{
+            return WalletTableViewCell.defaultHeight
+        }
     }
     
     
