@@ -659,6 +659,10 @@ class WebCallController: URLSession {
             } else {
                 callback((true, "An unexpected error occured while attempting to get the user's phone and address", nil))
             }
+        }
+    }
+    
+    
     //Purchase an item with the given id and price
     func purchaseReward(productID: Int, cost: Int) -> Bool {
         
