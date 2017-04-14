@@ -25,6 +25,8 @@ class User: NSObject {
     
     private var email: String = "" //This is used to store the email of the current user.
     
+    private var userID: Int?
+    
     private var points: Int = 0 //This stores the current users points value (for display only)
     
     /*************** Constructor **************/
@@ -67,10 +69,33 @@ class User: NSObject {
         if(!result.0){
             return (result.0, result.1)
         }
+        
+        //take the JSON recieced from the securityTest and create the user
+        /* Sample userData
+         ["email": chafin@pdx.edu, "id": 73, "preferences": {
+         }, "visit_count": 0, "address": <null>, "phone": <null>, "created_at": 2017-04-14T02:34:09.142Z, "updated_at": 2017-04-14T03:35:58.317Z, "points": {
+         "cashable_id" = 73;
+         "cashable_type" = User;
+         "created_at" = "2017-04-14T02:34:09.195Z";
+         id = 73;
+         "updated_at" = "2017-04-14T02:34:09.195Z";
+         value = 0;
+         }]*/
+ 
+ 
+        let userData = result.3;
+        self.userID = userData?["id"] as? Int
+        self.email = (userData?["email"] as? String)!
+        let pointDict = userData?["points"] as! Dictionary<String, Any>
+        self.points = (pointDict["value"] as! Int)
+        
+        print("I did the thing!" + self.email)
+        print(self.userID! + self.points)
+        print(self.points)
         //Set the application user to be this user, who logged in successfully.
         // Load their points in as the current point value by grabbing from the stored dictionary.
-        self.email = emailField!.lowercased()
-        self.points = result.2
+        //self.email = emailField!.lowercased()
+        //self.points = result.2
         
         //return a successful result.
         return (true, "")
@@ -84,12 +109,12 @@ class User: NSObject {
     // Of only the logged in user if used when a user is logged in.  It returns
     // a tuple of a result, true or false, a string error message, and the user's points
     // If they are logged in, to set the value only if being logged in.
-    func securityTest(emailField: String?, passwordField: String?) -> (Bool, String, Int){
+    func securityTest(emailField: String?, passwordField: String?) -> (Bool, String, Int, (Dictionary<String, Any>)?){
         //If either field is blank, return false and an error message
         //in string format to state as such.
         if(emailField == "" || passwordField == ""){
             //Error for empty field
-            return (false, "A field was left empty", 0)
+            return (false, "A field was left empty", 0, nil)
         }
         
         //Get the dictionary for this email, lowercased, if it exists
@@ -99,7 +124,7 @@ class User: NSObject {
         let webCallController = WebCallController()
         let result = webCallController.userLogIn(userDict: webServerDict)
         if(result.0){
-            return (!result.0, result.1, 0)
+            return (!result.0, result.1, 0, result.2)
         }
         // If there is no user with this email, or the password is incorrect
         // Return an error stating as such, but not specifying which for security.
@@ -111,7 +136,7 @@ class User: NSObject {
             let storedInfo: [String: String] = ["email": self.email.lowercased(), "points": pointsString]
             UserDefaults.standard.setValue(storedInfo, forKey: self.email.lowercased())
         }
-        return (true, "", Int(pointsString)!)
+        return (true, "", Int(pointsString)!, result.2)
 
     }
     
@@ -228,7 +253,8 @@ class User: NSObject {
                 self.points = Int(Float(userPoints!)!)
             }
             else{
-                self.points = 0
+                print(errorMessage)
+                self.points = 2
             }
         }
         return String(self.points)
