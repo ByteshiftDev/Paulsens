@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zp1-tX-188">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zp1-tX-188">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -154,7 +154,7 @@ https://www.paulsenspharmacy.com
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="sSR-DL-le2">
-                        <barButtonItem key="rightBarButtonItem" id="qRu-fJ-z9A">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="qRu-fJ-z9A">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bza-Qf-NPF">
                                 <rect key="frame" x="268" y="4" width="36" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -162,7 +162,7 @@ https://www.paulsenspharmacy.com
                                     <constraint firstAttribute="height" constant="36" id="zl7-RV-fzb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                <state key="normal" title="Settings" image="XcodeGear"/>
+                                <state key="normal" title="Settings" image="HomeGear"/>
                                 <connections>
                                     <segue destination="19S-uU-fn0" kind="show" id="8Cq-xW-bgj"/>
                                 </connections>
@@ -217,7 +217,7 @@ https://www.paulsenspharmacy.com
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paulsens Logo White" translatesAutoresizingMaskIntoConstraints="NO" id="qf7-1Z-7g9">
-                                <rect key="frame" x="60" y="70" width="197" height="79"/>
+                                <rect key="frame" x="60" y="114" width="197" height="35"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ3-di-YYo">
                                 <rect key="frame" x="73" y="359" width="174" height="30"/>
@@ -574,34 +574,34 @@ https://www.paulsenspharmacy.com
                                 <rect key="frame" x="36" y="70" width="302" height="488"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njA-vt-Mls">
-                                        <rect key="frame" x="0.0" y="0.0" width="302" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="302" height="21.5"/>
                                         <color key="backgroundColor" red="0.23921568630000001" green="0.3411764706" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5zg-wW-U71">
-                                        <rect key="frame" x="0.0" y="22" width="302" height="197"/>
+                                        <rect key="frame" x="0.0" y="21.5" width="302" height="197"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="197" id="6BX-rq-t3q"/>
                                         </constraints>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="text" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KR0-tn-lrY">
-                                        <rect key="frame" x="0.0" y="219" width="302" height="197"/>
+                                        <rect key="frame" x="0.0" y="218.5" width="302" height="197"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="0.76401969178082196" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJ7-3Z-mwF">
-                                        <rect key="frame" x="0.0" y="416" width="302" height="30"/>
+                                        <rect key="frame" x="0.0" y="415.5" width="302" height="30"/>
                                         <color key="backgroundColor" red="0.23921568630000001" green="0.3411764706" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcj-Vi-xSs">
-                                        <rect key="frame" x="0.0" y="446" width="302" height="42"/>
+                                        <rect key="frame" x="0.0" y="445.5" width="302" height="42.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="[X]">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -647,7 +647,7 @@ https://www.paulsenspharmacy.com
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Current Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tog-ve-HEe">
-                                <rect key="frame" x="0.0" y="64" width="320" height="73"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="72.5"/>
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.3411764706" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Tog-ve-HEe" secondAttribute="height" multiplier="75:17" id="TUa-0S-c9T"/>
@@ -657,7 +657,7 @@ https://www.paulsenspharmacy.com
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kZv-IL-98K">
-                                <rect key="frame" x="16" y="179" width="288" height="332"/>
+                                <rect key="frame" x="16" y="178.5" width="288" height="332.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SdS-8Q-nFr">
                                     <size key="itemSize" width="160" height="160"/>
@@ -705,7 +705,7 @@ https://www.paulsenspharmacy.com
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMd-nh-ByA">
-                                <rect key="frame" x="0.0" y="137" width="320" height="34"/>
+                                <rect key="frame" x="0.0" y="136.5" width="320" height="34"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.60784313729999995" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vMd-nh-ByA" secondAttribute="height" multiplier="75:8" id="96H-tj-D75"/>
@@ -765,7 +765,7 @@ https://www.paulsenspharmacy.com
                                 <rect key="frame" x="0.0" y="28" width="320" height="258"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bli-WM-aoK" id="Xog-1M-niG">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="258"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="257"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reward's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuk-sw-wnJ">
@@ -1457,13 +1457,13 @@ https://www.paulsenspharmacy.com
     </scenes>
     <resources>
         <image name="Home-25" width="25" height="25"/>
+        <image name="HomeGear" width="512" height="512"/>
         <image name="Info-25" width="25" height="25"/>
         <image name="Literature-25" width="25" height="25"/>
         <image name="Money Box-25" width="25" height="25"/>
         <image name="Paulsens Logo White" width="300" height="108"/>
         <image name="Paulsens Outside" width="1195" height="797"/>
         <image name="PaulsensFrontPage" width="860" height="730"/>
-        <image name="XcodeGear" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PFO-NM-w7K"/>
