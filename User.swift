@@ -144,6 +144,10 @@ class User: NSObject {
             return (false, "Passwords do not match")
         }
         
+        if((password!.characters.count) < 6){
+            return(false, "Password needs to be at least six characters.")
+        }
+        
         // Populate the locally stored information, and a start to the server information for account creation.
         let storedInfo: [String: String] = ["email": email!.lowercased(), "points": "0"]
         var toServer: [String: String] = ["email": email!.lowercased(), "password": password!]

@@ -217,7 +217,7 @@ https://www.paulsenspharmacy.com
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paulsens Logo White" translatesAutoresizingMaskIntoConstraints="NO" id="qf7-1Z-7g9">
-                                <rect key="frame" x="60" y="70" width="197" height="79"/>
+                                <rect key="frame" x="60" y="114" width="197" height="35"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ3-di-YYo">
                                 <rect key="frame" x="73" y="359" width="174" height="30"/>
@@ -325,7 +325,7 @@ https://www.paulsenspharmacy.com
                                                 <rect key="frame" x="10" y="50" width="300" height="108"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i3O-Zm-hjG">
-                                                <rect key="frame" x="122" y="413" width="77" height="36"/>
+                                                <rect key="frame" x="112" y="413" width="98" height="36"/>
                                             </stackView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Is-Gb-FGC">
                                                 <rect key="frame" x="43" y="196" width="235" height="30"/>
@@ -334,11 +334,19 @@ https://www.paulsenspharmacy.com
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abi-7a-34M">
-                                                <rect key="frame" x="122" y="400" width="77" height="36"/>
+                                                <rect key="frame" x="112" y="400" width="98" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Sign Up!">
+                                                <state key="normal" title="  Sign Up!  ">
                                                     <color key="titleColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="submitButtonPressed:" destination="K1h-S1-ycJ" eventType="touchUpInside" id="WIh-bA-1Ww"/>
                                                 </connections>
@@ -673,29 +681,38 @@ https://www.paulsenspharmacy.com
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="HMn-HO-1Jk" userLabel="Product Label">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="HMn-HO-1Jk" userLabel="Product Label">
                                                     <rect key="frame" x="10" y="10" width="140" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8Cy-hx-JWQ" userLabel="Product Label">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8Cy-hx-JWQ" userLabel="Product Label">
                                                     <rect key="frame" x="11" y="131" width="139" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e1-M3-i1R">
+                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e1-M3-i1R">
                                                     <rect key="frame" x="24" y="38" width="113" height="84"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="showDetail:" destination="ehp-8H-kv3" eventType="touchUpInside" id="lpP-qA-Uoc"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="4e1-M3-i1R" firstAttribute="leading" secondItem="gxR-BE-7R9" secondAttribute="leadingMargin" constant="16" id="7Kg-ju-hf5"/>
+                                            <constraint firstItem="4e1-M3-i1R" firstAttribute="centerX" secondItem="8Cy-hx-JWQ" secondAttribute="centerX" id="8ou-CN-jdI"/>
+                                            <constraint firstItem="8Cy-hx-JWQ" firstAttribute="top" secondItem="4e1-M3-i1R" secondAttribute="bottom" constant="9" id="9OX-Wk-y3c"/>
+                                            <constraint firstItem="HMn-HO-1Jk" firstAttribute="leading" secondItem="gxR-BE-7R9" secondAttribute="leadingMargin" constant="2" id="Ohd-6z-j4A"/>
+                                            <constraint firstItem="4e1-M3-i1R" firstAttribute="centerY" secondItem="gxR-BE-7R9" secondAttribute="centerY" id="QWT-AU-dDm"/>
+                                            <constraint firstItem="HMn-HO-1Jk" firstAttribute="centerX" secondItem="gxR-BE-7R9" secondAttribute="centerX" id="dbj-bP-baC"/>
+                                            <constraint firstItem="8Cy-hx-JWQ" firstAttribute="bottom" secondItem="gxR-BE-7R9" secondAttribute="bottomMargin" id="hcW-V7-z73"/>
+                                            <constraint firstItem="4e1-M3-i1R" firstAttribute="top" secondItem="HMn-HO-1Jk" secondAttribute="bottom" constant="7" id="quI-1t-i8W"/>
+                                            <constraint firstItem="HMn-HO-1Jk" firstAttribute="centerX" secondItem="4e1-M3-i1R" secondAttribute="centerX" id="x1J-w4-Tj2"/>
+                                            <constraint firstItem="HMn-HO-1Jk" firstAttribute="trailing" secondItem="8Cy-hx-JWQ" secondAttribute="trailing" id="ysw-hn-Uvi"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="productButton" destination="4e1-M3-i1R" id="pzt-uF-7QS"/>
                                             <outlet property="productCost" destination="8Cy-hx-JWQ" id="qo2-il-XTk"/>
@@ -714,10 +731,12 @@ https://www.paulsenspharmacy.com
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sh-hf-ahT">
-                                <rect key="frame" x="258" y="85" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Wallet">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sh-hf-ahT">
+                                <rect key="frame" x="244" y="88" width="60" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="ZD2-09-iqd"/>
+                                </constraints>
+                                <state key="normal" image="Wallet-25">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -729,11 +748,15 @@ https://www.paulsenspharmacy.com
                         <constraints>
                             <constraint firstItem="kZv-IL-98K" firstAttribute="leading" secondItem="5wd-sk-SNm" secondAttribute="leadingMargin" id="828-iD-tIM"/>
                             <constraint firstItem="Tog-ve-HEe" firstAttribute="leading" secondItem="vMd-nh-ByA" secondAttribute="leading" id="87T-Lh-jQK"/>
+                            <constraint firstItem="6Sh-hf-ahT" firstAttribute="centerY" secondItem="Tog-ve-HEe" secondAttribute="centerY" id="Ad5-zg-ktT"/>
                             <constraint firstItem="Tog-ve-HEe" firstAttribute="centerX" secondItem="kZv-IL-98K" secondAttribute="centerX" id="FrN-gV-oA0"/>
+                            <constraint firstItem="6Sh-hf-ahT" firstAttribute="trailing" secondItem="5wd-sk-SNm" secondAttribute="trailingMargin" id="I3D-2J-Ne9"/>
                             <constraint firstItem="kZv-IL-98K" firstAttribute="top" secondItem="vMd-nh-ByA" secondAttribute="bottom" constant="8" symbolic="YES" id="NNa-YU-8qF"/>
                             <constraint firstItem="CnS-Yh-W6A" firstAttribute="top" secondItem="kZv-IL-98K" secondAttribute="bottom" constant="8" symbolic="YES" id="StJ-ix-A4Z"/>
+                            <constraint firstItem="6Sh-hf-ahT" firstAttribute="trailing" secondItem="kZv-IL-98K" secondAttribute="trailing" id="U5M-5t-0f8"/>
                             <constraint firstItem="Tog-ve-HEe" firstAttribute="trailing" secondItem="vMd-nh-ByA" secondAttribute="trailing" id="aes-I4-ytl"/>
                             <constraint firstItem="Tog-ve-HEe" firstAttribute="leading" secondItem="5wd-sk-SNm" secondAttribute="leading" id="hoA-3z-wsp"/>
+                            <constraint firstItem="6Sh-hf-ahT" firstAttribute="top" secondItem="4SR-HU-EdV" secondAttribute="bottom" constant="24" id="j4l-9i-bGx"/>
                             <constraint firstAttribute="trailing" secondItem="Tog-ve-HEe" secondAttribute="trailing" id="lIS-pn-0HX"/>
                             <constraint firstItem="vMd-nh-ByA" firstAttribute="top" secondItem="Tog-ve-HEe" secondAttribute="bottom" id="lJn-5L-Ru4"/>
                             <constraint firstItem="Tog-ve-HEe" firstAttribute="top" secondItem="4SR-HU-EdV" secondAttribute="bottom" id="ppT-ka-wIt"/>
@@ -765,18 +788,11 @@ https://www.paulsenspharmacy.com
                                 <rect key="frame" x="0.0" y="28" width="320" height="258"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bli-WM-aoK" id="Xog-1M-niG">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="258"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="257"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reward's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuk-sw-wnJ">
-                                            <rect key="frame" x="24" y="0.0" width="259" height="28"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alz-ZV-9Yl">
-                                            <rect key="frame" x="237" y="-1" width="46" height="30"/>
+                                            <rect key="frame" x="250" y="8" width="46" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Use">
                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -784,6 +800,13 @@ https://www.paulsenspharmacy.com
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deal Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7s-bk-stA">
                                             <rect key="frame" x="24" y="64" width="259" height="138"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reward's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuk-sw-wnJ">
+                                            <rect key="frame" x="24" y="9" width="218" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1463,6 +1486,7 @@ https://www.paulsenspharmacy.com
         <image name="Paulsens Logo White" width="300" height="108"/>
         <image name="Paulsens Outside" width="1195" height="797"/>
         <image name="PaulsensFrontPage" width="860" height="730"/>
+        <image name="Wallet-25" width="25" height="25"/>
         <image name="XcodeGear" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
