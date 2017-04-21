@@ -820,38 +820,62 @@ https://www.paulsenspharmacy.com
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asv-v7-WME">
-                                <rect key="frame" x="40" y="97" width="240" height="375"/>
+                                <rect key="frame" x="16" y="60" width="288" height="470"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nCD-8o-e7p">
-                                        <rect key="frame" x="8" y="37" width="224" height="196"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nCD-8o-e7p">
+                                        <rect key="frame" x="35" y="52" width="219" height="193"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="219" id="W50-ch-Z50"/>
+                                            <constraint firstAttribute="height" constant="192.5" id="en6-TU-24Z"/>
+                                        </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqh-Iz-c3E" userLabel="Description">
-                                        <rect key="frame" x="8" y="270" width="224" height="67"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqh-Iz-c3E" userLabel="Description">
+                                        <rect key="frame" x="15" y="288" width="258" height="116"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="116" id="hA1-uV-Ymp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEb-aW-jFR" userLabel="Product Label">
-                                        <rect key="frame" x="79" y="241" width="81" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEb-aW-jFR" userLabel="Product Label">
+                                        <rect key="frame" x="90" y="253" width="108" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="XEb-aW-jFR" secondAttribute="height" multiplier="27:7" id="cV6-mF-Ley"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="if5-Mx-5J6" userLabel="Product Label">
-                                        <rect key="frame" x="-9" y="-7" width="258" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="if5-Mx-5J6" userLabel="Product Label">
+                                        <rect key="frame" x="15" y="8" width="258" height="42"/>
                                         <color key="backgroundColor" red="0.23921568630000001" green="0.3411764706" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="if5-Mx-5J6" secondAttribute="height" multiplier="43:7" id="2ht-xt-Jqa"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qng-0w-Yiw">
-                                        <rect key="frame" x="-9" y="345" width="258" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPj-h0-E4Z">
+                                        <rect key="frame" x="15" y="458" width="258" height="38"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="tPj-h0-E4Z" secondAttribute="height" multiplier="129:19" id="Cfv-tN-GMV"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissView" destination="9zM-Ep-aIe" eventType="touchUpInside" id="hwh-D4-SiX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qng-0w-Yiw">
+                                        <rect key="frame" x="15" y="412" width="258" height="38"/>
                                         <color key="backgroundColor" red="0.77254901960784317" green="0.60784313725490191" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qng-0w-Yiw" secondAttribute="height" multiplier="129:19" id="hxI-1U-HBT"/>
+                                        </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Redeem">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -862,29 +886,31 @@ https://www.paulsenspharmacy.com
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="375" id="Z6n-g2-2Ok"/>
-                                    <constraint firstAttribute="width" constant="240" id="pcV-ed-lbr"/>
+                                    <constraint firstItem="qng-0w-Yiw" firstAttribute="leading" secondItem="tPj-h0-E4Z" secondAttribute="leading" id="1Qa-2N-6gD"/>
+                                    <constraint firstItem="qng-0w-Yiw" firstAttribute="top" secondItem="dqh-Iz-c3E" secondAttribute="bottom" constant="8" symbolic="YES" id="50W-0R-MEf"/>
+                                    <constraint firstItem="nCD-8o-e7p" firstAttribute="centerX" secondItem="if5-Mx-5J6" secondAttribute="centerX" id="6xe-eX-Awi"/>
+                                    <constraint firstItem="dqh-Iz-c3E" firstAttribute="trailing" secondItem="qng-0w-Yiw" secondAttribute="trailing" id="Emw-nv-sqf"/>
+                                    <constraint firstItem="nCD-8o-e7p" firstAttribute="centerX" secondItem="XEb-aW-jFR" secondAttribute="centerX" id="Eyb-lc-gW8"/>
+                                    <constraint firstItem="dqh-Iz-c3E" firstAttribute="trailing" secondItem="tPj-h0-E4Z" secondAttribute="trailing" id="HIh-Gg-IwF"/>
+                                    <constraint firstItem="dqh-Iz-c3E" firstAttribute="top" secondItem="XEb-aW-jFR" secondAttribute="bottom" constant="7" id="M1L-DA-g38"/>
+                                    <constraint firstItem="tPj-h0-E4Z" firstAttribute="top" secondItem="qng-0w-Yiw" secondAttribute="bottom" constant="8" symbolic="YES" id="Odm-lz-7df"/>
+                                    <constraint firstItem="nCD-8o-e7p" firstAttribute="top" secondItem="if5-Mx-5J6" secondAttribute="bottom" constant="2" id="R3Y-5S-6Oe"/>
+                                    <constraint firstItem="if5-Mx-5J6" firstAttribute="leading" secondItem="qng-0w-Yiw" secondAttribute="leading" id="Vxj-FF-tID"/>
+                                    <constraint firstItem="nCD-8o-e7p" firstAttribute="top" secondItem="asv-v7-WME" secondAttribute="top" constant="52" id="jUc-3a-TED"/>
+                                    <constraint firstItem="dqh-Iz-c3E" firstAttribute="leading" secondItem="asv-v7-WME" secondAttribute="leading" constant="15" id="mZL-Cf-rd0"/>
+                                    <constraint firstItem="nCD-8o-e7p" firstAttribute="centerX" secondItem="asv-v7-WME" secondAttribute="centerX" id="pd0-kD-jUb"/>
+                                    <constraint firstItem="dqh-Iz-c3E" firstAttribute="leading" secondItem="qng-0w-Yiw" secondAttribute="leading" id="sOq-vf-8t3"/>
+                                    <constraint firstItem="XEb-aW-jFR" firstAttribute="top" secondItem="nCD-8o-e7p" secondAttribute="bottom" constant="8" symbolic="YES" id="swG-Rd-qgv"/>
+                                    <constraint firstItem="dqh-Iz-c3E" firstAttribute="trailing" secondItem="if5-Mx-5J6" secondAttribute="trailing" id="zQu-NT-lZd"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPj-h0-E4Z">
-                                <rect key="frame" x="137" y="494" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="uTq-Kd-3Zz"/>
-                                </constraints>
-                                <state key="normal" title="[X]">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismissView" destination="9zM-Ep-aIe" eventType="touchUpInside" id="hwh-D4-SiX"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tPj-h0-E4Z" firstAttribute="top" secondItem="asv-v7-WME" secondAttribute="bottom" constant="22.5" id="NEX-TV-02C"/>
-                            <constraint firstItem="asv-v7-WME" firstAttribute="centerX" secondItem="daI-DA-8ea" secondAttribute="centerX" id="ayl-PX-Tbh"/>
-                            <constraint firstItem="asv-v7-WME" firstAttribute="centerY" secondItem="daI-DA-8ea" secondAttribute="centerY" id="lY6-Jt-N0V"/>
-                            <constraint firstItem="tPj-h0-E4Z" firstAttribute="centerX" secondItem="asv-v7-WME" secondAttribute="centerX" id="oMf-A5-Nhe"/>
+                            <constraint firstItem="Whs-Zy-58T" firstAttribute="top" secondItem="asv-v7-WME" secondAttribute="bottom" constant="38" id="FJu-8h-9i7"/>
+                            <constraint firstItem="asv-v7-WME" firstAttribute="top" secondItem="xbl-Vx-0dK" secondAttribute="bottom" constant="40" id="KRJ-4T-HKj"/>
+                            <constraint firstItem="asv-v7-WME" firstAttribute="leading" secondItem="daI-DA-8ea" secondAttribute="leadingMargin" id="cmA-ZC-eas"/>
+                            <constraint firstItem="asv-v7-WME" firstAttribute="trailing" secondItem="daI-DA-8ea" secondAttribute="trailingMargin" id="m8j-Es-SnV"/>
                         </constraints>
                     </view>
                     <connections>
@@ -899,7 +925,7 @@ https://www.paulsenspharmacy.com
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUz-0d-DbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fZr-4s-05n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1066.6666666666667" y="2049.4565217391305"/>
+            <point key="canvasLocation" x="1065" y="2049.2957746478874"/>
         </scene>
         <!--Root Tab View Controller-->
         <scene sceneID="FQ2-wL-heF">

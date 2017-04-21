@@ -61,6 +61,9 @@ class PopUpViewController: UIViewController {
             productDesc.text = product!.description
             productImage.image = product!.image
         }
+        
+        productDesc.numberOfLines = 0
+        productDesc.sizeToFit()
     }
     
 
