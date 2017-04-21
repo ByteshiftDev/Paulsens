@@ -67,7 +67,7 @@ class WebCallController: URLSession {
             // If there was an error, print it to the console 
             // Then, call the closure with the error and return from the function
             if error != nil {
-                print("There was an error!:\n")
+                print("There was an error!:\n" + urlToCall)
                 print(error!)
                 callback(["error":error!.localizedDescription])
                 return
@@ -75,7 +75,7 @@ class WebCallController: URLSession {
             
             // Otherwise, print the data to the console
             let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            print("\n\nDataRecieved:\n")
+            print("\n\nDataRecieved:\n" + urlToCall)
             print(str!)
             print("\n-----\n")
             
@@ -461,6 +461,7 @@ class WebCallController: URLSession {
             }
         }
         
+        
  
         
         // Call the web server to return the beacon list
@@ -652,17 +653,20 @@ class WebCallController: URLSession {
     }
     
     
+    
     // Returns a string representing the point value of the currently logged in user
     // Returns nil if point value cannot be extracted from the web call
     func getUserPoints(callback: @escaping ((Bool, String, String?)) -> ()) {
         // Call web server to return the user's points
         webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/account/points.json") { (pointsJson) in
-            if let points = pointsJson["value"] as? String {
-                callback((false, "No error.", points))
+            if let points = pointsJson["value"] as? Int {
+                let stringPoints = String(points)
+                callback((false, "No error.", stringPoints))
             }
             else if let error = pointsJson["error"] as? String {
                 callback((true, error, nil))
             } else {
+                print(pointsJson)
                 callback((true, "An unexpected error occured while attempting to get the user's point value.", nil))
             }
         }
@@ -687,33 +691,26 @@ class WebCallController: URLSession {
     }
     
     
+    
     //Purchase an item with the given id and price
     func purchaseReward(productID: Int, cost: Int) -> Bool {
         
         //create dictionary to pass to PUT call
         let data = ["productID": productID, "cost": cost]
-        let url = "PUT http://paulsens-beacon.herokuapp.com/points/POINT_ID?param=value&param=value"
+        let url = "to be decided"
         
-        /*
-        putRequest(urlToCall: url, data: data) { (serverResponse) in
-            return
+         postRequest(urlToCall: url, data: data) { (dictionaryResponse) in
+            if let error = dictionaryResponse["error"] as? String {
+                print("Error with purchase reward request" + error)
+            }
+            else{
+                print("purchase response: " + String(describing: dictionaryResponse))
+                
+            }
         }
-        */
         
         return true
     }
-    
-    /*
-    self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/beacons.json") { (dictionaryArray) in
-    var i = 1
-    let beaconsList = dictionaryArray["beacons"] as? Array<Dictionary<String, Any>>
-    for dictionary in beaconsList! {
-    print("Dictionary \(i):\n")
-    print(dictionary)
-    print("\n-----\n")
-    i = i+1
-    }
-    } */
     
     /*
  func putRequest(urlToCall: String, data: Dictionary<String, Any>, */

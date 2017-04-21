@@ -286,6 +286,15 @@ class User: NSObject {
     // Increment points when entering Entry Beacon Region
     func incrementPoints()
     {
+        let webCallController = WebCallController()
+        let data = ["param": 10]
+        let url = "http://paulsens-beacon.herokuapp.com/points/" + String(describing: userID)
+        webCallController.putRequest(urlToCall: url, data: data) { (JSONresponse) in
+            if let error = JSONresponse["error"] as? String {
+                print("error incrementing user points!" + error)
+            }
+            //now we can do whatever with this data
+        }
         points += 1
     }
 }

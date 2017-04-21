@@ -38,7 +38,20 @@ class PopUpViewController: UIViewController {
     /************ View Actions **********/
 
     @IBAction func redeemReward(_ sender: Any) {
-        //Nothing yet
+        
+        //Waiting for the correct url to be supplied
+        /*
+        let webController = WebCallController()
+        let success = webController.purchaseReward(productID: (product?.id)!, cost: (product?.cost)!)
+        if(success){
+            print("redeem Successful!")
+            //now do something
+        }
+        else {
+            print("redeem not Successful!")
+            //now do something
+        }
+            */
     }
     
     
