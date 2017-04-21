@@ -49,6 +49,7 @@ class AccountCreationViewController: UIViewController {
         //show the type of error that the user is missing in their creat account application, if the
         // createAccount function returned an error.
         if(!result.0){
+            print("HERE")
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated:true, completion:nil)
