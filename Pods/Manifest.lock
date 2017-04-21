@@ -1,0 +1,24 @@
+PODS:
+  - CryptoSwift (0.6.8)
+  - JSONWebToken (2.1.0):
+    - CryptoSwift (~> 0.6.1)
+
+DEPENDENCIES:
+  - JSONWebToken (from `https://github.com/kylef/JSONWebToken.swift.git`)
+
+EXTERNAL SOURCES:
+  JSONWebToken:
+    :git: https://github.com/kylef/JSONWebToken.swift.git
+
+CHECKOUT OPTIONS:
+  JSONWebToken:
+    :commit: c61cdc92173c2348bdcc78a9d4c55be38ebbe938
+    :git: https://github.com/kylef/JSONWebToken.swift.git
+
+SPEC CHECKSUMS:
+  CryptoSwift: f21ea03ed3a94e79d241648ce26652cd4810508a
+  JSONWebToken: 5e84312d380091d98adef8f27a39bfb99ba46af6
+
+PODFILE CHECKSUM: ba4388dfe1151fb36bd2890ed5e8b6a418be9102
+
+COCOAPODS: 1.2.1

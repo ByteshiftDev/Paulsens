@@ -36,9 +36,33 @@ class WebCallController: URLSession {
     // Make a call to a web address to retrieve some data
     // Returns an array of dictionaries via a completion handler
     func webCall(urlToCall: String, callback: @escaping (Dictionary<String, Any>) -> ()) {
+        
+        /*
+        // Create POST request
+        let url = URL(string: urlToCall)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // Create semaphore
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        // Insert JSON header and JSON data
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        // Insert a header to specify that we want a JSON formatted response
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
+        request.httpBody = jsonData
+        */
+        
         let url = URL(string: urlToCall)
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        // Insert a header to specify that we want a JSON formatted response
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
+        request.addValue("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTIyODAxNDF9.4dO3MV1fwndykjcVlVpaYQmCSWzf4NL7BAnXqKbXTBI", forHTTPHeaderField: "Authorization")
+        
         let session = URLSession.shared
-        session.dataTask(with: url!) { (data, response, error) in
+        session.dataTask(with: request) { (data, response, error) in
             
             // If there was an error, print it to the console 
             // Then, call the closure with the error and return from the function
@@ -128,6 +152,63 @@ class WebCallController: URLSession {
         // Wait on the semaphore within the callback function
         semaphore.wait()
     }
+    
+    
+    // Make a PUT request to the web server
+    // Callback function is run synchronously after this function
+    func putRequest(urlToCall: String, data: Dictionary<String, Any>, callback: @escaping (Dictionary<String, Any>) -> ()) {
+        // Convert data into JSON format
+        let jsonData = try? JSONSerialization.data(withJSONObject: data)
+        
+        // Create POST request
+        let url = URL(string: urlToCall)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        
+        // Create semaphore
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        // Insert JSON header and JSON data
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        // Insert a header to specify that we want a JSON formatted response
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
+        request.httpBody = jsonData
+        
+        // Execute the request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            // If there was an error, print it to the console and return from the function
+            if error != nil {
+                print("There was an error!:\n")
+                print(error!)
+                callback(["error":error!.localizedDescription])
+                semaphore.signal()
+                return
+            }
+            // Otherwise, print the data to the console
+            let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print("\n\nDataRecieved from PUT:\n")
+            print(str!)
+            print("\n-----\n")
+            
+            // Convert the data recieved into JSON
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                let dictionaryArray = json as! Dictionary<String, Any>
+                callback(dictionaryArray)
+            } catch let jsonError {
+                print("There was a json error!:\n")
+                print(jsonError)
+                callback(["error":jsonError.localizedDescription])
+            }
+            // Signal the semaphore
+            semaphore.signal()
+        }
+        // Let the dataTask resume (run the urlsession request, essentially)
+        task.resume()
+        // Wait on the semaphore within the callback function
+        semaphore.wait()
+    }
+    
     
     
     // Make a POST request to the web server
@@ -539,7 +620,7 @@ class WebCallController: URLSession {
     // Log a user in to the web server
     // Expected dictionary formats:
     // ["email": emailString, "password": passwordString]
-    func userLogIn(userDict: Dictionary<String, String>) -> (isError: Bool, error: String) {
+    func userLogIn(userDict: Dictionary<String, String>) -> (isError: Bool, error: String, response: (Dictionary<String, Any>)?) {
         // Create a new dictionary in the format which the web server expects
         // ["user": dictionaryWithUserInfo]
         let data = ["user": userDict]
@@ -548,12 +629,14 @@ class WebCallController: URLSession {
         let semaphore = DispatchSemaphore(value: 0)
         
         // Call the weblogin function to log the user in and catch the response
-        var toReturn: (Bool, String) = (true, "There was an error catching the response from the web server.")
+        var toReturn: (Bool, String, Dictionary<String, Any>?) = (true, "There was an error catching the response from the web server.", nil)
         webLogIn(loginCredentials: data) { (dataJson) in
             if let error = dataJson["error"] as? String {
-                toReturn = (true, error)
+                toReturn = (true, error, nil)
             } else {
-                toReturn = (false, "No error detected")
+                print("We totally logged in!!")
+                print(dataJson)
+                toReturn = (false, "No error detected", dataJson)
             }
             // Signal the semaphore
             semaphore.signal()
@@ -603,6 +686,37 @@ class WebCallController: URLSession {
         }
     }
     
+    
+    //Purchase an item with the given id and price
+    func purchaseReward(productID: Int, cost: Int) -> Bool {
+        
+        //create dictionary to pass to PUT call
+        let data = ["productID": productID, "cost": cost]
+        let url = "PUT http://paulsens-beacon.herokuapp.com/points/POINT_ID?param=value&param=value"
+        
+        /*
+        putRequest(urlToCall: url, data: data) { (serverResponse) in
+            return
+        }
+        */
+        
+        return true
+    }
+    
+    /*
+    self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/beacons.json") { (dictionaryArray) in
+    var i = 1
+    let beaconsList = dictionaryArray["beacons"] as? Array<Dictionary<String, Any>>
+    for dictionary in beaconsList! {
+    print("Dictionary \(i):\n")
+    print(dictionary)
+    print("\n-----\n")
+    i = i+1
+    }
+    } */
+    
+    /*
+ func putRequest(urlToCall: String, data: Dictionary<String, Any>, */
     
     // Edit an existing user's info
     // Expected dictionary formats:

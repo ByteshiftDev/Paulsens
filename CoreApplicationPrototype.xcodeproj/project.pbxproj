@@ -29,6 +29,7 @@
 		7F70D6E31E76BAB1004C207D /* DealsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70D6E21E76BAB1004C207D /* DealsCollectionViewCell.swift */; };
 		7F70D6E71E76CAB0004C207D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70D6E61E76CAB0004C207D /* DetailsViewController.swift */; };
 		A364DB541E469BAB00B38C11 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364DB531E469BAB00B38C11 /* User.swift */; };
+		A38F7DE41EA12F820066EDD6 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F7DE31EA12F820066EDD6 /* Tokens.swift */; };
 		A3C15B861E9565F9000785C8 /* EditAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */; };
 		A3C2E9A31E63CF07001BC63B /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C2E9A21E63CF07001BC63B /* PopUpViewController.swift */; };
 		DA1C0E381EA1499900E3584A /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C0E371EA1499900E3584A /* WalletViewController.swift */; };
@@ -83,6 +84,7 @@
 		7F70D6E21E76BAB1004C207D /* DealsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F70D6E61E76CAB0004C207D /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		A364DB531E469BAB00B38C11 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
+		A38F7DE31EA12F820066EDD6 /* Tokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tokens.swift; path = ../Tokens.swift; sourceTree = "<group>"; };
 		A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountTableViewController.swift; sourceTree = "<group>"; };
 		A3C2E9A21E63CF07001BC63B /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		DA1C0E371EA1499900E3584A /* WalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,13 @@
 				DF0DA5C61E7FB713003762D4 /* license.txt */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6AA6B386F6CD341A808BA4EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7ECF68D21E3AC47E00AF3511 /* BeaconFiles */ = {
@@ -237,6 +246,7 @@
 				DF2557051DE422EC006B3CC5 /* CoreApplicationPrototypeTests */,
 				DF2557101DE422EC006B3CC5 /* CoreApplicationPrototypeUITests */,
 				DF2556EF1DE422EC006B3CC5 /* Products */,
+				6AA6B386F6CD341A808BA4EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -254,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				DF2556F51DE422EC006B3CC5 /* Main.storyboard */,
+				A38F7DE31EA12F820066EDD6 /* Tokens.swift */,
 				A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */,
 				DF2538A51E642A1A00360F8C /* WebCallFiles */,
 				7ECF68D21E3AC47E00AF3511 /* BeaconFiles */,
@@ -447,6 +458,7 @@
 				7E6F04081E25949A00D0F41A /* SettingsViewController.swift in Sources */,
 				7F3A28401E53FE0300EFAE30 /* RewardsCollectionViewCell.swift in Sources */,
 				7E6F04061E25947800D0F41A /* LogInViewController.swift in Sources */,
+				A38F7DE41EA12F820066EDD6 /* Tokens.swift in Sources */,
 				DF2556F41DE422EC006B3CC5 /* HomeViewController.swift in Sources */,
 				DF2556F21DE422EC006B3CC5 /* AppDelegate.swift in Sources */,
 				7E6F04021E25920C00D0F41A /* HistoryViewController.swift in Sources */,
