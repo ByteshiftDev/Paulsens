@@ -36,9 +36,33 @@ class WebCallController: URLSession {
     // Make a call to a web address to retrieve some data
     // Returns an array of dictionaries via a completion handler
     func webCall(urlToCall: String, callback: @escaping (Dictionary<String, Any>) -> ()) {
+        
+        /*
+        // Create POST request
+        let url = URL(string: urlToCall)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // Create semaphore
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        // Insert JSON header and JSON data
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        // Insert a header to specify that we want a JSON formatted response
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
+        request.httpBody = jsonData
+        */
+        
         let url = URL(string: urlToCall)
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        // Insert a header to specify that we want a JSON formatted response
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
+        request.addValue("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTIyODAxNDF9.4dO3MV1fwndykjcVlVpaYQmCSWzf4NL7BAnXqKbXTBI", forHTTPHeaderField: "Authorization")
+        
         let session = URLSession.shared
-        session.dataTask(with: url!) { (data, response, error) in
+        session.dataTask(with: request) { (data, response, error) in
             
             // If there was an error, print it to the console 
             // Then, call the closure with the error and return from the function
@@ -670,9 +694,11 @@ class WebCallController: URLSession {
         let data = ["productID": productID, "cost": cost]
         let url = "PUT http://paulsens-beacon.herokuapp.com/points/POINT_ID?param=value&param=value"
         
+        /*
         putRequest(urlToCall: url, data: data) { (serverResponse) in
-            <#code#>
+            return
         }
+        */
         
         return true
     }

@@ -31,9 +31,11 @@ class User: NSObject {
     
     private var password: String = ""
     
-    private var phoneNumber: String = ""
+    private var phoneNumber: String?
     
-    private var address: String = ""
+    private var address: String?
+    
+    private var webToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTIyODAxNDF9.4dO3MV1fwndykjcVlVpaYQmCSWzf4NL7BAnXqKbXTBI"
     
     
     /*************** Constructor **************/
@@ -95,6 +97,9 @@ class User: NSObject {
         self.email = (userData?["email"] as? String)!
         let pointDict = userData?["points"] as! Dictionary<String, Any>
         self.points = (pointDict["value"] as! Int)
+        self.address = userData?["address"] as? String
+        self.phoneNumber = userData?["phone"] as? String
+        
         
         print("I did the thing!" + self.email)
         print(self.userID! + self.points)
