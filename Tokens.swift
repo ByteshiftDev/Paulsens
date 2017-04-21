@@ -6,6 +6,7 @@
 //  Copyright © 2017 InboundRXCapstone. All rights reserved.
 //
 
+/*
 import Foundation
 import JWT
 
@@ -27,3 +28,4 @@ class Tokens: NSObject{
         }
     }
 }
+ */
