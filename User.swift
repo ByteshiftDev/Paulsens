@@ -35,7 +35,7 @@ class User: NSObject {
     
     private var address: String?
     
-    private var webToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTIyODAxNDF9.4dO3MV1fwndykjcVlVpaYQmCSWzf4NL7BAnXqKbXTBI"
+    public var webToken = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTIyODAxNDF9.4dO3MV1fwndykjcVlVpaYQmCSWzf4NL7BAnXqKbXTBI"
     
     
     /*************** Constructor **************/
@@ -286,15 +286,20 @@ class User: NSObject {
     // Increment points when entering Entry Beacon Region
     func incrementPoints()
     {
+        print("Trying to increment points...") //testing
         let webCallController = WebCallController()
-        let data = ["param": 10]
-        let url = "http://paulsens-beacon.herokuapp.com/points/" + String(describing: userID)
+        self.points += 1
+        let data = ["param": self.points]
+        let url = "http://paulsens-beacon.herokuapp.com/points/" + String(describing: userID!)
         webCallController.putRequest(urlToCall: url, data: data) { (JSONresponse) in
             if let error = JSONresponse["error"] as? String {
                 print("error incrementing user points!" + error)
             }
+            else{
+                print("Success incrementing points") //testing
+            }
             //now we can do whatever with this data
+            
         }
-        points += 1
     }
 }

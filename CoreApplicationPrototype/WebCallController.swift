@@ -59,6 +59,8 @@ class WebCallController: URLSession {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         // Insert a header to specify that we want a JSON formatted response
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
+        
+        //An the token authorization header
         request.addValue("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTIyODAxNDF9.4dO3MV1fwndykjcVlVpaYQmCSWzf4NL7BAnXqKbXTBI", forHTTPHeaderField: "Authorization")
         
         let session = URLSession.shared
@@ -164,6 +166,14 @@ class WebCallController: URLSession {
         let url = URL(string: urlToCall)!
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
+        
+        
+        //grabbing user token for authorization purposed, and adding it as an 'Authorization' header in the request
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        request.addValue(user.webToken, forHTTPHeaderField: "Authorization")
+        
+        print("Trying PUT request with URL: " + urlToCall)
         
         // Create semaphore
         let semaphore = DispatchSemaphore(value: 0)

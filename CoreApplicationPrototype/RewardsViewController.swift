@@ -69,6 +69,7 @@ class RewardsViewController: UIViewController{
         //Call user to update and return points.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
+        user.incrementPoints() //This is just for testing purposes
         self.phold.text = user.updatePoints()
     }
     
