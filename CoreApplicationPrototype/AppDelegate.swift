@@ -25,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
     let beaconNotificationsManager = BeaconNotificationsManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // For checking where the UserDefault data is stored
+        print("HOME DIRECTORY: ",NSHomeDirectory())
+        
         // Override point for customization after application launch.
         //[[UINavigationBar appearance] setTitleTextAttributes]
         
