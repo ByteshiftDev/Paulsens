@@ -27,7 +27,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // For checking where the UserDefault data is stored
-        print("HOME DIRECTORY: ",NSHomeDirectory())
+        print("\n\n\n\n-----------------------------------------\n")
+        print("HOME DIRECTORY: ", NSHomeDirectory())
+        //should return an array of strings containing one result, the path of hte application's documents directory
+        let directories = NSSearchPathForDirectoriesInDomains(.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        
+        if let documents = directories.first {
+            print("MORE: ", documents)
+        }
+        
+        // for testing purposes
+        let userDefaults = UserDefaults.standard
+        //setting values
+        userDefaults.set("Bob Junior", forKey: "Name")
+        
+        userDefaults.synchronize()
+        print("\n-----------------------------------------\n\n\n\n")
+        
         
         // Override point for customization after application launch.
         //[[UINavigationBar appearance] setTitleTextAttributes]
