@@ -99,12 +99,20 @@ class SettingsViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         let result = user.logOut()
+        
+        //Testing the release of data.
+        let userDefaults = UserDefaults.standard
+        userDefaults.removePersistentDomain(forName: "email")
+        userDefaults.removePersistentDomain(forName: "password")
+        
         //Present the error if the logOut function returned false, using the string portion of the tuple as the message.
         if(!result.0){
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated:true, completion:nil)
         }
+        
+
     }
     
     /************ Default Controller Functions *********/

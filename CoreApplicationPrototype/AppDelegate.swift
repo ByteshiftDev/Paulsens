@@ -37,11 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
         }
         
         // for testing purposes
-        let userDefaults = UserDefaults.standard
+        //let userDefaults = UserDefaults.standard
         //setting values
-        userDefaults.set("Bob Junior", forKey: "Name")
+        //userDefaults.set("Bob Junior", forKey: "Name")
         
-        userDefaults.synchronize()
+        //loading values
+        //let x = userDefaults.object(forKey:"Name")
+        //print(x as Any)
+        //userDefaults.synchronize()
         print("\n-----------------------------------------\n\n\n\n")
         
         

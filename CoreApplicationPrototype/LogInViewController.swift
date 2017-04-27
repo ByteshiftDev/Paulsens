@@ -41,6 +41,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         //check users input through the user object
         let result = user.loginUser(emailField: emailField.text, passwordField: passwordField.text)
 
+        //save in user information
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(emailField.text, forKey: "email")
+        userDefaults.set(passwordField.text, forKey: "password")
+        //userDefaults.synchronize()
+        
         
         //Show the error if the login function returned one, as an alert popup.
         if(!result.0){
@@ -49,6 +55,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             self.present(alertController, animated:true, completion:nil)
             return
         }
+        
         
         // Login was successful, return to the home view.
         segueToHome()
