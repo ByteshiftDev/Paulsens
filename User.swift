@@ -297,4 +297,10 @@ class User: NSObject {
         }
         points += 1
     }
+    
+    
+    func autoLoginUser(email: String, password: String){
+        self.email = email
+        self.password = password
+    }
 }
