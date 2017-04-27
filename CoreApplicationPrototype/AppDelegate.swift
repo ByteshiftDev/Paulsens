@@ -45,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
         //let x = userDefaults.object(forKey:"Name")
         //print(x as Any)
         //userDefaults.synchronize()
+        
+        //auto l
         print("\n-----------------------------------------\n\n\n\n")
         
         
