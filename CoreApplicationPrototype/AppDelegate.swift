@@ -28,16 +28,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
         
         // For checking if user is still logged in
 
-        let email: String? = KeychainWrapper.standard.string(forKey: "email")
-        let password: String? = KeychainWrapper.standard.string(forKey: "password")
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
-        
+        var userID: Int?
+        var points: Int?
+        var phoneNumber: String?
+        var address: String?
+        var webToken: String?
+        var password: String?
         //check if email has anything, if it does auto login that user else do nothing
-        print(email as Any)
-        if(email != nil){
-            user.autoLoginUser(email: email! , password: password!)
+        if let email = KeychainWrapper.standard.string(forKey: "email") {
+            
+            if let temp = KeychainWrapper.standard.integer(forKey: "userID"){
+                userID = temp
+            }
+            if let temp = KeychainWrapper.standard.integer(forKey: "points"){
+                points = temp
+            }
+            if let temp = KeychainWrapper.standard.string(forKey: "password"){
+                password = temp
+            }
+            if let temp = KeychainWrapper.standard.string(forKey: "phoneNumber"){
+                phoneNumber = temp
+            }
+            
+            if let temp = KeychainWrapper.standard.string(forKey: "address"){
+                address = temp
+            }
+            if let temp = KeychainWrapper.standard.string(forKey: "token"){
+                webToken = temp
+            }
+            user.autoLoginUser(email: email, userID: userID, points: points, password: password, phoneNumber: phoneNumber, address: address, webToken: webToken)
         }
         
         

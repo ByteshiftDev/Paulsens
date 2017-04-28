@@ -23,17 +23,17 @@ class User: NSObject {
     
     /************* Local Varibles *************/
     
-    private var email: String = "" //This is used to store the email of the current user.
+    private var email: String //This is used to store the email of the current user.
     
     private var userID: Int?
     
-    private var points: Int = 0 //This stores the current users points value (for display only)
+    private var points: Int? //This stores the current users points value (for display only)
     
-    private var password: String = ""
+    private var password: String?
     
-    private var phoneNumber: String? = ""
+    private var phoneNumber: String?
     
-    private var address: String? = ""
+    private var address: String?
     
     public var webToken: String? //token
     
@@ -101,11 +101,24 @@ class User: NSObject {
         self.phoneNumber = userData?["phone"] as? String
         let token = userData?["token"] as? String
         self.webToken = "Bearer " + token!
+
+        
+        KeychainWrapper.standard.set(self.userID!, forKey: "userID")
+        KeychainWrapper.standard.set(self.email, forKey: "email")
+        KeychainWrapper.standard.set(self.points!, forKey: "points")
+        if let addr = self.address{
+            KeychainWrapper.standard.set(addr, forKey: "address")
+        }
+        if let phoneNum = self.phoneNumber{
+            KeychainWrapper.standard.set(phoneNum, forKey: "phoneNumber")
+        }
+        KeychainWrapper.standard.set(self.webToken!, forKey: "token")
+
         
         
         print("I did the thing!" + self.email)
-        print(self.userID! + self.points)
-        print(self.points)
+        //print(self.userID! + self.points)
+        //print(self.points)
         print(self.webToken!)
         //Set the application user to be this user, who logged in successfully.
         // Load their points in as the current point value by grabbing from the stored dictionary.
@@ -282,7 +295,7 @@ class User: NSObject {
                 self.points = 2
             }
         }
-        return String(self.points)
+        return String(describing: self.points!)
     }
 
     
@@ -291,7 +304,7 @@ class User: NSObject {
     {
         print("Trying to increment points...") //testing
         let webCallController = WebCallController()
-        self.points += 1
+        self.points! += 1
         let data = ["value": self.points]
         let Data = ["points": data]
         let url = "http://paulsens-beacon.herokuapp.com/points/" + String(describing: userID!)
@@ -308,9 +321,14 @@ class User: NSObject {
     }
     
     
-    func autoLoginUser(email: String, password: String){
+    func autoLoginUser(email: String, userID: Int?, points: Int?, password: String?, phoneNumber: String?, address: String?, webToken: String?){
         self.email = email
+        self.userID = userID
+        self.points = points
         self.password = password
+        self.phoneNumber = phoneNumber
+        self.address = address
+        self.webToken = webToken
     }
     
     func phoneGetter()->String{

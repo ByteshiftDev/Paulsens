@@ -175,7 +175,9 @@ class WebCallController: URLSession {
         //grabbing user token for authorization purposed, and adding it as an 'Authorization' header in the request
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
-        request.addValue(user.webToken!, forHTTPHeaderField: "Authorization")
+        if let token = user.webToken {
+            request.addValue(token, forHTTPHeaderField: "Authorization")
+        }
         
         print("Trying PUT request with URL: " + urlToCall)
         
