@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
         }
         
         // for testing purposes
-        let userDefaults = UserDefaults.standard
+        //let userDefaults = UserDefaults.standard
         //setting values
         //userDefaults.set("Bob Junior", forKey: "Name")
         
@@ -47,18 +47,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
         //userDefaults.synchronize()
         
         //auto login user by obtaining the key values
-        let email = userDefaults.object(forKey: "email")
-        let password = userDefaults.object(forKey: "password")
+        //let email = userDefaults.object(forKey: "email")
+        //let password = userDefaults.object(forKey: "password")
 
+        let email: String? = KeychainWrapper.standard.string(forKey: "email")
+        let password: String? = KeychainWrapper.standard.string(forKey: "password")
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
         //check if email has anything, if it does auto login that user else do nothing
+        print(email as Any)
         if(email != nil){
-            user.autoLoginUser(email: email as! String, password: password as! String)
+            user.autoLoginUser(email: email! , password: password!)
         }
-        
+ 
         
         print("\n-----------------------------------------\n\n\n\n")
         

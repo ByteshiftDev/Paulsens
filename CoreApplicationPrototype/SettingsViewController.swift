@@ -108,8 +108,15 @@ class SettingsViewController: UIViewController {
         }
         else{
             //When User logs out then remove all the stored data in UserDefaults
+            /*
             if let userDefaults = Bundle.main.bundleIdentifier{
                 UserDefaults.standard.removePersistentDomain(forName: userDefaults)
+            }*/
+            let removeSuccessful: Bool = KeychainWrapper.standard.removeAllKeys()
+            if(removeSuccessful == false){
+                let alertController = UIAlertController(title: "Error", message: "Not able to release data", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alertController, animated:true, completion:nil)
             }
         }
         
