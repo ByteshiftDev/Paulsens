@@ -303,6 +303,11 @@ class User: NSObject {
     func incrementPoints()
     {
         print("Trying to increment points...") //testing
+        if(points == nil){
+            print("Error incrementing points: points")
+            return
+        }
+        
         let webCallController = WebCallController()
         self.points! += 1
         let data = ["value": self.points]
