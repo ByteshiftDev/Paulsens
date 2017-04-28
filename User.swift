@@ -338,4 +338,7 @@ class User: NSObject {
     func addressGetter()->String{
         return address!
     }
+    
+    
+    
 }
