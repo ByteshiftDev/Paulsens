@@ -35,7 +35,7 @@ class User: NSObject {
     
     private var address: String? = ""
     
-    public var webToken: String?
+    public var webToken: String? //token
     
     
     /*************** Constructor **************/
