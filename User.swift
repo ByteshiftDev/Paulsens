@@ -35,7 +35,7 @@ class User: NSObject {
     
     private var address: String?
     
-    public var webToken = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTIyODAxNDF9.4dO3MV1fwndykjcVlVpaYQmCSWzf4NL7BAnXqKbXTBI"
+    public var webToken: String?
     
     
     /*************** Constructor **************/
@@ -94,16 +94,19 @@ class User: NSObject {
  
         let userData = result.3;
         self.userID = userData?["id"] as? Int
-        self.email = (userData?["email"] as? String)!
-        let pointDict = userData?["points"] as! Dictionary<String, Any>
-        self.points = (pointDict["value"] as! Int)
+        self.email = (userData?["email"] as? String ?? "")!
+        let pointDict = userData?["points"] as? Dictionary<String, Any>
+        self.points = (pointDict?["value"] as? Int ?? 0)
         self.address = userData?["address"] as? String
         self.phoneNumber = userData?["phone"] as? String
+        let token = userData?["token"] as? String
+        self.webToken = "Bearer " + token!
         
         
         print("I did the thing!" + self.email)
         print(self.userID! + self.points)
         print(self.points)
+        print(self.webToken!)
         //Set the application user to be this user, who logged in successfully.
         // Load their points in as the current point value by grabbing from the stored dictionary.
         //self.email = emailField!.lowercased()
@@ -289,9 +292,10 @@ class User: NSObject {
         print("Trying to increment points...") //testing
         let webCallController = WebCallController()
         self.points += 1
-        let data = ["param": self.points]
+        let data = ["value": self.points]
+        let Data = ["points": data]
         let url = "http://paulsens-beacon.herokuapp.com/points/" + String(describing: userID!)
-        webCallController.putRequest(urlToCall: url, data: data) { (JSONresponse) in
+        webCallController.putRequest(urlToCall: url, data: Data) { (JSONresponse) in
             if let error = JSONresponse["error"] as? String {
                 print("error incrementing user points!" + error)
             }

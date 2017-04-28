@@ -104,7 +104,7 @@ class WebCallController: URLSession {
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
         // Create post request
-        let url = URL(string: "http://paulsens-beacon.herokuapp.com/login")!
+        let url = URL(string: "http://paulsens-beacon.herokuapp.com/api/login")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -131,7 +131,7 @@ class WebCallController: URLSession {
             }
             // Otherwise, print the data to the console
             let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            print("\n\nDataRecieved:\n")
+            print("\n\nDataRecieved From Login:\n")
             print(str!)
             print("\n-----\n")
             
@@ -171,7 +171,7 @@ class WebCallController: URLSession {
         //grabbing user token for authorization purposed, and adding it as an 'Authorization' header in the request
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
-        request.addValue(user.webToken, forHTTPHeaderField: "Authorization")
+        request.addValue(user.webToken!, forHTTPHeaderField: "Authorization")
         
         print("Trying PUT request with URL: " + urlToCall)
         
