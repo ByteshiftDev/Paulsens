@@ -25,6 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
     let beaconNotificationsManager = BeaconNotificationsManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+      
+        // URLSession already has a built on cache, but only for small data sized images
+        // The code below will increase the limit on what data size to cache
+        // Set default URL cache to 500 MB (500 Bytes * 1024 * 1024)
+        // If App reaches 500 MB limit, OS will kill app when switchting out of app.
+        let memoryCapacity = 500 * 1024 * 1024
+        let diskCapacity = 500 * 1024 * 1024
+        let cache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: nil)
+        URLCache.shared = cache
+      
         // Override point for customization after application launch.
         //[[UINavigationBar appearance] setTitleTextAttributes]
         
