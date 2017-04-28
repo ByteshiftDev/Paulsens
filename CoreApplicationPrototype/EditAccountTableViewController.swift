@@ -65,11 +65,10 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
             #selector(EditAccountTableViewController.dismissKeyboard)))
         
         // First grab the user for the application
-        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //let editUser = appDelegate.user
-        
-        currentPhoneNumberLabel.text = "TEST"
-        currentAddressLabel.text = "TEST"
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        currentPhoneNumberLabel.text = user.phoneGetter()
+        currentAddressLabel.text = user.addressGetter()
         
     }
     

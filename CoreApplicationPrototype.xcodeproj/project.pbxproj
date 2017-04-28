@@ -32,6 +32,8 @@
 		A38F7DE41EA12F820066EDD6 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F7DE31EA12F820066EDD6 /* Tokens.swift */; };
 		A3C15B861E9565F9000785C8 /* EditAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */; };
 		A3C2E9A31E63CF07001BC63B /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C2E9A21E63CF07001BC63B /* PopUpViewController.swift */; };
+		A3D374481EB33E6D00017606 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D374461EB33E6D00017606 /* KeychainItemAccessibility.swift */; };
+		A3D374491EB33E6D00017606 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D374471EB33E6D00017606 /* KeychainWrapper.swift */; };
 		DA1C0E381EA1499900E3584A /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C0E371EA1499900E3584A /* WalletViewController.swift */; };
 		DA1C0E3A1EA14CA700E3584A /* WalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C0E391EA14CA700E3584A /* WalletTableViewCell.swift */; };
 		DF0DA5C71E7FB713003762D4 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = DF0DA5C61E7FB713003762D4 /* license.txt */; };
@@ -87,6 +89,8 @@
 		A38F7DE31EA12F820066EDD6 /* Tokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tokens.swift; path = ../Tokens.swift; sourceTree = "<group>"; };
 		A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountTableViewController.swift; sourceTree = "<group>"; };
 		A3C2E9A21E63CF07001BC63B /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		A3D374461EB33E6D00017606 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		A3D374471EB33E6D00017606 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		DA1C0E371EA1499900E3584A /* WalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		DA1C0E391EA14CA700E3584A /* WalletTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTableViewCell.swift; sourceTree = "<group>"; };
 		DF0DA5C61E7FB713003762D4 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		23F67DF81E25AEA000B0070E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A3D374451EB33E4900017606 /* KeyChain */,
 				DF2556FA1DE422EC006B3CC5 /* LaunchScreen.storyboard */,
 				DF2556F81DE422EC006B3CC5 /* Assets.xcassets */,
 				DF2556F11DE422EC006B3CC5 /* AppDelegate.swift */,
@@ -228,6 +233,15 @@
 				DF2556F31DE422EC006B3CC5 /* HomeViewController.swift */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		A3D374451EB33E4900017606 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				A3D374461EB33E6D00017606 /* KeychainItemAccessibility.swift */,
+				A3D374471EB33E6D00017606 /* KeychainWrapper.swift */,
+			);
+			name = KeyChain;
 			sourceTree = "<group>";
 		};
 		DF2538A51E642A1A00360F8C /* WebCallFiles */ = {
@@ -444,6 +458,7 @@
 				7F70D6E71E76CAB0004C207D /* DetailsViewController.swift in Sources */,
 				23E7282B1E29D6F800B25F3D /* HistoryTableViewCell.swift in Sources */,
 				7E577B341E4E7912009B8BEA /* Notification.swift in Sources */,
+				A3D374481EB33E6D00017606 /* KeychainItemAccessibility.swift in Sources */,
 				A3C2E9A31E63CF07001BC63B /* PopUpViewController.swift in Sources */,
 				DF2538A91E642B0C00360F8C /* WebCallController.swift in Sources */,
 				7E6F04041E25922500D0F41A /* RewardsViewController.swift in Sources */,
@@ -464,6 +479,7 @@
 				7E6F04021E25920C00D0F41A /* HistoryViewController.swift in Sources */,
 				DA1C0E3A1EA14CA700E3584A /* WalletTableViewCell.swift in Sources */,
 				23A107A91E46CB33001FE7AF /* UserNotificationsManager.swift in Sources */,
+				A3D374491EB33E6D00017606 /* KeychainWrapper.swift in Sources */,
 				2325D4271E42ED8F00996C33 /* BeaconID.swift in Sources */,
 				7E6F040A1E2594B900D0F41A /* AccountCreationViewController.swift in Sources */,
 			);

@@ -31,9 +31,9 @@ class User: NSObject {
     
     private var password: String = ""
     
-    private var phoneNumber: String?
+    private var phoneNumber: String? = ""
     
-    private var address: String?
+    private var address: String? = ""
     
     public var webToken: String?
     
@@ -305,5 +305,19 @@ class User: NSObject {
             //now we can do whatever with this data
             
         }
+    }
+    
+    
+    func autoLoginUser(email: String, password: String){
+        self.email = email
+        self.password = password
+    }
+    
+    func phoneGetter()->String{
+        return phoneNumber!
+    }
+    
+    func addressGetter()->String{
+        return address!
     }
 }

@@ -25,6 +25,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
     let beaconNotificationsManager = BeaconNotificationsManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // For checking if user is still logged in
+
+        let email: String? = KeychainWrapper.standard.string(forKey: "email")
+        let password: String? = KeychainWrapper.standard.string(forKey: "password")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        
+        //check if email has anything, if it does auto login that user else do nothing
+        print(email as Any)
+        if(email != nil){
+            user.autoLoginUser(email: email! , password: password!)
+        }
+        
+        
         // Override point for customization after application launch.
         //[[UINavigationBar appearance] setTitleTextAttributes]
         

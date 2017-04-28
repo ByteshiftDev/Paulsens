@@ -40,7 +40,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         //check users input through the user object
         let result = user.loginUser(emailField: emailField.text, passwordField: passwordField.text)
-
         
         //Show the error if the login function returned one, as an alert popup.
         if(!result.0){
@@ -49,6 +48,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             self.present(alertController, animated:true, completion:nil)
             return
         }
+        else{
+            //else save the data in keychain
+            let keychain = KeychainWrapper.standard
+            keychain.set(emailField.text!, forKey: "email")
+            keychain.set(passwordField.text!, forKey: "password")
+        }
+        
         
         // Login was successful, return to the home view.
         segueToHome()
