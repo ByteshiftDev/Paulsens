@@ -61,7 +61,11 @@ class WebCallController: URLSession {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
         
         //An the token authorization header
-        request.addValue("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTIyODAxNDF9.4dO3MV1fwndykjcVlVpaYQmCSWzf4NL7BAnXqKbXTBI", forHTTPHeaderField: "Authorization")
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let user = appDelegate?.user
+        if let token = user?.webToken {
+            request.addValue(token, forHTTPHeaderField: "Authorization")
+        }
         
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
