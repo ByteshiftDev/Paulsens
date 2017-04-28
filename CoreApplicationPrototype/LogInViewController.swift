@@ -49,19 +49,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             return
         }
         else{
-            //save in user information
-            /*
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(emailField.text, forKey: "email")
-            userDefaults.set(passwordField.text, forKey: "password")
-            userDefaults.synchronize()
-            */
-            
+            //else save the data in keychain
             let keychain = KeychainWrapper.standard
             keychain.set(emailField.text!, forKey: "email")
             keychain.set(passwordField.text!, forKey: "password")
-            
-            
         }
         
         

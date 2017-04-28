@@ -107,11 +107,6 @@ class SettingsViewController: UIViewController {
             self.present(alertController, animated:true, completion:nil)
         }
         else{
-            //When User logs out then remove all the stored data in UserDefaults
-            /*
-            if let userDefaults = Bundle.main.bundleIdentifier{
-                UserDefaults.standard.removePersistentDomain(forName: userDefaults)
-            }*/
             let removeSuccessful: Bool = KeychainWrapper.standard.removeAllKeys()
             if(removeSuccessful == false){
                 let alertController = UIAlertController(title: "Error", message: "Something went wrong, try again.", preferredStyle: UIAlertControllerStyle.alert)
