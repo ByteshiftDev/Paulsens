@@ -332,13 +332,34 @@ class User: NSObject {
     }
     
     func phoneGetter()->String{
-        return phoneNumber!
+        if(self.phoneNumber == nil){
+            return ""
+        }
+        else{
+            return self.phoneNumber!
+        }
     }
-    
+
     func addressGetter()->String{
-        return address!
+        if(self.address == nil){
+            return ""
+        }
+        else{
+            return self.address!
+        }
     }
     
-    
+    func emailGetter()->String{
+            return self.email
+    }
+
+    func passwordGetter()->String{
+        if(self.password == nil){
+            return ""
+        }
+        else{
+            return self.address!
+        }
+    }
     
 }

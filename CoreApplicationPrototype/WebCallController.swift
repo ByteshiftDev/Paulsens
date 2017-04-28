@@ -343,6 +343,13 @@ class WebCallController: URLSession {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
         request.httpBody = jsonData
         
+        //An the token authorization header
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let user = appDelegate?.user
+        if let token = user?.webToken {
+            request.addValue(token, forHTTPHeaderField: "Authorization")
+        }
+        
         // Execute the request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             // If there was an error, print it to the console
