@@ -114,7 +114,7 @@ class SettingsViewController: UIViewController {
             }*/
             let removeSuccessful: Bool = KeychainWrapper.standard.removeAllKeys()
             if(removeSuccessful == false){
-                let alertController = UIAlertController(title: "Error", message: "Not able to release data", preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: "Error", message: "Something went wrong, try again.", preferredStyle: UIAlertControllerStyle.alert)
                 alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alertController, animated:true, completion:nil)
             }

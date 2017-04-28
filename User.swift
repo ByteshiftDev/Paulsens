@@ -31,9 +31,9 @@ class User: NSObject {
     
     private var password: String = ""
     
-    private var phoneNumber: String?
+    private var phoneNumber: String? = ""
     
-    private var address: String?
+    private var address: String? = ""
     
     private var webToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTIyODAxNDF9.4dO3MV1fwndykjcVlVpaYQmCSWzf4NL7BAnXqKbXTBI"
     
@@ -302,5 +302,13 @@ class User: NSObject {
     func autoLoginUser(email: String, password: String){
         self.email = email
         self.password = password
+    }
+    
+    func phoneGetter()->String{
+        return self.phoneNumber!
+    }
+    
+    func addressGetter()->String{
+        return self.address!
     }
 }
