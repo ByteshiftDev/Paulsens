@@ -305,10 +305,10 @@ class User: NSObject {
     }
     
     func phoneGetter()->String{
-        return self.phoneNumber!
+        return phoneNumber!
     }
     
     func addressGetter()->String{
-        return self.address!
+        return address!
     }
 }
