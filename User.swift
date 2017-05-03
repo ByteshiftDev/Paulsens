@@ -30,7 +30,13 @@ struct userReward{
     }
     
     subscript(arg: String)->String{
-        return arg
+        if(arg == "title"){
+            return title
+        }
+        else{
+            return des
+        }
+        
     }
  }
 
