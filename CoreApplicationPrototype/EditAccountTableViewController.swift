@@ -58,9 +58,24 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipCodeTextField: UITextField!
-    @IBOutlet weak var editAddressSubmit: UIButton!
     let statesAbbrev = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
     let statePicker = UIPickerView()
+    
+    @IBAction func editAddressSubmit(_ sender: UIButton) {
+        let address = addressTextField.text! + locationTextField.text! + stateTextField.text! + zipCodeTextField.text!
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        
+        let result = user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: user.phoneGetter(), address: address)
+        
+        if(!result.0){
+            let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated:true, completion:nil)
+            return
+        }
+    }
     
 
     

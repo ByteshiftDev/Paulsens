@@ -1395,6 +1395,9 @@ https://www.paulsenspharmacy.com
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kmh-Wx-Zdv">
                                                     <rect key="frame" x="133" y="189" width="55" height="30"/>
                                                     <state key="normal" title="Submit"/>
+                                                    <connections>
+                                                        <action selector="editAddressSubmit:" destination="auL-ip-QIT" eventType="touchUpInside" id="RjC-7j-MgL"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1438,7 +1441,6 @@ https://www.paulsenspharmacy.com
                         <outlet property="addressTextField" destination="SpB-Hi-Qxu" id="gNT-x6-65u"/>
                         <outlet property="currentAddressLabel" destination="QhB-Uv-1uj" id="Yzp-tq-E73"/>
                         <outlet property="currentPhoneNumberLabel" destination="rw3-xI-UR5" id="Nri-pL-tpr"/>
-                        <outlet property="editAddressSubmit" destination="Kmh-Wx-Zdv" id="dyq-As-4fk"/>
                         <outlet property="newPasswordTextField" destination="F2z-fU-KmT" id="VNv-k6-Rer"/>
                         <outlet property="newPhoneNumberTextField" destination="KF6-42-Xnj" id="I9X-l7-cf8"/>
                         <outlet property="oldPasswordTextField" destination="mmv-Qy-6Vd" id="Eih-vr-uVB"/>
