@@ -41,6 +41,8 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
+        print("email: ", user.emailGetter(), "password: ", user.passwordGetter())
+        
         let result = user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: newPhoneNumberTextField.text, address: user.addressGetter())
         
         if(!result.0){

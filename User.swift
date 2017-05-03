@@ -94,7 +94,7 @@ class User: NSObject {
  
         let userData = result.3;
         self.userID = userData?["id"] as? Int
-        self.email = (userData?["email"] as? String ?? "")!
+        self.email = (userData?["email"] as? String ?? emailField)!//"")!
         let pointDict = userData?["points"] as? Dictionary<String, Any>
         self.points = (pointDict?["value"] as? Int ?? 0)
         self.address = userData?["address"] as? String
@@ -102,6 +102,8 @@ class User: NSObject {
         let token = userData?["token"] as? String
         self.webToken = "Bearer " + token!
 
+        //added password
+        self.password = passwordField
         
         KeychainWrapper.standard.set(self.userID!, forKey: "userID")
         KeychainWrapper.standard.set(self.email, forKey: "email")
@@ -113,6 +115,7 @@ class User: NSObject {
             KeychainWrapper.standard.set(phoneNum, forKey: "phoneNumber")
         }
         KeychainWrapper.standard.set(self.webToken!, forKey: "token")
+        KeychainWrapper.standard.set(self.password!, forKey: "password")
 
         
         
@@ -254,14 +257,14 @@ class User: NSObject {
         }
         
         // If the phone entry is not empty, add its updated info to the dictionary.
-        //if(phone != ""){
+        if(phone != ""){
             toServer["phone"] = phone
-        //}
+        }
         
         //If the address entry is not empty, add its updated info to the dictionary.
-        //if(address != ""){
+        if(address != ""){
             toServer["address"] = address
-        //}
+        }
         
         print("LOOK HERE: \n")
         print(toServer)
@@ -358,7 +361,7 @@ class User: NSObject {
             return ""
         }
         else{
-            return self.address!
+            return self.password!
         }
     }
     

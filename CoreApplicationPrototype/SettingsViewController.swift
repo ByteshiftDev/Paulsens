@@ -28,6 +28,7 @@ class SettingsViewController: UIViewController {
     /************ View Outlets **********/
     
 
+    @IBOutlet var welcome: UILabel!
     
     @IBOutlet weak var logButton: UIButton!
     
@@ -155,6 +156,10 @@ class SettingsViewController: UIViewController {
             logButton.setTitle("Log In", for: UIControlState.normal)
             acctMod.setTitle("Create Account", for: UIControlState.normal)
         }
+        
+        if(user.emailGetter() != "noUser"){
+            self.welcome.text = user.emailGetter()
+        }else{self.welcome.text = ""}
     }
 
     

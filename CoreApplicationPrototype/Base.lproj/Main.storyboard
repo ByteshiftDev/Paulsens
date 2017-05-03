@@ -100,12 +100,24 @@ https://www.paulsenspharmacy.com
                                     <action selector="handleAcctTouch:" destination="19S-uU-fn0" eventType="touchUpInside" id="UqL-9X-8A1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-YK-Rca">
+                                <rect key="frame" x="125" y="393" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XtP-nm-ajV" firstAttribute="top" secondItem="4ba-YK-Rca" secondAttribute="bottom" constant="105" id="0kk-af-FDt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4ba-YK-Rca" secondAttribute="trailing" constant="108" id="WjB-iI-qDO"/>
+                            <constraint firstItem="4ba-YK-Rca" firstAttribute="leading" secondItem="geF-Ec-pxs" secondAttribute="leadingMargin" constant="109" id="ada-QY-NZ1"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="acctMod" destination="JDW-tA-6wK" id="8Vt-1h-Igv"/>
                         <outlet property="logButton" destination="h64-J0-kwR" id="vJq-90-9sx"/>
+                        <outlet property="welcome" destination="4ba-YK-Rca" id="Hkp-eY-Wx7"/>
                         <segue destination="K1h-S1-ycJ" kind="show" identifier="createAccount" id="XGi-6i-n2c"/>
                         <segue destination="auL-ip-QIT" kind="show" identifier="editAccount" id="0vm-GP-A7S"/>
                         <segue destination="35z-UT-98c" kind="show" identifier="segueToLogIn" id="PFO-NM-w7K"/>
@@ -1437,10 +1449,10 @@ https://www.paulsenspharmacy.com
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="LocationTextField" destination="UhH-CS-L1e" id="hNZ-ai-RM0"/>
                         <outlet property="addressTextField" destination="SpB-Hi-Qxu" id="gNT-x6-65u"/>
                         <outlet property="currentAddressLabel" destination="QhB-Uv-1uj" id="Yzp-tq-E73"/>
                         <outlet property="currentPhoneNumberLabel" destination="rw3-xI-UR5" id="Nri-pL-tpr"/>
+                        <outlet property="locationTextField" destination="UhH-CS-L1e" id="F95-qF-ExN"/>
                         <outlet property="newPasswordTextField" destination="F2z-fU-KmT" id="VNv-k6-Rer"/>
                         <outlet property="newPhoneNumberTextField" destination="KF6-42-Xnj" id="I9X-l7-cf8"/>
                         <outlet property="oldPasswordTextField" destination="mmv-Qy-6Vd" id="Eih-vr-uVB"/>
