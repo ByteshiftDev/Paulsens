@@ -19,7 +19,20 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var repeatNewPasswordTextField: UITextField!
-    @IBOutlet weak var editPasswordSubmit: UIButton!
+    @IBAction func editPasswordSubmit(_ sender: UIButton) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        
+        let result = user.editAccount(email: user.emailGetter(), currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text, phone: user.phoneGetter(), address: user.addressGetter())
+        
+        if(!result.0){
+            let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated:true, completion:nil)
+            return
+        }
+    }
+
 
     //Edit Phone Number Variables
     @IBOutlet weak var currentPhoneNumberLabel: UILabel!
