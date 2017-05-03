@@ -1318,6 +1318,9 @@ https://www.paulsenspharmacy.com
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhN-OS-5L5">
                                                     <rect key="frame" x="135" y="82" width="50" height="30"/>
                                                     <state key="normal" title="Submit"/>
+                                                    <connections>
+                                                        <action selector="editPhoneNumberSubmit:" destination="auL-ip-QIT" eventType="touchUpInside" id="ToJ-cd-LKQ"/>
+                                                    </connections>
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KF6-42-Xnj">
                                                     <rect key="frame" x="8" y="45" width="304" height="30"/>
@@ -1436,7 +1439,6 @@ https://www.paulsenspharmacy.com
                         <outlet property="currentAddressLabel" destination="QhB-Uv-1uj" id="Yzp-tq-E73"/>
                         <outlet property="currentPhoneNumberLabel" destination="rw3-xI-UR5" id="Nri-pL-tpr"/>
                         <outlet property="editAddressSubmit" destination="Kmh-Wx-Zdv" id="dyq-As-4fk"/>
-                        <outlet property="editPhoneNumberSubmit" destination="mhN-OS-5L5" id="46D-oj-egd"/>
                         <outlet property="newPasswordTextField" destination="F2z-fU-KmT" id="VNv-k6-Rer"/>
                         <outlet property="newPhoneNumberTextField" destination="KF6-42-Xnj" id="I9X-l7-cf8"/>
                         <outlet property="oldPasswordTextField" destination="mmv-Qy-6Vd" id="Eih-vr-uVB"/>
