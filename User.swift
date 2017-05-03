@@ -28,7 +28,11 @@ struct userReward{
         self.title = title
         self.des = des
     }
-}
+    
+    subscript(arg: String)->String{
+        return arg
+    }
+ }
 
 class User: NSObject {
     

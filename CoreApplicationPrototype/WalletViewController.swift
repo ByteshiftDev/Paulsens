@@ -35,7 +35,13 @@ class WalletViewController: UITableViewController{
         super.viewDidLoad()
         
         rewardArray.append(Reward(title: "Dope reward" , des: "Cool Beans!" ))
-      
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        for dict in user.userRewards{
+            rewardArray.append(Reward(title: dict["title"] , des: dict["des"] ))
+    
+        }
+        
         tableView.tableFooterView = UIView() // Create blank rows after filled in cells
     }
     
