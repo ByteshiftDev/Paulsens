@@ -33,6 +33,7 @@ class WalletViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         rewardArray.append(Reward(title: "Dope reward" , des: "Cool Beans!" ))
       
         tableView.tableFooterView = UIView() // Create blank rows after filled in cells

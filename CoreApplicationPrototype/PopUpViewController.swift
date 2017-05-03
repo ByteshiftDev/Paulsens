@@ -52,6 +52,13 @@ class PopUpViewController: UIViewController {
             //now do something
         }
             */
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        user.userRewards.append(userReward(title: productTitle.text! , des: productDesc.text! ))
+        
+        print("Redeeming the reward")
+        print(user.userRewards)
+        //self.dismiss(animated: true, completion: nil)
     }
     
     
