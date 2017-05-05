@@ -25,16 +25,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
     let beaconNotificationsManager = BeaconNotificationsManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-      
-        // URLSession already has a built on cache, but only for small data sized images
-        // The code below will increase the limit on what data size to cache
-        // Set default URL cache to 500 MB (500 Bytes * 1024 * 1024)
-        // If App reaches 500 MB limit, OS will kill app when switchting out of app.
-        let memoryCapacity = 500 * 1024 * 1024
-        let diskCapacity = 500 * 1024 * 1024
-        let cache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: nil)
-        URLCache.shared = cache
-      
+        
+        // For checking if user is still logged in
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        var userID: Int?
+        var points: Int?
+        var phoneNumber: String?
+        var address: String?
+        var webToken: String?
+        var password: String?
+        //check if email has anything, if it does auto login that user else do nothing
+        if let email = KeychainWrapper.standard.string(forKey: "email") {
+            
+            if let temp = KeychainWrapper.standard.integer(forKey: "userID"){
+                userID = temp
+            }
+            if let temp = KeychainWrapper.standard.integer(forKey: "points"){
+                points = temp
+            }
+            if let temp = KeychainWrapper.standard.string(forKey: "password"){
+                password = temp
+            }
+            if let temp = KeychainWrapper.standard.string(forKey: "phoneNumber"){
+                phoneNumber = temp
+            }
+            
+            if let temp = KeychainWrapper.standard.string(forKey: "address"){
+                address = temp
+            }
+            if let temp = KeychainWrapper.standard.string(forKey: "token"){
+                webToken = temp
+            }
+            user.autoLoginUser(email: email, userID: userID, points: points, password: password, phoneNumber: phoneNumber, address: address, webToken: webToken)
+        }
+        
+        
         // Override point for customization after application launch.
         //[[UINavigationBar appearance] setTitleTextAttributes]
         
