@@ -44,6 +44,27 @@ class User: NSObject {
         self.email = userEmail
     }
     
+    
+    func printUser() {
+        print("Printing current User")
+        print("Email: " + email)
+        print("userID: " + String(describing: userID))
+        print("points: " + String(describing: points))
+        if let pass = password {
+            print("password: " + pass)
+        }
+        if let num = phoneNumber {
+            print("phoneNumber: " + num)
+        }
+        if let addr = address {
+            print("address: " + addr)
+        }
+        if let token = webToken {
+            print("webToken: " + token)
+        }
+        
+    }
+    
     /********* Login Status functions *********/
 
     // Return true if there is a user logged in, false if there is not.
@@ -92,14 +113,16 @@ class User: NSObject {
          }]*/
  
  
-        let userData = result.3;
-        self.userID = userData?["id"] as? Int
-        self.email = (userData?["email"] as? String ?? emailField)!//"")!
-        let pointDict = userData?["points"] as? Dictionary<String, Any>
-        self.points = (pointDict?["value"] as? Int ?? 0)
-        self.address = userData?["address"] as? String
-        self.phoneNumber = userData?["phone"] as? String
-        let token = userData?["token"] as? String
+        let user = result.3;
+        if let userData = user?["user"] as? Dictionary<String, Any> {
+            self.userID = userData["id"] as? Int
+            self.email = (userData["email"] as? String ?? "")!
+            let pointDict = userData["points"] as? Dictionary<String, Any>
+            self.points = (pointDict?["value"] as? Int ?? 0)
+            self.address = userData["address"] as? String
+            self.phoneNumber = userData["phone"] as? String
+        }
+        let token = user?["token"] as? String
         self.webToken = "Bearer " + token!
 
         //added password
@@ -119,14 +142,7 @@ class User: NSObject {
 
         
         
-        print("I did the thing!" + self.email)
-        //print(self.userID! + self.points)
-        //print(self.points)
-        print(self.webToken!)
-        //Set the application user to be this user, who logged in successfully.
-        // Load their points in as the current point value by grabbing from the stored dictionary.
-        //self.email = emailField!.lowercased()
-        //self.points = result.2
+        printUser()
         
         //return a successful result.
         return (true, "")
@@ -308,9 +324,14 @@ class User: NSObject {
     func incrementPoints()
     {
         print("Trying to increment points...") //testing
+        if(points == nil){
+            print("Error incrementing points: points")
+            return
+        }
+        
         let webCallController = WebCallController()
         self.points! += 1
-        let data = ["value": self.points]
+        let data = ["value": self.points!]
         let Data = ["points": data]
         let url = "http://paulsens-beacon.herokuapp.com/points/" + String(describing: userID!)
         webCallController.putRequest(urlToCall: url, data: Data) { (JSONresponse) in
@@ -337,21 +358,17 @@ class User: NSObject {
     }
     
     func phoneGetter()->String{
-        if(self.phoneNumber == nil){
-            return ""
+        if let num = phoneNumber {
+            return num
         }
-        else{
-            return self.phoneNumber!
-        }
+        return ""
     }
 
     func addressGetter()->String{
-        if(self.address == nil){
-            return ""
+        if let addr = address {
+            return addr
         }
-        else{
-            return self.address!
-        }
+        return ""
     }
     
     func emailGetter()->String{

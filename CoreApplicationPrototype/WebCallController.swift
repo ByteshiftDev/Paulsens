@@ -180,6 +180,8 @@ class WebCallController: URLSession {
         }
         
         print("Trying PUT request with URL: " + urlToCall)
+        print("With data: " + data.description)
+        
         
         // Create semaphore
         let semaphore = DispatchSemaphore(value: 0)
