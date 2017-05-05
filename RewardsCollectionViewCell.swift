@@ -44,6 +44,7 @@ class RewardsCollectionViewCell: UICollectionViewCell {
     //redeem button, does nothing at the moment
     @IBAction func redeemButton(_ sender: Any) {
         //Nothing as of yet
+        
     }
     
     
