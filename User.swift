@@ -17,7 +17,28 @@
  and log in status.
 */
 
+
 import UIKit
+
+struct userReward{
+    let title : String!
+    let des   : String!
+    
+    init(title: String, des: String){
+        self.title = title
+        self.des = des
+    }
+    
+    subscript(arg: String)->String{
+        if(arg == "title"){
+            return title
+        }
+        else{
+            return des
+        }
+        
+    }
+ }
 
 class User: NSObject {
     
@@ -37,6 +58,7 @@ class User: NSObject {
     
     public var webToken: String?
     
+    public var userRewards = [userReward]()
     
     /*************** Constructor **************/
     

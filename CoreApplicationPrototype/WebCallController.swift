@@ -27,6 +27,9 @@
 
 import UIKit
 
+// Cache to hold images from web
+var imageCache = NSCache<AnyObject, AnyObject>()
+
 class WebCallController: URLSession {
     
     // --------------------------
@@ -410,8 +413,21 @@ class WebCallController: URLSession {
     
     
     func downloadImageFromURL(_ url: String, cell: UICollectionViewCell, indexPath: Int) {
+      
+      // First try setting the image from the cache
+      if let image = imageCache.object(forKey: url as AnyObject) as? UIImage{
+        if let Cell = cell as? RewardsCollectionViewCell {
+          Cell.productButton.setImage(image, for: UIControlState.normal)
+        }
+        else if let Cell = cell as? DealsCollectionViewCell {
+          Cell.dealsImage.image = image
+        }
+      }
+      
+      // If image isn't in cache, call the server
+      else {
         let pictureURL = URL(string: url)!
-        
+      
         // Creating a session object with the default configuration.
         // You can read more about it here https://developer.apple.com/reference/foundation/urlsessionconfiguration
         let session = URLSession(configuration: .default)
@@ -432,6 +448,9 @@ class WebCallController: URLSession {
                         
                         DispatchQueue.main.async(execute: { () -> Void in
                             let image = UIImage(data: imageData)
+                          
+                            imageCache.setObject(image!, forKey: url as AnyObject)
+                          
                             if let Cell = cell as? RewardsCollectionViewCell {
                                 Cell.productButton.setImage(image, for: UIControlState.normal)
                             }
@@ -453,6 +472,7 @@ class WebCallController: URLSession {
         }
         
         downloadPicTask.resume()
+      }
     }
     
     

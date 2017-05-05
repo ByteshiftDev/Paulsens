@@ -30,11 +30,21 @@ class WalletViewController: UITableViewController{
     private var rewardArray = [Reward]()
     //var wallet = [Reward]()
     
+    @IBAction func useReward(_ sender: Any) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         rewardArray.append(Reward(title: "Dope reward" , des: "Cool Beans!" ))
-      
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        for dict in user.userRewards{
+            rewardArray.append(Reward(title: dict["title"] , des: dict["des"] ))
+    
+        }
+        
         tableView.tableFooterView = UIView() // Create blank rows after filled in cells
     }
     
@@ -55,6 +65,8 @@ class WalletViewController: UITableViewController{
         
     }
     
+    // MANAGING SELECTIONS
+    // Tells the delegate that the specified row is now selected
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(selectedIndexPath == indexPath.row){
             selectedIndexPath = -1
@@ -66,7 +78,8 @@ class WalletViewController: UITableViewController{
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-    
+    // CONFIGURING ROWS FOR THE TABLE VIEW
+    // Asks the delegate for the height to use for a row in a specified location.
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == selectedIndexPath{
             return WalletTableViewCell.expandHeight
