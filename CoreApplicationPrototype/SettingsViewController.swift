@@ -28,6 +28,7 @@ class SettingsViewController: UIViewController {
     /************ View Outlets **********/
     
 
+    @IBOutlet var welcome: UILabel!
     
     @IBOutlet weak var logButton: UIButton!
     
@@ -99,12 +100,23 @@ class SettingsViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         let result = user.logOut()
+        
         //Present the error if the logOut function returned false, using the string portion of the tuple as the message.
         if(!result.0){
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated:true, completion:nil)
         }
+        else{
+            let removeSuccessful: Bool = KeychainWrapper.standard.removeAllKeys()
+            if(removeSuccessful == false){
+                let alertController = UIAlertController(title: "Error", message: "Something went wrong, try again.", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alertController, animated:true, completion:nil)
+            }
+        }
+        
+
     }
     
     /************ Default Controller Functions *********/
@@ -144,6 +156,10 @@ class SettingsViewController: UIViewController {
             logButton.setTitle("Log In", for: UIControlState.normal)
             acctMod.setTitle("Create Account", for: UIControlState.normal)
         }
+        
+        if(user.emailGetter() != "noUser"){
+            self.welcome.text = user.emailGetter()
+        }else{self.welcome.text = ""}
     }
 
     

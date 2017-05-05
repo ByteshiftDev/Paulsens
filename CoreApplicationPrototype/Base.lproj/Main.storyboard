@@ -100,12 +100,24 @@ https://www.paulsenspharmacy.com
                                     <action selector="handleAcctTouch:" destination="19S-uU-fn0" eventType="touchUpInside" id="UqL-9X-8A1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-YK-Rca">
+                                <rect key="frame" x="64" y="393" width="194" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XtP-nm-ajV" firstAttribute="top" secondItem="4ba-YK-Rca" secondAttribute="bottom" constant="105" id="0kk-af-FDt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4ba-YK-Rca" secondAttribute="trailing" constant="46" id="WjB-iI-qDO"/>
+                            <constraint firstItem="4ba-YK-Rca" firstAttribute="leading" secondItem="geF-Ec-pxs" secondAttribute="leadingMargin" constant="48" id="ada-QY-NZ1"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="acctMod" destination="JDW-tA-6wK" id="8Vt-1h-Igv"/>
                         <outlet property="logButton" destination="h64-J0-kwR" id="vJq-90-9sx"/>
+                        <outlet property="welcome" destination="4ba-YK-Rca" id="Hkp-eY-Wx7"/>
                         <segue destination="K1h-S1-ycJ" kind="show" identifier="createAccount" id="XGi-6i-n2c"/>
                         <segue destination="auL-ip-QIT" kind="show" identifier="editAccount" id="0vm-GP-A7S"/>
                         <segue destination="35z-UT-98c" kind="show" identifier="segueToLogIn" id="PFO-NM-w7K"/>
@@ -1257,10 +1269,10 @@ https://www.paulsenspharmacy.com
                             <tableViewSection headerTitle="Edit Password" id="fms-cI-jwW" userLabel="Edit Password">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="164" id="bnN-uF-dJp">
-                                        <rect key="frame" x="0.0" y="56" width="320" height="164"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="164"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnN-uF-dJp" id="ftE-oq-xu3">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="163"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="163.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmv-Qy-6Vd">
@@ -1284,6 +1296,9 @@ https://www.paulsenspharmacy.com
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TY1-th-Uyz">
                                                     <rect key="frame" x="134" y="125" width="53" height="30"/>
                                                     <state key="normal" title="Submit"/>
+                                                    <connections>
+                                                        <action selector="editPasswordSubmit:" destination="auL-ip-QIT" eventType="touchUpInside" id="gE7-xl-yE5"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1314,12 +1329,15 @@ https://www.paulsenspharmacy.com
                                         <rect key="frame" x="0.0" y="276" width="320" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4n-LB-1EH" id="7ql-gp-WsD">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhN-OS-5L5">
                                                     <rect key="frame" x="135" y="82" width="50" height="30"/>
                                                     <state key="normal" title="Submit"/>
+                                                    <connections>
+                                                        <action selector="editPhoneNumberSubmit:" destination="auL-ip-QIT" eventType="touchUpInside" id="ToJ-cd-LKQ"/>
+                                                    </connections>
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KF6-42-Xnj">
                                                     <rect key="frame" x="8" y="45" width="304" height="30"/>
@@ -1358,7 +1376,7 @@ https://www.paulsenspharmacy.com
                                         <rect key="frame" x="0.0" y="453" width="320" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ey9-B1-Ehm" id="OSN-QW-xAy">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="234"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="234.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhB-Uv-1uj">
@@ -1394,6 +1412,9 @@ https://www.paulsenspharmacy.com
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kmh-Wx-Zdv">
                                                     <rect key="frame" x="133" y="189" width="55" height="30"/>
                                                     <state key="normal" title="Submit"/>
+                                                    <connections>
+                                                        <action selector="editAddressSubmit:" destination="auL-ip-QIT" eventType="touchUpInside" id="RjC-7j-MgL"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1433,13 +1454,10 @@ https://www.paulsenspharmacy.com
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="LocationTextField" destination="UhH-CS-L1e" id="hNZ-ai-RM0"/>
                         <outlet property="addressTextField" destination="SpB-Hi-Qxu" id="gNT-x6-65u"/>
                         <outlet property="currentAddressLabel" destination="QhB-Uv-1uj" id="Yzp-tq-E73"/>
                         <outlet property="currentPhoneNumberLabel" destination="rw3-xI-UR5" id="Nri-pL-tpr"/>
-                        <outlet property="editAddressSubmit" destination="Kmh-Wx-Zdv" id="dyq-As-4fk"/>
-                        <outlet property="editPasswordSubmit" destination="TY1-th-Uyz" id="k8C-Vp-BXj"/>
-                        <outlet property="editPhoneNumberSubmit" destination="mhN-OS-5L5" id="46D-oj-egd"/>
+                        <outlet property="locationTextField" destination="UhH-CS-L1e" id="F95-qF-ExN"/>
                         <outlet property="newPasswordTextField" destination="F2z-fU-KmT" id="VNv-k6-Rer"/>
                         <outlet property="newPhoneNumberTextField" destination="KF6-42-Xnj" id="I9X-l7-cf8"/>
                         <outlet property="oldPasswordTextField" destination="mmv-Qy-6Vd" id="Eih-vr-uVB"/>
