@@ -58,7 +58,7 @@ class PopUpViewController: UIViewController {
         
         print("Redeeming the reward")
         print(user.userRewards)
-        //self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
