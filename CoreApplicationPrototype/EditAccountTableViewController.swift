@@ -25,7 +25,6 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         
         let result = user.editAccount(email: user.emailGetter(), currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text, phone: user.phoneGetter(), address: user.addressGetter())
         
-        print("LOOKIE: ", result.0)
         if(!result.0){
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))

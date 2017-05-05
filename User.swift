@@ -289,7 +289,8 @@ class User: NSObject {
             // Populate a locally stored dictionary entry and to server dictionary entry with this new password.
             toServer["password"] = password
             toServer["password_confirmation"] = repeatPassword
-        }else{
+        }
+        else{
             toServer["password"] = currentPassword
             toServer["repeatPassword"] = currentPassword
         }
@@ -311,9 +312,7 @@ class User: NSObject {
         let webCallController = WebCallController()
         let result = webCallController.editUser(userDict: toServer)
         // If there was an error returned from the call, return the failure and message
-        print("HERE1:", result.0)
         if(result.0){
-            print("HERE:", result.0)
             return (!result.0, result.1)
         }
         

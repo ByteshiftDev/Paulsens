@@ -301,7 +301,7 @@ class WebCallController: URLSession {
         
         // Create semaphore
         let semaphore = DispatchSemaphore(value: 0)
-        
+    
         // Execute the request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             // If there was an error, print it to the console
@@ -770,6 +770,7 @@ class WebCallController: URLSession {
     // ["email": emailString, "password": edited_passwordString, "password_confirmation": edited_passwordString, "phone": edited_phoneString]
     // ["email": emailString, "password": edited_passwordString, "password_confirmation": edited_passwordString, "address": edited_addressString, "phone": edited_phoneString]
     //Dictionary<String, Dictionary<String, String>>
+    //
     func editUser(userDict: Dictionary<String, String>) -> (isError: Bool, error: String){
         // Create a new dictionary in the format which the web server expects
         // ["user": dictionaryWithUserInfo]
@@ -782,11 +783,14 @@ class WebCallController: URLSession {
         // Catch the response
         var toReturn: (Bool, String) = (true, "There was an error catching the response from the web server.")
         patchRequest(urlToCall: "http://paulsens-beacon.herokuapp.com/account", data: data) { (dataJson) in
-            print(dataJson["errors"] as Any)
+            
             if let error = dataJson["errors"] as? Dictionary<String, [String]>{
-                let test = error["current_password"]
-                print(test as Any)
-                //error = error["current_password"]
+                print(error)
+                for (_, element) in error{
+                    for elem in element{
+                        toReturn = (true, elem)
+                    }
+                }
                // toReturn = (true, error)
             } else {
                 toReturn = (false, "No error detected")
