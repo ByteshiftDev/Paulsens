@@ -19,12 +19,41 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var repeatNewPasswordTextField: UITextField!
-    @IBOutlet weak var editPasswordSubmit: UIButton!
+    @IBAction func editPasswordSubmit(_ sender: UIButton) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        
+        let result = user.editAccount(email: user.emailGetter(), currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text, phone: user.phoneGetter(), address: user.addressGetter())
+        
+        print("LOOKIE: ", result.0)
+        if(!result.0){
+            let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated:true, completion:nil)
+            return
+        }
+    }
+
 
     //Edit Phone Number Variables
     @IBOutlet weak var currentPhoneNumberLabel: UILabel!
     @IBOutlet weak var newPhoneNumberTextField: UITextField!
-    @IBOutlet weak var editPhoneNumberSubmit: UIButton!
+    @IBAction func editPhoneNumberSubmit(_ sender: UIButton) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        
+        print("email: ", user.emailGetter(), "password: ", user.passwordGetter(), "phone type: ", type(of: newPhoneNumberTextField.text))
+        
+        let result = user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: newPhoneNumberTextField.text, address: user.addressGetter())
+        
+        if(!result.0){
+            let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated:true, completion:nil)
+            return
+        }
+    }
+
     
     //Edit Address Variables
     @IBOutlet weak var currentAddressLabel: UILabel!
@@ -32,9 +61,25 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipCodeTextField: UITextField!
-    @IBOutlet weak var editAddressSubmit: UIButton!
     let statesAbbrev = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
     let statePicker = UIPickerView()
+    
+    @IBAction func editAddressSubmit(_ sender: UIButton) {
+        
+        let address = addressTextField.text! + locationTextField.text! + stateTextField.text! + zipCodeTextField.text!
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        
+        let result = user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: user.phoneGetter(), address: address)
+        
+        if(!result.0){
+            let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated:true, completion:nil)
+            return
+        }
+    }
     
 
     

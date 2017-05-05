@@ -345,6 +345,13 @@ class WebCallController: URLSession {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
         request.httpBody = jsonData
         
+        //An the token authorization header
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let user = appDelegate?.user
+        if let token = user?.webToken {
+            request.addValue(token, forHTTPHeaderField: "Authorization")
+        }
+        
         // Execute the request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             // If there was an error, print it to the console
@@ -356,6 +363,9 @@ class WebCallController: URLSession {
                 semaphore.signal()
                 return
             }
+            
+            
+            
             // Otherwise, print the data to the console
             let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("\n\nDataRecieved from PATCH:\n")
@@ -739,6 +749,7 @@ class WebCallController: URLSession {
     // ["email": emailString, "password": edited_passwordString, "password_confirmation": edited_passwordString, "address": edited_addressString]
     // ["email": emailString, "password": edited_passwordString, "password_confirmation": edited_passwordString, "phone": edited_phoneString]
     // ["email": emailString, "password": edited_passwordString, "password_confirmation": edited_passwordString, "address": edited_addressString, "phone": edited_phoneString]
+    //Dictionary<String, Dictionary<String, String>>
     func editUser(userDict: Dictionary<String, String>) -> (isError: Bool, error: String){
         // Create a new dictionary in the format which the web server expects
         // ["user": dictionaryWithUserInfo]
@@ -751,8 +762,12 @@ class WebCallController: URLSession {
         // Catch the response
         var toReturn: (Bool, String) = (true, "There was an error catching the response from the web server.")
         patchRequest(urlToCall: "http://paulsens-beacon.herokuapp.com/account", data: data) { (dataJson) in
-            if let error = dataJson["error"] as? String {
-                toReturn = (true, error)
+            print(dataJson["errors"] as Any)
+            if let error = dataJson["errors"] as? Dictionary<String, [String]>{
+                let test = error["current_password"]
+                print(test as Any)
+                //error = error["current_password"]
+               // toReturn = (true, error)
             } else {
                 toReturn = (false, "No error detected")
             }
