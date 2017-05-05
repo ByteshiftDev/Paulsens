@@ -100,8 +100,8 @@ https://www.paulsenspharmacy.com
                                     <action selector="handleAcctTouch:" destination="19S-uU-fn0" eventType="touchUpInside" id="UqL-9X-8A1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-YK-Rca">
-                                <rect key="frame" x="125" y="393" width="71" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-YK-Rca">
+                                <rect key="frame" x="64" y="393" width="194" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -110,8 +110,8 @@ https://www.paulsenspharmacy.com
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XtP-nm-ajV" firstAttribute="top" secondItem="4ba-YK-Rca" secondAttribute="bottom" constant="105" id="0kk-af-FDt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4ba-YK-Rca" secondAttribute="trailing" constant="108" id="WjB-iI-qDO"/>
-                            <constraint firstItem="4ba-YK-Rca" firstAttribute="leading" secondItem="geF-Ec-pxs" secondAttribute="leadingMargin" constant="109" id="ada-QY-NZ1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4ba-YK-Rca" secondAttribute="trailing" constant="46" id="WjB-iI-qDO"/>
+                            <constraint firstItem="4ba-YK-Rca" firstAttribute="leading" secondItem="geF-Ec-pxs" secondAttribute="leadingMargin" constant="48" id="ada-QY-NZ1"/>
                         </constraints>
                     </view>
                     <connections>

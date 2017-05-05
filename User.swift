@@ -237,9 +237,9 @@ class User: NSObject {
         //Read in the dictionary for the current user from storage in UserDefaults.
         var toServer = [String: String]()
         
-        if(email == "" || currentPassword == ""){
-            return (false, "Email and current password are required")
-        }
+        //if(email == "" || currentPassword == ""){
+        //    return (false, "Email and current password are required")
+        //}
         
         toServer["current_password"] = currentPassword
         // If the user did not leave the password field blank.
@@ -273,7 +273,9 @@ class User: NSObject {
         let webCallController = WebCallController()
         let result = webCallController.editUser(userDict: toServer)
         // If there was an error returned from the call, return the failure and message
+        print("HERE1:", result.0)
         if(result.0){
+            print("HERE:", result.0)
             return (!result.0, result.1)
         }
         

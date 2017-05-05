@@ -25,6 +25,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         
         let result = user.editAccount(email: user.emailGetter(), currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text, phone: user.phoneGetter(), address: user.addressGetter())
         
+        print("LOOKIE: ", result.0)
         if(!result.0){
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
@@ -41,7 +42,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
-        print("email: ", user.emailGetter(), "password: ", user.passwordGetter())
+        print("email: ", user.emailGetter(), "password: ", user.passwordGetter(), "phone type: ", type(of: newPhoneNumberTextField.text))
         
         let result = user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: newPhoneNumberTextField.text, address: user.addressGetter())
         
@@ -64,6 +65,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     let statePicker = UIPickerView()
     
     @IBAction func editAddressSubmit(_ sender: UIButton) {
+        
         let address = addressTextField.text! + locationTextField.text! + stateTextField.text! + zipCodeTextField.text!
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
