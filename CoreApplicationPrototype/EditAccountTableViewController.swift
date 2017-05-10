@@ -44,7 +44,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
-        let result = user.editPhone(phone: newPhoneNumberTextField.text, current_password: PasswordTextField.text)
+        let result = user.editPhone(phone: newPhoneNumberTextField.text, currentPassword: PasswordTextField.text)
         
         //user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: newPhoneNumberTextField.text, address: user.addressGetter())
         
@@ -73,7 +73,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
-        let result = user.editAddress(address: address, current_password: PasswordTextField.text)
+        let result = user.editAddress(address: address, currentPassword: PasswordTextField.text)
         
         //user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: user.phoneGetter(), address: address)
         

@@ -342,9 +342,9 @@ class User: NSObject {
         return(true, "")
     }
     
-    func editPhone(phone: String!, current_password: String!)->(Bool, String){
+    func editPhone(phone: String!, currentPassword: String!)->(Bool, String){
         var toServer = [String: String]()
-        toServer["current_password"] = current_password
+        toServer["current_password"] = currentPassword
         toServer["phone"] = phone
         print("LOOK HERE: ")
         print(toServer)
@@ -361,9 +361,9 @@ class User: NSObject {
     }
     
     
-    func editAddress(address: String!, current_password: String!)->(Bool, String){
+    func editAddress(address: String!, currentPassword: String!)->(Bool, String){
         var toServer = [String: String]()
-        toServer["current_password"] = current_password
+        toServer["current_password"] = currentPassword
         toServer["address"] = address
         print("LOOK HERE: ")
         print(toServer)
@@ -435,6 +435,8 @@ class User: NSObject {
         self.webToken = webToken
     }
     
+    
+    // These are for diplay on the edit account page
     func phoneGetter()->String{
         if let num = phoneNumber {
             return num
@@ -449,17 +451,9 @@ class User: NSObject {
         return ""
     }
     
+    //this is for help, DELETE LATER
     func emailGetter()->String{
-            return self.email
-    }
-
-    func passwordGetter()->String{
-        if(self.password == nil){
-            return ""
-        }
-        else{
-            return self.password!
-        }
+        return email
     }
     
 }
