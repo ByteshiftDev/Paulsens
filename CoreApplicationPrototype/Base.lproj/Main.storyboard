@@ -1266,35 +1266,54 @@ https://www.paulsenspharmacy.com
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Edit Password" id="fms-cI-jwW" userLabel="Edit Password">
+                            <tableViewSection headerTitle="Current Password" footerTitle="Your current password must be filled to make any changes to your account." id="rsx-tG-pfi" userLabel="Current Password">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="164" id="bnN-uF-dJp">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="164"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="47" id="N4r-0R-Fq0">
+                                        <rect key="frame" x="0.0" y="56" width="320" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnN-uF-dJp" id="ftE-oq-xu3">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="163.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N4r-0R-Fq0" id="6LV-XR-pca">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmv-Qy-6Vd">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmv-Qy-6Vd" userLabel="Password Text Field">
                                                     <rect key="frame" x="8" y="8" width="304" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mmv-Qy-6Vd" firstAttribute="top" secondItem="6LV-XR-pca" secondAttribute="topMargin" id="14H-ze-CZB"/>
+                                                <constraint firstItem="mmv-Qy-6Vd" firstAttribute="leading" secondItem="6LV-XR-pca" secondAttribute="leadingMargin" id="4DS-2E-YuA"/>
+                                                <constraint firstItem="mmv-Qy-6Vd" firstAttribute="trailing" secondItem="6LV-XR-pca" secondAttribute="trailingMargin" id="vjv-kB-CRQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Edit Password" id="fms-cI-jwW" userLabel="Edit Password">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="123" id="bnN-uF-dJp">
+                                        <rect key="frame" x="0.0" y="188" width="320" height="123"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnN-uF-dJp" id="ftE-oq-xu3">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="122"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F2z-fU-KmT">
-                                                    <rect key="frame" x="8" y="46" width="304" height="30"/>
+                                                    <rect key="frame" x="8" y="5.5" width="304" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2z-rQ-2qR">
-                                                    <rect key="frame" x="8" y="84" width="304" height="30"/>
+                                                    <rect key="frame" x="8" y="43.5" width="304" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TY1-th-Uyz">
-                                                    <rect key="frame" x="134" y="125" width="53" height="30"/>
+                                                    <rect key="frame" x="134" y="84.5" width="53" height="30"/>
                                                     <state key="normal" title="Submit"/>
                                                     <connections>
                                                         <action selector="editPasswordSubmit:" destination="auL-ip-QIT" eventType="touchUpInside" id="gE7-xl-yE5"/>
@@ -1302,19 +1321,14 @@ https://www.paulsenspharmacy.com
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mmv-Qy-6Vd" firstAttribute="trailing" secondItem="ftE-oq-xu3" secondAttribute="trailingMargin" id="1kS-aB-qiK"/>
                                                 <constraint firstItem="F2z-fU-KmT" firstAttribute="leading" secondItem="ftE-oq-xu3" secondAttribute="leadingMargin" id="1t9-Ew-GVt"/>
-                                                <constraint firstItem="mmv-Qy-6Vd" firstAttribute="leading" secondItem="ftE-oq-xu3" secondAttribute="leadingMargin" id="7p7-dy-XDs"/>
                                                 <constraint firstItem="e2z-rQ-2qR" firstAttribute="leading" secondItem="ftE-oq-xu3" secondAttribute="leadingMargin" id="F6R-Nk-zqg"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TY1-th-Uyz" secondAttribute="trailing" constant="125" id="JaJ-7P-SN1"/>
                                                 <constraint firstItem="e2z-rQ-2qR" firstAttribute="top" secondItem="F2z-fU-KmT" secondAttribute="bottom" constant="8" id="R2d-Qd-sDm"/>
-                                                <constraint firstItem="mmv-Qy-6Vd" firstAttribute="top" secondItem="ftE-oq-xu3" secondAttribute="topMargin" id="Rwd-pU-Sg1"/>
                                                 <constraint firstItem="TY1-th-Uyz" firstAttribute="top" secondItem="e2z-rQ-2qR" secondAttribute="bottom" constant="11" id="TDI-NS-pG0"/>
                                                 <constraint firstItem="e2z-rQ-2qR" firstAttribute="trailing" secondItem="ftE-oq-xu3" secondAttribute="trailingMargin" id="Znp-ak-ADk"/>
-                                                <constraint firstItem="F2z-fU-KmT" firstAttribute="top" secondItem="mmv-Qy-6Vd" secondAttribute="bottom" constant="8" id="fY6-dS-26i"/>
                                                 <constraint firstItem="F2z-fU-KmT" firstAttribute="trailing" secondItem="ftE-oq-xu3" secondAttribute="trailingMargin" id="jn2-OJ-TeJ"/>
                                                 <constraint firstItem="TY1-th-Uyz" firstAttribute="top" secondItem="e2z-rQ-2qR" secondAttribute="bottom" constant="11" id="m2u-de-k6P"/>
-                                                <constraint firstItem="F2z-fU-KmT" firstAttribute="top" secondItem="mmv-Qy-6Vd" secondAttribute="bottom" constant="8" id="oOU-DA-MPK"/>
                                                 <constraint firstItem="e2z-rQ-2qR" firstAttribute="top" secondItem="F2z-fU-KmT" secondAttribute="bottom" constant="8" id="rrZ-rj-05Z"/>
                                                 <constraint firstItem="TY1-th-Uyz" firstAttribute="bottom" secondItem="ftE-oq-xu3" secondAttribute="bottomMargin" id="tHv-fY-6rJ"/>
                                                 <constraint firstItem="TY1-th-Uyz" firstAttribute="leading" secondItem="ftE-oq-xu3" secondAttribute="leadingMargin" constant="126" id="yQm-WM-1IF"/>
@@ -1326,7 +1340,7 @@ https://www.paulsenspharmacy.com
                             <tableViewSection headerTitle="Edit Phone Number" id="hhU-Gf-JZb" userLabel="Edit Phone Number">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="121" id="M4n-LB-1EH">
-                                        <rect key="frame" x="0.0" y="275.5" width="320" height="121"/>
+                                        <rect key="frame" x="0.0" y="368" width="320" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4n-LB-1EH" id="7ql-gp-WsD">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="120.5"/>
@@ -1373,7 +1387,7 @@ https://www.paulsenspharmacy.com
                             <tableViewSection headerTitle="Edit Address" id="0TK-Ax-u3t">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="235" id="Ey9-B1-Ehm">
-                                        <rect key="frame" x="0.0" y="452.5" width="320" height="235"/>
+                                        <rect key="frame" x="0.0" y="546" width="320" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ey9-B1-Ehm" id="OSN-QW-xAy">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="234.5"/>
@@ -1454,13 +1468,13 @@ https://www.paulsenspharmacy.com
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="PasswordTextField" destination="mmv-Qy-6Vd" id="rdJ-dh-1a2"/>
                         <outlet property="addressTextField" destination="SpB-Hi-Qxu" id="gNT-x6-65u"/>
                         <outlet property="currentAddressLabel" destination="QhB-Uv-1uj" id="Yzp-tq-E73"/>
                         <outlet property="currentPhoneNumberLabel" destination="rw3-xI-UR5" id="Nri-pL-tpr"/>
                         <outlet property="locationTextField" destination="UhH-CS-L1e" id="F95-qF-ExN"/>
                         <outlet property="newPasswordTextField" destination="F2z-fU-KmT" id="VNv-k6-Rer"/>
                         <outlet property="newPhoneNumberTextField" destination="KF6-42-Xnj" id="I9X-l7-cf8"/>
-                        <outlet property="oldPasswordTextField" destination="mmv-Qy-6Vd" id="Eih-vr-uVB"/>
                         <outlet property="repeatNewPasswordTextField" destination="e2z-rQ-2qR" id="H22-fg-SIR"/>
                         <outlet property="stateTextField" destination="YxO-dD-aVy" id="dnd-IG-HMA"/>
                         <outlet property="zipCodeTextField" destination="dsJ-wE-vye" id="Tta-RH-9hd"/>
@@ -1470,7 +1484,7 @@ https://www.paulsenspharmacy.com
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13O-RH-ncz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Le8-cu-LlO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2966" y="-1240"/>
+            <point key="canvasLocation" x="2964" y="-1241"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="J50-bG-PQN">

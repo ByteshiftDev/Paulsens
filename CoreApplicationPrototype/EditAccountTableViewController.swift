@@ -16,14 +16,14 @@ import UIKit
 class EditAccountTableViewController: UITableViewController , UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
     //Edit Password Variables
-    @IBOutlet weak var oldPasswordTextField: UITextField!
+    @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var repeatNewPasswordTextField: UITextField!
     @IBAction func editPasswordSubmit(_ sender: UIButton) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
-        let result = user.editPassword(currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text)
+        let result = user.editPassword(currentPassword: PasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text)
         
         //user.editAccount(email: user.emailGetter(), currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text, phone: user.phoneGetter(), address: user.addressGetter())
         
@@ -44,9 +44,9 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
-        print("email: ", user.emailGetter(), "password: ", user.passwordGetter(), "phone type: ", type(of: newPhoneNumberTextField.text))
+        let result = user.editPhone(phone: newPhoneNumberTextField.text, current_password: PasswordTextField.text)
         
-        let result = user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: newPhoneNumberTextField.text, address: user.addressGetter())
+        //user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: newPhoneNumberTextField.text, address: user.addressGetter())
         
         if(!result.0){
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
@@ -73,7 +73,9 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
-        let result = user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: user.phoneGetter(), address: address)
+        let result = user.editAddress(address: address, current_password: PasswordTextField.text)
+        
+        //user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: user.phoneGetter(), address: address)
         
         if(!result.0){
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
@@ -95,7 +97,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         stateTextField.inputView = statePicker
         
         //Need to make textfields into delegates so they can use keyboards and be dismissed
-        self.oldPasswordTextField.delegate = self
+        self.PasswordTextField.delegate = self
         self.newPasswordTextField.delegate = self
         self.repeatNewPasswordTextField.delegate = self
         self.newPhoneNumberTextField.delegate = self
@@ -145,7 +147,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     
     //Next four functions are for keyboards with textfields
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        oldPasswordTextField.resignFirstResponder()
+        PasswordTextField.resignFirstResponder()
         newPasswordTextField.resignFirstResponder()
         repeatNewPasswordTextField.resignFirstResponder()
         newPhoneNumberTextField.resignFirstResponder()
@@ -165,7 +167,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     }
     
     func dismissKeyboard(){
-        oldPasswordTextField.resignFirstResponder()
+        PasswordTextField.resignFirstResponder()
         newPasswordTextField.resignFirstResponder()
         repeatNewPasswordTextField.resignFirstResponder()
         newPhoneNumberTextField.resignFirstResponder()

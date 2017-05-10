@@ -147,8 +147,6 @@ class User: NSObject {
         let token = user?["token"] as? String
         self.webToken = "Bearer " + token!
 
-        //added password
-        self.password = passwordField
         
         KeychainWrapper.standard.set(self.userID!, forKey: "userID")
         KeychainWrapper.standard.set(self.email, forKey: "email")
@@ -160,7 +158,6 @@ class User: NSObject {
             KeychainWrapper.standard.set(phoneNum, forKey: "phoneNumber")
         }
         KeychainWrapper.standard.set(self.webToken!, forKey: "token")
-        KeychainWrapper.standard.set(self.password!, forKey: "password")
 
         
         
@@ -345,10 +342,42 @@ class User: NSObject {
         return(true, "")
     }
     
-    func editPhone(phone: String!)->(Bool, String){
+    func editPhone(phone: String!, current_password: String!)->(Bool, String){
+        var toServer = [String: String]()
+        toServer["current_password"] = current_password
+        toServer["phone"] = phone
+        print("LOOK HERE: ")
+        print(toServer)
         
+        // Create the Web call controller then make the edit web call
+        let webCallController = WebCallController()
+        let result = webCallController.editUser(userDict: toServer)
+        // If there was an error returned from the call, return the failure and message
+        print("RESULT", result.0)
+        if(result.0){
+            return (!result.0, result.1)
+        }
+        return(true, "")
     }
     
+    
+    func editAddress(address: String!, current_password: String!)->(Bool, String){
+        var toServer = [String: String]()
+        toServer["current_password"] = current_password
+        toServer["address"] = address
+        print("LOOK HERE: ")
+        print(toServer)
+        
+        // Create the Web call controller then make the edit web call
+        let webCallController = WebCallController()
+        let result = webCallController.editUser(userDict: toServer)
+        // If there was an error returned from the call, return the failure and message
+        print("RESULT", result.0)
+        if(result.0){
+            return (!result.0, result.1)
+        }
+        return(true, "")
+    }
     
     /********* Points Functions *********/
     
@@ -397,11 +426,10 @@ class User: NSObject {
     }
     
     
-    func autoLoginUser(email: String, userID: Int?, points: Int?, password: String?, phoneNumber: String?, address: String?, webToken: String?){
+    func autoLoginUser(email: String, userID: Int?, points: Int?, phoneNumber: String?, address: String?, webToken: String?){
         self.email = email
         self.userID = userID
         self.points = points
-        self.password = password
         self.phoneNumber = phoneNumber
         self.address = address
         self.webToken = webToken
