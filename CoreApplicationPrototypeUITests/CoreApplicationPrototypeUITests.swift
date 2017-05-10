@@ -186,7 +186,6 @@ class CoreApplicationPrototypeUITests: XCTestCase {
         XCUIDevice.shared().orientation = .portrait
         XCUIDevice.shared().orientation = .portrait
         XCUIDevice.shared().orientation = .portrait
-
         
 
         
@@ -240,6 +239,23 @@ class CoreApplicationPrototypeUITests: XCTestCase {
         XCUIDevice.shared().orientation = .portrait
         XCUIDevice.shared().orientation = .portrait
         tabBarsQuery.buttons["Home"].tap()
+        
+    }
+    
+    func testAboutMap2(){
+        XCUIDevice.shared().orientation = .portrait
+        
+        let app = XCUIApplication()
+        app.tabBars.buttons["About"].tap()
+        
+        let httpsWwwPaulsenspharmacyComTextView = app.textViews.containing(.link, identifier:"https://www.paulsenspharmacy.com").element
+        httpsWwwPaulsenspharmacyComTextView.tap()
+        httpsWwwPaulsenspharmacyComTextView.tap()
+        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared().orientation = .portrait
+        app.otherElements["PlaceCardViewController"].children(matching: .other).element(boundBy: 1).children(matching: .other).element(boundBy: 2).children(matching: .other).element(boundBy: 1).children(matching: .other).element(boundBy: 0).tap()
+        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared().orientation = .portrait
         
     }
     
