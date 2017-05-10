@@ -23,7 +23,9 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
-        let result = user.editAccount(email: user.emailGetter(), currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text, phone: user.phoneGetter(), address: user.addressGetter())
+        let result = user.editPassword(currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text)
+        
+        //user.editAccount(email: user.emailGetter(), currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text, phone: user.phoneGetter(), address: user.addressGetter())
         
         if(!result.0){
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
@@ -31,6 +33,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
             self.present(alertController, animated:true, completion:nil)
             return
         }
+        segueToHome()
     }
 
 
@@ -178,7 +181,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     
     //Segue to home function
     private func segueToHome(){
-        performSegue(withIdentifier: "unwindEditToHome", sender: self)
+        self.performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
 }

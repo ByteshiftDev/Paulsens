@@ -321,6 +321,35 @@ class User: NSObject {
         return (true, "")
     }
     
+    
+    func editPassword(currentPassword: String!, password: String!, repeatPassword: String!)->(Bool, String){
+        //Read in the dictionary for the current user from storage in UserDefaults.
+        var toServer = [String: String]()
+        
+        toServer["current_password"] = currentPassword
+
+        toServer["password"] = password
+        toServer["password_confirmation"] = repeatPassword
+        
+        print("LOOK HERE: ")
+        print(toServer)
+        
+        // Create the Web call controller then make the edit web call
+        let webCallController = WebCallController()
+        let result = webCallController.editUser(userDict: toServer)
+        // If there was an error returned from the call, return the failure and message
+        print("RESULT", result.0)
+        if(result.0){
+            return (!result.0, result.1)
+        }
+        return(true, "")
+    }
+    
+    func editPhone(phone: String!)->(Bool, String){
+        
+    }
+    
+    
     /********* Points Functions *********/
     
     // Currently grabbing information from the server about points
