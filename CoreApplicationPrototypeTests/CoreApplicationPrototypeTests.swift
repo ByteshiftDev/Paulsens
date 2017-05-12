@@ -130,7 +130,7 @@ class CoreApplicationPrototypeTests: XCTestCase {
     func testUser() {
         let user = User(userEmail: "noUser")
         XCTAssertTrue(user.loggedIn() == false)
-        var result = user.loginUser(emailField: "example@example.com", passwordField: "newexample")
+        var result = user.loginUser(emailField: "example@example.com", passwordField: "example")
         XCTAssert(result.0)
         XCTAssert(user.loggedIn())
         result = user.logOut()
