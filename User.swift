@@ -353,7 +353,7 @@ class User: NSObject {
         let webCallController = WebCallController()
         let result = webCallController.editUser(userDict: toServer)
         // If there was an error returned from the call, return the failure and message
-        print("RESULT", result.0)
+        print("RESULT FROM SERVER", result.0)
         if(result.0){
             return (!result.0, result.1)
         }
