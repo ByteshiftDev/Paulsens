@@ -33,7 +33,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
             self.present(alertController, animated:true, completion:nil)
             return
         }
-        segueToHome()
+        //segueToHome()
     }
 
 
