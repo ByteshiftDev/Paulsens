@@ -180,6 +180,15 @@ class CoreApplicationPrototypeUITests: XCTestCase {
     //THis test is the user trying to go to the online order page
     func testOnlinePrescription(){
         
+        let app = XCUIApplication()
+        app.buttons["Online Prescription"].tap()
+        
+        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared().orientation = .portrait
+        app.statusBars.children(matching: .other).element(boundBy: 1).children(matching: .other).element(boundBy: 0).tap()
+        
 
         
     }
