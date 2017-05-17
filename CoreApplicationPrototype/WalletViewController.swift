@@ -31,7 +31,7 @@ class WalletViewController: UITableViewController{
     //var wallet = [Reward]()
     
     @IBAction func useReward(_ sender: Any) {
-        
+        print("LOOK HERE")
     }
     
     override func viewDidLoad() {
@@ -48,10 +48,14 @@ class WalletViewController: UITableViewController{
         tableView.tableFooterView = UIView() // Create blank rows after filled in cells
     }
     
+    // CONFIGURING A TABLE VIEW (REQUIRED)
+    // Tells the data source to return the number of rows in a given section of a table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rewardArray.count
     }
     
+    // CONFIGURING A TABLE VIEW (REQUIRED)
+    // Asks the data source for a cell to insert in a particular location of the table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let dequeued = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
