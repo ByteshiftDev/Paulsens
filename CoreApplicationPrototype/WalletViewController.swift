@@ -29,9 +29,29 @@ class WalletViewController: UITableViewController{
     var selectedIndexPath = -1
     private var rewardArray = [Reward]()
     //var wallet = [Reward]()
-    
-    @IBAction func useReward(_ sender: Any) {
+
+    @IBAction func useReward(_ sender: UIButton) {
+        
         print("LOOK HERE")
+        createAlert(title: "REDEEMING REWARD", message: "Are you sure you want to redeem your reward?")
+      
+    }
+   
+    //Create pop up for wallet
+    func createAlert(title: String, message: String){
+        
+        // Alert style confirmation
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // Handler used to transition to other code, cancel confirmation
+        let noButton  = UIAlertAction(title: "NO",  style: UIAlertActionStyle.cancel, handler: nil)
+        let yesButton  = UIAlertAction(title: "YES",  style: UIAlertActionStyle.default, handler: nil)
+        
+        alert.addAction(noButton)   // Add NO  button to Alert controller
+        alert.addAction(yesButton)
+        
+        // Completion: do something after alert is displayed
+        present(alert, animated: true, completion: nil)  // Display Alert
     }
     
     override func viewDidLoad() {
@@ -95,3 +115,4 @@ class WalletViewController: UITableViewController{
     
     
 }
+

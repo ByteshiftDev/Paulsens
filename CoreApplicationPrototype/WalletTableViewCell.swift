@@ -18,5 +18,11 @@ class WalletTableViewCell: UITableViewCell{
     class var expandHeight: CGFloat{get{return 250}}    //Height when expanded
     class var defaultHeight: CGFloat{get{return 44}}    //Default height
     
-}
+   }
 
+extension UITableViewCell{
+    var indexPath: IndexPath?{
+        return (superview as? UITableView)?.indexPath(for: self)
+    }
+    
+}
