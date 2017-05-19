@@ -783,7 +783,7 @@ class WebCallController: URLSession {
         // Call the PATCH function to send data to web server telling it to alter that entry in the user table
         // Catch the response
         var toReturn: (Bool, String) = (true, "There was an error catching the response from the web server.")
-        patchRequest(urlToCall: "http://paulsens-beacon.herokuapp.com/account", data: data) { (dataJson) in
+        patchRequest(urlToCall: "http://paulsens-beacon.herokuapp.com/account.json", data: data) { (dataJson) in
             
             if let error = dataJson["errors"] as? Dictionary<String, [String]>{
                 print(error)
