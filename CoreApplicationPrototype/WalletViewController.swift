@@ -33,7 +33,21 @@ class WalletViewController: UITableViewController{
     @IBAction func useReward(_ sender: UIButton) {
         
         print("LOOK HERE")
-        createAlert(title: "REDEEMING REWARD", message: "Are you sure you want to redeem your reward?")
+        //createAlert(title: "REDEEMING REWARD", message: "Are you sure you want to redeem your reward?")
+        
+        var indexPath: IndexPath!
+        
+        if let button = sender as? UIButton{
+            if let superview = button.superview{
+                if let cell = superview.superview as? WalletTableViewCell {
+                    indexPath = tableView.indexPath(for: cell)! as IndexPath
+                }
+            }
+        }
+        print(indexPath)
+        self.rewardArray.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
       
     }
    
