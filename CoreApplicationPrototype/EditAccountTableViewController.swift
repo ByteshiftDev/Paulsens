@@ -33,7 +33,10 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
             self.present(alertController, animated:true, completion:nil)
             return
         }
-        //segueToHome()
+        else{
+            //don't need to set password, it is not stored
+            segueToHome()
+        }
     }
 
 
@@ -53,6 +56,13 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated:true, completion:nil)
             return
+        }
+        else{
+            //update current phone number lable and segue home.
+            currentPhoneNumberLabel.text = newPhoneNumberTextField.text
+            //set phone
+            user.setPhoneNumber(phoneNumber: newPhoneNumberTextField.text)
+            segueToHome()
         }
     }
 
@@ -82,6 +92,13 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated:true, completion:nil)
             return
+        }
+        else{
+            //update current phone number lable and segue home.
+            currentAddressLabel.text = address
+            //set address
+            user.setAddress(address: address)
+            segueToHome()
         }
     }
     
@@ -142,9 +159,6 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     }
     
     
-    
-    
-    
     //Next four functions are for keyboards with textfields
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         PasswordTextField.resignFirstResponder()
@@ -158,13 +172,16 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         return true
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     
     func dismissKeyboard(){
         PasswordTextField.resignFirstResponder()
@@ -176,9 +193,6 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         zipCodeTextField.resignFirstResponder()
         newPhoneNumberTextField.resignFirstResponder()
     }
-    
-    
-    
     
     
     //Segue to home function

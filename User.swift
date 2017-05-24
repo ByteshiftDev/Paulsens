@@ -456,4 +456,13 @@ class User: NSObject {
         return email
     }
     
+    func setPhoneNumber(phoneNumber: String!){
+        self.phoneNumber = phoneNumber
+    }
+    
+    func setAddress(address: String!){
+        self.address = address
+    }
+    
+    
 }
