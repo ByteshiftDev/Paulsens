@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
         var phoneNumber: String?
         var address: String?
         var webToken: String?
-        var password: String?
         //check if email has anything, if it does auto login that user else do nothing
         if let email = KeychainWrapper.standard.string(forKey: "email") {
             
@@ -44,9 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
             }
             if let temp = KeychainWrapper.standard.integer(forKey: "points"){
                 points = temp
-            }
-            if let temp = KeychainWrapper.standard.string(forKey: "password"){
-                password = temp
             }
             if let temp = KeychainWrapper.standard.string(forKey: "phoneNumber"){
                 phoneNumber = temp
@@ -58,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
             if let temp = KeychainWrapper.standard.string(forKey: "token"){
                 webToken = temp
             }
-            user.autoLoginUser(email: email, userID: userID, points: points, password: password, phoneNumber: phoneNumber, address: address, webToken: webToken)
+            user.autoLoginUser(email: email, userID: userID, points: points, phoneNumber: phoneNumber, address: address, webToken: webToken)
         }
         
         
