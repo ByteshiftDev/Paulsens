@@ -1,5 +1,5 @@
 //
-//  CreateAccountController.swift
+//  EditAccountTableViewController.swift
 //  CoreApplicationPrototype
 //
 //  InboundRX iOS RFID Beacon Detecting Application
@@ -78,7 +78,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     
     @IBAction func editAddressSubmit(_ sender: UIButton) {
         
-        let address = addressTextField.text! + locationTextField.text! + stateTextField.text! + zipCodeTextField.text!
+        let address = addressTextField.text! + " " + locationTextField.text! + " "  + stateTextField.text! + " " + zipCodeTextField.text!
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
@@ -95,9 +95,9 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         }
         else{
             //update current phone number lable and segue home.
-            currentAddressLabel.text = address
+            currentAddressLabel.text = addressTextField.text! + "\n" + locationTextField.text! + ", "  + stateTextField.text! + " " + zipCodeTextField.text!
             //set address
-            user.setAddress(address: address)
+            user.setAddress(address: currentAddressLabel.text)
             segueToHome()
         }
     }
