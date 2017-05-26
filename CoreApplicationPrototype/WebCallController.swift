@@ -182,6 +182,8 @@ class WebCallController: URLSession {
             request.addValue(token, forHTTPHeaderField: "Authorization")
         }
         
+    
+        
         print("Trying PUT request with URL: " + urlToCall)
         print("With data: " + data.description)
         
@@ -301,7 +303,7 @@ class WebCallController: URLSession {
         
         // Create semaphore
         let semaphore = DispatchSemaphore(value: 0)
-        
+    
         // Execute the request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             // If there was an error, print it to the console
@@ -349,11 +351,14 @@ class WebCallController: URLSession {
         request.httpBody = jsonData
         
         //An the token authorization header
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let user = appDelegate?.user
-        if let token = user?.webToken {
-            request.addValue(token, forHTTPHeaderField: "Authorization")
-        }
+        //let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        //let user = appDelegate?.user
+        //if let token = user?.webToken {
+        //    request.addValue(token, forHTTPHeaderField: "Authorization")
+        //}
+        
+        //bearer token for test@test.com
+    request.addValue("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJwYXNzd29yZCI6InBhc3N3b3JkMTIzIiwiZXhwIjoxNDk1NjcxNjE0fQ.I6Ev6Q8fBRQ7HeNB1Tj8udL2LAwKFdPD1ISQ1LMtqd8", forHTTPHeaderField: "Authorization")
         
         // Execute the request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -376,6 +381,7 @@ class WebCallController: URLSession {
             print("\n-----\n")
             
             // Convert the data recieved into JSON
+
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
                 let dictionaryArray = json as! Dictionary<String, Any>
@@ -764,12 +770,10 @@ class WebCallController: URLSession {
  func putRequest(urlToCall: String, data: Dictionary<String, Any>, */
     
     // Edit an existing user's info
-    // Expected dictionary formats:
-    // ["email": emailString, "password": edited_passwordString, "password_confirmation": edited_passwordString]
-    // ["email": emailString, "password": edited_passwordString, "password_confirmation": edited_passwordString, "address": edited_addressString]
-    // ["email": emailString, "password": edited_passwordString, "password_confirmation": edited_passwordString, "phone": edited_phoneString]
-    // ["email": emailString, "password": edited_passwordString, "password_confirmation": edited_passwordString, "address": edited_addressString, "phone": edited_phoneString]
+    // Current password is always send in with the put request
+    // with current password anything can be attached to it to make changes to the user account
     //Dictionary<String, Dictionary<String, String>>
+    //
     func editUser(userDict: Dictionary<String, String>) -> (isError: Bool, error: String){
         // Create a new dictionary in the format which the web server expects
         // ["user": dictionaryWithUserInfo]
@@ -781,12 +785,15 @@ class WebCallController: URLSession {
         // Call the PATCH function to send data to web server telling it to alter that entry in the user table
         // Catch the response
         var toReturn: (Bool, String) = (true, "There was an error catching the response from the web server.")
-        patchRequest(urlToCall: "http://paulsens-beacon.herokuapp.com/account", data: data) { (dataJson) in
-            print(dataJson["errors"] as Any)
+        putRequest(urlToCall: "http://paulsens-beacon.herokuapp.com/account.json", data: data) { (dataJson) in
+            
             if let error = dataJson["errors"] as? Dictionary<String, [String]>{
-                let test = error["current_password"]
-                print(test as Any)
-                //error = error["current_password"]
+                print(error)
+                for (_, element) in error{
+                    for elem in element{
+                        toReturn = (true, elem)
+                    }
+                }
                // toReturn = (true, error)
             } else {
                 toReturn = (false, "No error detected")

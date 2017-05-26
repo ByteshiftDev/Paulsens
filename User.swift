@@ -147,8 +147,6 @@ class User: NSObject {
         let token = user?["token"] as? String
         self.webToken = "Bearer " + token!
 
-        //added password
-        self.password = passwordField
         
         KeychainWrapper.standard.set(self.userID!, forKey: "userID")
         KeychainWrapper.standard.set(self.email, forKey: "email")
@@ -160,7 +158,6 @@ class User: NSObject {
             KeychainWrapper.standard.set(phoneNum, forKey: "phoneNumber")
         }
         KeychainWrapper.standard.set(self.webToken!, forKey: "token")
-        KeychainWrapper.standard.set(self.password!, forKey: "password")
 
         
         
@@ -289,7 +286,8 @@ class User: NSObject {
             // Populate a locally stored dictionary entry and to server dictionary entry with this new password.
             toServer["password"] = password
             toServer["password_confirmation"] = repeatPassword
-        }else{
+        }
+        else{
             toServer["password"] = currentPassword
             toServer["repeatPassword"] = currentPassword
         }
@@ -311,15 +309,74 @@ class User: NSObject {
         let webCallController = WebCallController()
         let result = webCallController.editUser(userDict: toServer)
         // If there was an error returned from the call, return the failure and message
-        print("HERE1:", result.0)
         if(result.0){
-            print("HERE:", result.0)
             return (!result.0, result.1)
         }
         
         // Now store the information again for the user, as it has been updated.
         // Synchronize to force the data to be recognized as updated, then return success.
         return (true, "")
+    }
+    
+    
+    func editPassword(currentPassword: String!, password: String!, repeatPassword: String!)->(Bool, String){
+        //Read in the dictionary for the current user from storage in UserDefaults.
+        var toServer = [String: String]()
+        
+        toServer["current_password"] = currentPassword
+
+        toServer["password"] = password
+        toServer["password_confirmation"] = repeatPassword
+        
+        print("LOOK HERE: ")
+        print(toServer)
+        
+        // Create the Web call controller then make the edit web call
+        let webCallController = WebCallController()
+        let result = webCallController.editUser(userDict: toServer)
+        // If there was an error returned from the call, return the failure and message
+        print("RESULT", result.0)
+        if(result.0){
+            return (!result.0, result.1)
+        }
+        return(true, "")
+    }
+    
+    func editPhone(phone: String!, currentPassword: String!)->(Bool, String){
+        var toServer = [String: String]()
+        toServer["current_password"] = currentPassword
+        toServer["phone"] = phone
+        print("LOOK HERE: ")
+        print(toServer)
+        
+        // Create the Web call controller then make the edit web call
+        let webCallController = WebCallController()
+        let result = webCallController.editUser(userDict: toServer)
+        // If there was an error returned from the call, return the failure and message
+        print("RESULT FROM SERVER", result.0)
+        if(result.0){
+            return (!result.0, result.1)
+        }
+        return(true, "")
+    }
+    
+    
+    func editAddress(address: String!, currentPassword: String!)->(Bool, String){
+        var toServer = [String: String]()
+        toServer["current_password"] = currentPassword
+        toServer["address"] = address
+        print("LOOK HERE: ")
+        print(toServer)
+        
+        // Create the Web call controller then make the edit web call
+        let webCallController = WebCallController()
+        let result = webCallController.editUser(userDict: toServer)
+        // If there was an error returned from the call, return the failure and message
+        print("RESULT", result.0)
+        if(result.0){
+            return (!result.0, result.1)
+        }
+        return(true, "")
     }
     
     /********* Points Functions *********/
@@ -369,16 +426,17 @@ class User: NSObject {
     }
     
     
-    func autoLoginUser(email: String, userID: Int?, points: Int?, password: String?, phoneNumber: String?, address: String?, webToken: String?){
+    func autoLoginUser(email: String, userID: Int?, points: Int?, phoneNumber: String?, address: String?, webToken: String?){
         self.email = email
         self.userID = userID
         self.points = points
-        self.password = password
         self.phoneNumber = phoneNumber
         self.address = address
         self.webToken = webToken
     }
     
+    
+    // These are for diplay on the edit account page
     func phoneGetter()->String{
         if let num = phoneNumber {
             return num
@@ -393,17 +451,18 @@ class User: NSObject {
         return ""
     }
     
+    //this is for help, DELETE LATER
     func emailGetter()->String{
-            return self.email
+        return email
     }
-
-    func passwordGetter()->String{
-        if(self.password == nil){
-            return ""
-        }
-        else{
-            return self.password!
-        }
+    
+    func setPhoneNumber(phoneNumber: String!){
+        self.phoneNumber = phoneNumber
     }
+    
+    func setAddress(address: String!){
+        self.address = address
+    }
+    
     
 }

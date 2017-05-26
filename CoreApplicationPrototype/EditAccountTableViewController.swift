@@ -1,5 +1,5 @@
 //
-//  CreateAccountController.swift
+//  EditAccountTableViewController.swift
 //  CoreApplicationPrototype
 //
 //  InboundRX iOS RFID Beacon Detecting Application
@@ -16,21 +16,26 @@ import UIKit
 class EditAccountTableViewController: UITableViewController , UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
     //Edit Password Variables
-    @IBOutlet weak var oldPasswordTextField: UITextField!
+    @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var repeatNewPasswordTextField: UITextField!
     @IBAction func editPasswordSubmit(_ sender: UIButton) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
-        let result = user.editAccount(email: user.emailGetter(), currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text, phone: user.phoneGetter(), address: user.addressGetter())
+        let result = user.editPassword(currentPassword: PasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text)
         
-        print("LOOKIE: ", result.0)
+        //user.editAccount(email: user.emailGetter(), currentPassword: oldPasswordTextField.text, password: newPasswordTextField.text, repeatPassword: repeatNewPasswordTextField.text, phone: user.phoneGetter(), address: user.addressGetter())
+        
         if(!result.0){
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated:true, completion:nil)
             return
+        }
+        else{
+            //don't need to set password, it is not stored
+            segueToHome()
         }
     }
 
@@ -42,15 +47,22 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
-        print("email: ", user.emailGetter(), "password: ", user.passwordGetter(), "phone type: ", type(of: newPhoneNumberTextField.text))
+        let result = user.editPhone(phone: newPhoneNumberTextField.text, currentPassword: PasswordTextField.text)
         
-        let result = user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: newPhoneNumberTextField.text, address: user.addressGetter())
+        //user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: newPhoneNumberTextField.text, address: user.addressGetter())
         
         if(!result.0){
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated:true, completion:nil)
             return
+        }
+        else{
+            //update current phone number lable and segue home.
+            currentPhoneNumberLabel.text = newPhoneNumberTextField.text
+            //set phone
+            user.setPhoneNumber(phoneNumber: newPhoneNumberTextField.text)
+            segueToHome()
         }
     }
 
@@ -66,18 +78,27 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     
     @IBAction func editAddressSubmit(_ sender: UIButton) {
         
-        let address = addressTextField.text! + locationTextField.text! + stateTextField.text! + zipCodeTextField.text!
+        let address = addressTextField.text! + " " + locationTextField.text! + " "  + stateTextField.text! + " " + zipCodeTextField.text!
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         
-        let result = user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: user.phoneGetter(), address: address)
+        let result = user.editAddress(address: address, currentPassword: PasswordTextField.text)
+        
+        //user.editAccount(email: user.emailGetter(), currentPassword: user.passwordGetter(), password: user.passwordGetter(), repeatPassword: user.passwordGetter(), phone: user.phoneGetter(), address: address)
         
         if(!result.0){
             let alertController = UIAlertController(title: "Error", message: result.1, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated:true, completion:nil)
             return
+        }
+        else{
+            //update current phone number lable and segue home.
+            currentAddressLabel.text = addressTextField.text! + "\n" + locationTextField.text! + ", "  + stateTextField.text! + " " + zipCodeTextField.text!
+            //set address
+            user.setAddress(address: currentAddressLabel.text)
+            segueToHome()
         }
     }
     
@@ -93,7 +114,7 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         stateTextField.inputView = statePicker
         
         //Need to make textfields into delegates so they can use keyboards and be dismissed
-        self.oldPasswordTextField.delegate = self
+        self.PasswordTextField.delegate = self
         self.newPasswordTextField.delegate = self
         self.repeatNewPasswordTextField.delegate = self
         self.newPhoneNumberTextField.delegate = self
@@ -138,12 +159,9 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     }
     
     
-    
-    
-    
     //Next four functions are for keyboards with textfields
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        oldPasswordTextField.resignFirstResponder()
+        PasswordTextField.resignFirstResponder()
         newPasswordTextField.resignFirstResponder()
         repeatNewPasswordTextField.resignFirstResponder()
         newPhoneNumberTextField.resignFirstResponder()
@@ -154,16 +172,19 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
         return true
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    
     func dismissKeyboard(){
-        oldPasswordTextField.resignFirstResponder()
+        PasswordTextField.resignFirstResponder()
         newPasswordTextField.resignFirstResponder()
         repeatNewPasswordTextField.resignFirstResponder()
         newPhoneNumberTextField.resignFirstResponder()
@@ -174,12 +195,9 @@ class EditAccountTableViewController: UITableViewController , UIPickerViewDelega
     }
     
     
-    
-    
-    
     //Segue to home function
     private func segueToHome(){
-        performSegue(withIdentifier: "unwindEditToHome", sender: self)
+        self.performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
 }
