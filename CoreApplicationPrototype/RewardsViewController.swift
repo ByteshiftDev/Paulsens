@@ -69,8 +69,9 @@ class RewardsViewController: UIViewController{
         //Call user to update and return points.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
-        user.incrementPoints() //This is just for testing purposes
+        //user.incrementPoints() //This is just for testing purposes
         self.phold.text = user.updatePoints()
+        
     }
     
     
@@ -160,6 +161,8 @@ class RewardsViewController: UIViewController{
         self.rewardsCollectionView.dataSource = self
         updateRewards()
         updatePoints()
+        //let wc = WebCallController()
+        //wc.fetchRewards()
     }
     
     

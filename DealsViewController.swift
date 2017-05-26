@@ -130,7 +130,7 @@ extension DealsViewController : UICollectionViewDataSource, UICollectionViewDele
         cell.product = products[indexPath.row]
         cell.dealsTitle.text = products[indexPath.row].title
         
-        let url = "https://paulsens-beacon.herokuapp.com" + products[indexPath.row].URLString
+        let url = SERVER_HOST_URL + products[indexPath.row].URLString
         wc.downloadImageFromURL(url, cell: cell, indexPath: indexPath.row)
         
         //cell.dealsImage.image = products[indexPath.row].image

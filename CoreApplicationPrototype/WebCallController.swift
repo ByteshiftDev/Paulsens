@@ -29,6 +29,8 @@ import UIKit
 
 // Cache to hold images from web
 var imageCache = NSCache<AnyObject, AnyObject>()
+//var SERVER_HOST_URL = "https://ruby-drakkensaer.c9users.io"
+var SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
 
 class WebCallController: URLSession {
     
@@ -91,8 +93,10 @@ class WebCallController: URLSession {
             // Convert the data recieved into JSON
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                print(json)
                 let dictionaryArray = json as! Dictionary<String, Any>
                 callback(dictionaryArray)
+                
             } catch let jsonError {
                 print("There was a json error!:\n")
                 print(jsonError)
@@ -111,7 +115,7 @@ class WebCallController: URLSession {
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
         // Create post request
-        let url = URL(string: "http://paulsens-beacon.herokuapp.com/api/login")!
+        let url = URL(string: SERVER_HOST_URL + "/api/login.json")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -169,6 +173,7 @@ class WebCallController: URLSession {
         // Convert data into JSON format
         let jsonData = try? JSONSerialization.data(withJSONObject: data)
         
+        
         // Create POST request
         let url = URL(string: urlToCall)!
         var request = URLRequest(url: url)
@@ -184,6 +189,7 @@ class WebCallController: URLSession {
         
         print("Trying PUT request with URL: " + urlToCall)
         print("With data: " + data.description)
+        print("And token: " + user.webToken!)
         
         
         // Create semaphore
@@ -208,7 +214,7 @@ class WebCallController: URLSession {
             // Otherwise, print the data to the console
             let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("\n\nDataRecieved from PUT:\n")
-            print(str!)
+            print(str!.substring(to: 100))
             print("\n-----\n")
             
             // Convert the data recieved into JSON
@@ -242,6 +248,13 @@ class WebCallController: URLSession {
         let url = URL(string: urlToCall)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        
+        //grabbing user token for authorization purposed, and adding it as an 'Authorization' header in the request
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        if let token = user.webToken {
+            request.addValue(token, forHTTPHeaderField: "Authorization")
+        }
         
         // Create semaphore
         let semaphore = DispatchSemaphore(value: 0)
@@ -503,17 +516,19 @@ class WebCallController: URLSession {
         
         // Log in
         // Catch an error if it occurs
+        /*
         webLogIn(loginCredentials: ["user": ["email": "test@test.com", "password": "password123"]]) { (dataJson) in
             if let error = dataJson["error"] as? String {
                 callback((true, error, nil))
             }
         }
+        */
         
         
  
         
         // Call the web server to return the beacon list
-        self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/beacons.json") { (beaconJson) in
+        self.webCall(urlToCall: SERVER_HOST_URL + "/beacons.json") { (beaconJson) in
             // If the beacon list was returned correctly, pass it to the closure
             // Otherwise, retrieve the error message that was passed back from the web server and pass that to the closure
             // If this error message cannot be retrieved, pass into the closure a generic erro message
@@ -545,7 +560,7 @@ class WebCallController: URLSession {
         */
         
         // Call web server to return list of historical events
-        self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/historical_events.json") { (historicalEventsJson) in
+        self.webCall(urlToCall: SERVER_HOST_URL + "/historical_events.json") { (historicalEventsJson) in
             // If the historical event list was returned correctly, pass it to the closure
             // Otherwise, retrieve the error message that was passed back from the web server and pass that to the closure
             // If this error message cannot be retrieved, pass into the closure a generic erro message
@@ -577,7 +592,7 @@ class WebCallController: URLSession {
         */
         
         // Call web server to return rewards list
-        self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/promotions.json") { (promotionsJson) in
+        self.webCall(urlToCall: SERVER_HOST_URL + "/promotions.json") { (promotionsJson) in
             // If the promotions list was returned correctly, extract all rewards and pass them to the closure
             // Otherwise, retrieve the error message that was passed back from the web server and pass that to the closure
             // If this error message cannot be retrieved, pass into the closure a generic erro message
@@ -614,7 +629,7 @@ class WebCallController: URLSession {
  */
         
         // Call web server to return daily deals list
-        self.webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/promotions.json") { (promotionsJson) in
+        self.webCall(urlToCall: SERVER_HOST_URL + "/promotions.json") { (promotionsJson) in
             // If the promotions list was returned correctly, extract all daily deals and pass them to the closure
             // Otherwise, retrieve the error message that was passed back from the web server and pass that to the closure
             // If this error message cannot be retrieved, pass into the closure a generic erro message
@@ -697,7 +712,7 @@ class WebCallController: URLSession {
     
     // Log the current user out
     func userLogOut() {
-        deleteRequest(urlToCall: "http://paulsens-beacon.herokuapp.com/logout")
+        deleteRequest(urlToCall: SERVER_HOST_URL + "/logout.json")
     }
     
     
@@ -706,7 +721,7 @@ class WebCallController: URLSession {
     // Returns nil if point value cannot be extracted from the web call
     func getUserPoints(callback: @escaping ((Bool, String, String?)) -> ()) {
         // Call web server to return the user's points
-        webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/account/points.json") { (pointsJson) in
+        webCall(urlToCall: SERVER_HOST_URL + "/account/points.json") { (pointsJson) in
             if let points = pointsJson["value"] as? Int {
                 let stringPoints = String(points)
                 callback((false, "No error.", stringPoints))
@@ -724,7 +739,7 @@ class WebCallController: URLSession {
     // Returns nil if point value cannot be extracted from the web call
     func getUserPhoneAddress(callback: @escaping ((Bool, String, String?)) -> ()) {
         // Call web server to return the user's points
-        webCall(urlToCall: "http://paulsens-beacon.herokuapp.com/account/users.json") { (userJson) in
+        webCall(urlToCall: SERVER_HOST_URL + "/account/users.json") { (userJson) in
             if let phone = userJson["value"] as? String, let address = userJson["value"] {
                 print(phone)
                 print(address)
@@ -738,16 +753,41 @@ class WebCallController: URLSession {
         }
     }
     
+    //Fetch user rewards
+    func fetchRewards() -> [Product]? {
+        let url = SERVER_HOST_URL + "/account/rewards.json"
+        webCall(urlToCall: url) { (serverResponse) in
+            if let error = serverResponse["error"] as? String {
+                print("Error with fetching rewards!" + error)
+            }
+            else {
+                print("FetchReward Respons: " + String(describing: serverResponse))
+            }
+        }
+        
+        return nil
+    }
+    
     
     
     //Purchase an item with the given id and price
-    func purchaseReward(productID: Int, cost: Int) -> Bool {
+    func purchaseReward(productID: Int, cost: Int, userID: Int) -> Bool {
+        
+        print(productID)
+        print(cost)
+        print(userID)
         
         //create dictionary to pass to PUT call
-        let data = ["productID": productID, "cost": cost]
-        let url = "to be decided"
-        
-         postRequest(urlToCall: url, data: data) { (dictionaryResponse) in
+        var products = ["id": productID]
+        products = ["cost": cost]
+        var data: [String: Any]
+        data = ["user": userID]
+        data = ["promotions_attributes": products]
+        let realData = ["order": data]
+        print(realData)
+        let url = SERVER_HOST_URL + "/orders.json"
+    
+         postRequest(urlToCall: url, data: realData) { (dictionaryResponse) in
             if let error = dictionaryResponse["error"] as? String {
                 print("Error with purchase reward request" + error)
             }
@@ -758,6 +798,28 @@ class WebCallController: URLSession {
         }
         
         return true
+        
+    }
+    
+    
+    
+    //Redeem an already purchased reward. Web Server should be returning a date as to how long the reward will be active
+    func redeemReward() -> Date {
+        let url = SERVER_HOST_URL + "/orders.json"
+        
+        let data = ["key":"Value"]
+        
+        postRequest(urlToCall: url, data: data) { (dictionaryResponse) in
+            if let error = dictionaryResponse["error"] as? String {
+                print("Error with purchase reward request" + error)
+            }
+            else{
+                print("purchase response: " + String(describing: dictionaryResponse))
+                
+            }
+        }
+        
+        return Date()
     }
     
     /*
@@ -781,7 +843,7 @@ class WebCallController: URLSession {
         // Call the PATCH function to send data to web server telling it to alter that entry in the user table
         // Catch the response
         var toReturn: (Bool, String) = (true, "There was an error catching the response from the web server.")
-        patchRequest(urlToCall: "http://paulsens-beacon.herokuapp.com/account", data: data) { (dataJson) in
+        patchRequest(urlToCall: SERVER_HOST_URL + "/account", data: data) { (dataJson) in
             print(dataJson["errors"] as Any)
             if let error = dataJson["errors"] as? Dictionary<String, [String]>{
                 let test = error["current_password"]
