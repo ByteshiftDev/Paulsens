@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
     
     // What if this is inside the function below?****
     // Create Instance of Beacon Manager
-    let beaconNotificationsManager = BeaconNotificationsManager()
+    //let beaconNotificationsManager = BeaconNotificationsManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -72,6 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate,
         
         //Change top status bar to light theme
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
+        let beaconNotificationsManager = BeaconNotificationsManager()
         
         return true
     }

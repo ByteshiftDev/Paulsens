@@ -46,7 +46,7 @@ class User: NSObject {
     
     private var email: String //This is used to store the email of the current user.
     
-    private var userID: Int?
+    public var userID: Int?
     
     private var points: Int? //This stores the current users points value (for display only)
     
@@ -397,6 +397,27 @@ class User: NSObject {
         }
         return String(describing: self.points!)
     }
+    
+    /*
+    //grabs the user orders
+    func updateRewards() {
+     
+        let webController = WebCallController()
+        
+        webController.webCall(urlToCall: SERVER_HOST_URL + "/beacons.json") { (orderJson) in
+            // If the order list was returned correctly, pass it to the closure
+            // Otherwise, retrieve the error message that was passed back from the web server and pass that to the closure
+            // If this error message cannot be retrieved, pass into the closure a generic erro message
+            if let beaconList = beaconJson["beacons"] as? Array<Dictionary<String, Any>>{
+                callback((false, "No error detected.", beaconList))
+            } else if let error = beaconJson["error"] as? String {
+                callback((true, error, nil))
+            } else {
+                callback((true, "An unexpected error occured while attempting to get the order list.", nil))
+            }
+        }
+    }
+    */
 
     
     // Increment points when entering Entry Beacon Region
@@ -412,7 +433,7 @@ class User: NSObject {
         self.points! += 1
         let data = ["value": self.points!]
         let Data = ["points": data]
-        let url = "http://paulsens-beacon.herokuapp.com/points/" + String(describing: userID!)
+        let url = SERVER_HOST_URL + "/points/" + String(describing: userID!) + ".json"
         webCallController.putRequest(urlToCall: url, data: Data) { (JSONresponse) in
             if let error = JSONresponse["error"] as? String {
                 print("error incrementing user points!" + error)

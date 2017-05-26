@@ -40,9 +40,11 @@ class PopUpViewController: UIViewController {
     @IBAction func redeemReward(_ sender: Any) {
         
         //Waiting for the correct url to be supplied
-        /*
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        
         let webController = WebCallController()
-        let success = webController.purchaseReward(productID: (product?.id)!, cost: (product?.cost)!)
+        let success = webController.purchaseReward(productID: (product?.id)!, cost: (product?.cost)!, userID: user.userID!)
         if(success){
             print("redeem Successful!")
             //now do something
@@ -51,9 +53,9 @@ class PopUpViewController: UIViewController {
             print("redeem not Successful!")
             //now do something
         }
-            */
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let user = appDelegate.user
+        
+        
+        
         user.userRewards.append(userReward(title: productTitle.text! , des: productDesc.text! ))
         
         print("Redeeming the reward")
