@@ -159,7 +159,7 @@ class SettingsViewController: UIViewController {
         
         if(user.emailGetter() != "noUser"){
             self.welcome.text = user.emailGetter()
-        }else{self.welcome.text = ""}
+        }else{self.welcome.text = "Welcome!"}
     }
 
     

@@ -11,7 +11,6 @@
 		2325D4291E42EE3900996C33 /* BeaconNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325D4281E42EE3900996C33 /* BeaconNotificationsManager.swift */; };
 		23A107A91E46CB33001FE7AF /* UserNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A107A81E46CB33001FE7AF /* UserNotificationsManager.swift */; };
 		23E7282B1E29D6F800B25F3D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E7282A1E29D6F800B25F3D /* HistoryTableViewCell.swift */; };
-		2F424BDC1E5A90C500143BA0 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F424BDB1E5A90C500143BA0 /* EditAccountViewController.swift */; };
 		2F83ACCC1E6298B000DDC9DD /* RootTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F83ACCB1E6298B000DDC9DD /* RootTabViewController.swift */; };
 		2F92EBCF1E66C35D00B8C699 /* ConfirmCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F92EBCE1E66C35D00B8C699 /* ConfirmCredentialsViewController.swift */; };
 		2FEDDAD41E2C4DC50095013F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2FEDDAD31E2C4DC50095013F /* .gitignore */; };
@@ -29,7 +28,6 @@
 		7F70D6E31E76BAB1004C207D /* DealsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70D6E21E76BAB1004C207D /* DealsCollectionViewCell.swift */; };
 		7F70D6E71E76CAB0004C207D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70D6E61E76CAB0004C207D /* DetailsViewController.swift */; };
 		A364DB541E469BAB00B38C11 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364DB531E469BAB00B38C11 /* User.swift */; };
-		A38F7DE41EA12F820066EDD6 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F7DE31EA12F820066EDD6 /* Tokens.swift */; };
 		A3C15B861E9565F9000785C8 /* EditAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */; };
 		A3C2E9A31E63CF07001BC63B /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C2E9A21E63CF07001BC63B /* PopUpViewController.swift */; };
 		A3D374481EB33E6D00017606 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D374461EB33E6D00017606 /* KeychainItemAccessibility.swift */; };
@@ -68,7 +66,6 @@
 		2325D4281E42EE3900996C33 /* BeaconNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconNotificationsManager.swift; sourceTree = "<group>"; };
 		23A107A81E46CB33001FE7AF /* UserNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationsManager.swift; sourceTree = "<group>"; };
 		23E7282A1E29D6F800B25F3D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		2F424BDB1E5A90C500143BA0 /* EditAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		2F83ACCB1E6298B000DDC9DD /* RootTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabViewController.swift; sourceTree = "<group>"; };
 		2F92EBCE1E66C35D00B8C699 /* ConfirmCredentialsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmCredentialsViewController.swift; sourceTree = "<group>"; };
 		2FEDDAD31E2C4DC50095013F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -86,7 +83,6 @@
 		7F70D6E21E76BAB1004C207D /* DealsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F70D6E61E76CAB0004C207D /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		A364DB531E469BAB00B38C11 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
-		A38F7DE31EA12F820066EDD6 /* Tokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tokens.swift; path = ../Tokens.swift; sourceTree = "<group>"; };
 		A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountTableViewController.swift; sourceTree = "<group>"; };
 		A3C2E9A21E63CF07001BC63B /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		A3D374461EB33E6D00017606 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
@@ -217,9 +213,9 @@
 		A3A19B931E78953900F7FDFC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */,
 				2F92EBCE1E66C35D00B8C699 /* ConfirmCredentialsViewController.swift */,
 				7E6F04051E25947800D0F41A /* LogInViewController.swift */,
-				2F424BDB1E5A90C500143BA0 /* EditAccountViewController.swift */,
 				7E6F04091E2594B900D0F41A /* AccountCreationViewController.swift */,
 				7E6F04071E25949A00D0F41A /* SettingsViewController.swift */,
 			);
@@ -278,8 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				DF2556F51DE422EC006B3CC5 /* Main.storyboard */,
-				A38F7DE31EA12F820066EDD6 /* Tokens.swift */,
-				A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */,
 				DF2538A51E642A1A00360F8C /* WebCallFiles */,
 				7ECF68D21E3AC47E00AF3511 /* BeaconFiles */,
 				A3A19B8E1E7894BC00F7FDFC /* Deals */,
@@ -468,12 +462,10 @@
 				7F70D6E31E76BAB1004C207D /* DealsCollectionViewCell.swift in Sources */,
 				2F83ACCC1E6298B000DDC9DD /* RootTabViewController.swift in Sources */,
 				2F92EBCF1E66C35D00B8C699 /* ConfirmCredentialsViewController.swift in Sources */,
-				2F424BDC1E5A90C500143BA0 /* EditAccountViewController.swift in Sources */,
 				7F70D6E11E76BA15004C207D /* DealsViewController.swift in Sources */,
 				7E6F04081E25949A00D0F41A /* SettingsViewController.swift in Sources */,
 				7F3A28401E53FE0300EFAE30 /* RewardsCollectionViewCell.swift in Sources */,
 				7E6F04061E25947800D0F41A /* LogInViewController.swift in Sources */,
-				A38F7DE41EA12F820066EDD6 /* Tokens.swift in Sources */,
 				DF2556F41DE422EC006B3CC5 /* HomeViewController.swift in Sources */,
 				DF2556F21DE422EC006B3CC5 /* AppDelegate.swift in Sources */,
 				7E6F04021E25920C00D0F41A /* HistoryViewController.swift in Sources */,
