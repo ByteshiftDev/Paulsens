@@ -28,6 +28,10 @@ class WalletViewController: UITableViewController{
     let cellID = "WalletCell"
     var selectedIndexPath = -1
     private var rewardArray = [Reward]()
+    
+    private var prod = [Product]()
+    
+    let webCallController = WebCallController()
     //var wallet = [Reward]()
     
     @IBAction func useReward(_ sender: Any) {
@@ -38,11 +42,18 @@ class WalletViewController: UITableViewController{
         super.viewDidLoad()
         
         rewardArray.append(Reward(title: "Dope reward" , des: "Cool Beans!" ))
+        /*
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let user = appDelegate.user
         for dict in user.userRewards{
             rewardArray.append(Reward(title: dict["title"] , des: dict["des"] ))
     
+        }*/
+        
+        prod = webCallController.fetchRewards()!
+        
+        for p in prod{
+            rewardArray.append(Reward(title: p.title, des: p.description))
         }
         
         tableView.tableFooterView = UIView() // Create blank rows after filled in cells

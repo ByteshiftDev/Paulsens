@@ -56,7 +56,7 @@ class PopUpViewController: UIViewController {
         
         
         
-        user.userRewards.append(userReward(title: productTitle.text! , des: productDesc.text! ))
+        //user.userRewards.append(userReward(title: productTitle.text! , des: productDesc.text! ))
         
         print("Redeeming the reward")
         print(user.userRewards)
