@@ -847,7 +847,7 @@ class WebCallController: URLSession {
         // Call the PATCH function to send data to web server telling it to alter that entry in the user table
         // Catch the response
         var toReturn: (Bool, String) = (true, "There was an error catching the response from the web server.")
-        patchRequest(urlToCall: SERVER_HOST_URL + "/account", data: data) { (dataJson) in
+        putRequest(urlToCall: SERVER_HOST_URL + "/account.json", data: data) { (dataJson) in
             print(dataJson["errors"] as Any)
             if let error = dataJson["errors"] as? Dictionary<String, [String]>{
                 print(error)
