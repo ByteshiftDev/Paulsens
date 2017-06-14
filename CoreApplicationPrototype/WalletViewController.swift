@@ -50,8 +50,50 @@ class WalletViewController: UITableViewController{
     
         }*/
         
-        prod = webCallController.fetchRewards()!
-        
+        webCallController.fetchRe{(isError, errorMessage, rewardsList) in
+            if(isError){
+                // Make sure the UI update occurs on the MAIN thread
+                DispatchQueue.main.async(execute: { () -> Void in
+                    // Check the appdelegate to see if we are already displaying a warning, if so, don't display this one
+                    // This is to avoid one error such as internet connection failed from causing multiple errors
+                    // When the tabbarController attempts to load.
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    let dispAlert = appDelegate.isDisplayingPopup
+                    if(!dispAlert){
+                        appDelegate.isDisplayingPopup = true
+                        let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle:UIAlertControllerStyle.alert)
+                        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alertController, animated:true, completion: { () in
+                            appDelegate.isDisplayingPopup = false })
+                    }
+                })
+                return
+            } else {
+                print("WALLET")
+                var newRewards = [Reward]()
+                var i = 0
+                for dict in rewardsList! {
+                    print("Event \(i):")
+                    print(dict)
+                    print("\n---\n")
+                    //newEvents.append(Event(year: dict["date"] as! String, image: #imageLiteral(resourceName: "Image0"), title: dict["title"] as! String, des: dict["description"] as! String))
+                    i = i+1
+                }
+                
+                self.rewardArray = newRewards
+                // Make sure the UI update occurs on the MAIN thread
+                /*DispatchQueue.main.async(execute: { () -> Void in
+                    if self.eventArray.count > 0 {
+                        self.historyTableView.reloadData()
+                        self.historyTableView.backgroundView!.isHidden = true
+                    }
+                    else {
+                        self.historyTableView.backgroundView!.isHidden = false
+                    }
+                })*/
+                
+            }
+        }
         for p in prod{
             rewardArray.append(Reward(title: p.title, des: p.description))
         }

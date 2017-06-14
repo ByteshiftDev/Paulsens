@@ -29,8 +29,8 @@ import UIKit
 
 // Cache to hold images from web
 var imageCache = NSCache<AnyObject, AnyObject>()
-//var SERVER_HOST_URL = "https://ruby-drakkensaer.c9users.io"
-var SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
+var SERVER_HOST_URL = "https://ruby-drakkensaer.c9users.io"
+//var SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
 
 class WebCallController: URLSession {
     
@@ -727,7 +727,7 @@ class WebCallController: URLSession {
     // Returns nil if point value cannot be extracted from the web call
     func getUserPoints(callback: @escaping ((Bool, String, String?)) -> ()) {
         // Call web server to return the user's points
-        webCall(urlToCall: SERVER_HOST_URL + "/account/points.json") { (pointsJson) in
+        webCall(urlToCall: SERVER_HOST_URL + "/account/credits.json") { (pointsJson) in
             if let points = pointsJson["value"] as? Int {
                 let stringPoints = String(points)
                 callback((false, "No error.", stringPoints))
@@ -775,6 +775,19 @@ class WebCallController: URLSession {
     }
     
     
+    func fetchRe(callback: @escaping ((Bool, String, Array<Dictionary<String, Any>>?)) -> ()){
+        
+        self.webCall(urlToCall: SERVER_HOST_URL + "/account.json"){ (accountRewardsJson) in
+            if let accountReawardsList = accountRewardsJson["rewards"] as? Array<Dictionary<String, Any>>{
+                callback((false, "No errors.",accountReawardsList))
+            }else if let error = accountRewardsJson["error"] as? String{
+                callback((true,error,nil))
+            }else{
+                callback((true, "Unexpedted error", nil))
+            }
+            
+        }
+    }
     
     //Purchase an item with the given id and price
     func purchaseReward(productID: Int, cost: Int, userID: Int) -> Bool {
