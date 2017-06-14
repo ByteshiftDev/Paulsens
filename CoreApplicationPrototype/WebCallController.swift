@@ -29,8 +29,8 @@ import UIKit
 
 // Cache to hold images from web
 var imageCache = NSCache<AnyObject, AnyObject>()
-//var SERVER_HOST_URL = "https://ruby-drakkensaer.c9users.io"
-var SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
+var SERVER_HOST_URL = "https://ruby-drakkensaer.c9users.io"
+//SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
 
 class WebCallController: URLSession {
     
@@ -846,8 +846,10 @@ class WebCallController: URLSession {
         
         // Call the PATCH function to send data to web server telling it to alter that entry in the user table
         // Catch the response
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
         var toReturn: (Bool, String) = (true, "There was an error catching the response from the web server.")
-        putRequest(urlToCall: "http://paulsens-beacon.herokuapp.com/account.json", data: data) { (dataJson) in
+        putRequest(urlToCall: SERVER_HOST_URL + "/users/" + String(user.idGetter()) + ".json", data: data) { (dataJson) in
             
             if let error = dataJson["errors"] as? Dictionary<String, [String]>{
                 print(error)
@@ -869,8 +871,3 @@ class WebCallController: URLSession {
     }
     
 }
-
-
-
-
-

@@ -472,6 +472,13 @@ class User: NSObject {
         return ""
     }
     
+    func idGetter()->Int{
+        if let id = self.userID {
+            return id
+        }
+        return 0
+    }
+    
     //this is for help, DELETE LATER
     func emailGetter()->String{
         return email
@@ -484,6 +491,8 @@ class User: NSObject {
     func setAddress(address: String!){
         self.address = address
     }
+    
+
     
     
 }
