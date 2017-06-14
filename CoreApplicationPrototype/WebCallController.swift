@@ -216,7 +216,7 @@ class WebCallController: URLSession {
             // Otherwise, print the data to the console
             let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("\n\nDataRecieved from PUT:\n")
-            print(str!.substring(to: 100))
+            print(str!)
             print("\n-----\n")
             
             // Convert the data recieved into JSON
@@ -847,8 +847,8 @@ class WebCallController: URLSession {
         // Call the PATCH function to send data to web server telling it to alter that entry in the user table
         // Catch the response
         var toReturn: (Bool, String) = (true, "There was an error catching the response from the web server.")
-        putRequest(urlToCall: SERVER_HOST_URL + "/account.json", data: data) { (dataJson) in
-            print(dataJson["errors"] as Any)
+        putRequest(urlToCall: "http://paulsens-beacon.herokuapp.com/account.json", data: data) { (dataJson) in
+            
             if let error = dataJson["errors"] as? Dictionary<String, [String]>{
                 print(error)
                 for (_, element) in error{
