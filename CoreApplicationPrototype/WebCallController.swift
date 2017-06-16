@@ -30,7 +30,7 @@ import UIKit
 // Cache to hold images from web
 var imageCache = NSCache<AnyObject, AnyObject>()
 var SERVER_HOST_URL = "https://ruby-drakkensaer.c9users.io"
-//SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
+//var SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
 
 class WebCallController: URLSession {
     
