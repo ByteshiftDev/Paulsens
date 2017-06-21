@@ -391,7 +391,7 @@ class User: NSObject {
                 self.points = Int(Float(userPoints!)!)
             }
             else{
-                print(errorMessage)
+                print("Error in updatePoints: " + String(errorMessage))
                 self.points = 2
             }
         }

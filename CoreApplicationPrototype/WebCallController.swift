@@ -29,8 +29,8 @@ import UIKit
 
 // Cache to hold images from web
 var imageCache = NSCache<AnyObject, AnyObject>()
-var SERVER_HOST_URL = "https://ruby-drakkensaer.c9users.io"
-//var SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
+//var SERVER_HOST_URL = "https://ruby-drakkensaer.c9users.io"
+var SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
 
 class WebCallController: URLSession {
     
@@ -84,16 +84,18 @@ class WebCallController: URLSession {
                 return
             }
             
+            /*
             // Otherwise, print the data to the console
             let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("\n\nDataRecieved:\n" + urlToCall)
             print(str!)
             print("\n-----\n")
+            */
             
             // Convert the data recieved into JSON
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-                print(json)
+                //print(json)
                 let dictionaryArray = json as! Dictionary<String, Any>
                 callback(dictionaryArray)
                 
@@ -140,11 +142,13 @@ class WebCallController: URLSession {
                 semaphore.signal()
                 return
             }
+            /*
             // Otherwise, print the data to the console
             let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("\n\nDataRecieved From Login:\n")
             print(str!)
             print("\n-----\n")
+            */
             
             // Convert the data recieved into JSON
             do {
@@ -277,11 +281,14 @@ class WebCallController: URLSession {
                 semaphore.signal()
                 return
             }
+            
+            /*
             // Otherwise, print the data to the console
             let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("\n\nDataRecieved from POST:\n")
             print(str!)
             print("\n-----\n")
+            */
             
             // Convert the data recieved into JSON
             do {
@@ -777,7 +784,7 @@ class WebCallController: URLSession {
     
     func fetchRe(callback: @escaping ((Bool, String, Array<Dictionary<String, Any>>?)) -> ()){
         
-        self.webCall(urlToCall: SERVER_HOST_URL + "/account.json"){ (accountRewardsJson) in
+        self.webCall(urlToCall: SERVER_HOST_URL + "/account/rewards.json"){ (accountRewardsJson) in
             if let accountReawardsList = accountRewardsJson["rewards"] as? Array<Dictionary<String, Any>>{
                 callback((false, "No errors.",accountReawardsList))
             }else if let error = accountRewardsJson["error"] as? String{
@@ -797,13 +804,12 @@ class WebCallController: URLSession {
         print(userID)
         
         //create dictionary to pass to PUT call
-        var products = ["id": productID]
-        products = ["cost": cost]
-        var data: [String: Any]
-        data = ["user": userID]
-        data = ["promotions_attributes": products]
-        let realData = ["order": data]
-        print(realData)
+        let products = ["id": productID, "cost": cost]
+        let timeStamp = "1";
+        let data = [timeStamp: products]
+        let almostData = ["promotions_attributes": data, "user_id": userID] as [String : Any]
+        let realData = ["order": almostData]
+        print("Purchase data: " + String(describing: realData))
         let url = SERVER_HOST_URL + "/orders.json"
     
          postRequest(urlToCall: url, data: realData) { (dictionaryResponse) in
