@@ -130,7 +130,7 @@ class CoreApplicationPrototypeTests: XCTestCase {
     func testUser() {
         let user = User(userEmail: "noUser")
         XCTAssertTrue(user.loggedIn() == false)
-        var result = user.loginUser(emailField: "acc@acc.com", passwordField: "password321")
+        var result = user.loginUser(emailField: "edittest@edit.com", passwordField: "password123")
         XCTAssert(result.0)
         XCTAssert(user.loggedIn())
         result = user.logOut()
@@ -143,6 +143,8 @@ class CoreApplicationPrototypeTests: XCTestCase {
     // test the functionality of the create account call.  This function attemps 3 creations, all
     // invalid.  the first creates a new user with an existing email, the second creates a user
     // with an invalid email, the final creates a user with an invalid password.
+    
+    /*
     func testCreateAccount () {
         let webCallController = WebCallController()
         var result = webCallController.createNewUser(userDict: ["email": "example@example.com", "password": "example2"])
@@ -151,6 +153,33 @@ class CoreApplicationPrototypeTests: XCTestCase {
         XCTAssert(result.0)
         result = webCallController.createNewUser(userDict: ["email": "whargarbl@whargarbl.com", "password": "pass"])
         XCTAssert(result.0)
+    }
+    */
+    
+
+    func testChangePasswordEditAccount() {
+        let webCallController = WebCallController()
+        let user = User(userEmail: "noUser")
+        
+        var result = user.loginUser(emailField: "edittest@edit.com", passwordField: "password123")
+        XCTAssert(result.0)
+        XCTAssert(user.loggedIn())
+        
+        result = webCallController.editUser(userDict: ["current_password": "password123", "password": "password321", "password_confirmation": "password321"])
+        XCTAssert(result.0)
+
+        result = user.logOut()
+ 
+        var result = user.loginUser(emailField: "edittest@edit.com", passwordField: "password123")
+        XCTAssert(result.0)
+        XCTAssert(user.loggedIn())
+        
+        result = webCallController.editUser(userDict: ["current_password": "password321", "password": "password123", "password_confirmation": "password123"])
+        XCTAssert(result.0)
+        
+        result = user.logOut()
+        
+
     }
     
     
