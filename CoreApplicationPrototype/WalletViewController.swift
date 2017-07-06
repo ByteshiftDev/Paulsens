@@ -23,6 +23,7 @@ struct Reward{
 
 class WalletViewController: UITableViewController{
     
+    
     @IBOutlet var walletTableView: UITableView!
     
     let cellID = "WalletCell"
@@ -41,14 +42,44 @@ class WalletViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        self.walletTableView.backgroundView = UILabel()
+        let bgView = self.walletTableView.backgroundView as! UILabel
+        
+        bgView.backgroundColor = UIColor.clear
+        bgView.textColor = UIColor.white
+        bgView.textAlignment = NSTextAlignment.center
+        bgView.numberOfLines = 0
+        bgView.adjustsFontSizeToFitWidth = true
+        bgView.text = "It appears nothing is loaded"
+        
+        self.walletTableView!.alwaysBounceVertical = true
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
+        self.walletTableView.addSubview(self.refreshControl!)
+        
+        loadWallet()
+        
+        
+        tableView.tableFooterView = UIView() // Create blank rows after filled in cells
+    }
+    
+    func loadData() {
+        loadWallet()
+        self.refreshControl!.endRefreshing()
+    }
+    
+    
+    func loadWallet() {
         rewardArray.append(Reward(title: "Dope reward" , des: "Cool Beans!" ))
         /*
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let user = appDelegate.user
-        for dict in user.userRewards{
-            rewardArray.append(Reward(title: dict["title"] , des: dict["des"] ))
-    
-        }*/
+         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+         let user = appDelegate.user
+         for dict in user.userRewards{
+         rewardArray.append(Reward(title: dict["title"] , des: dict["des"] ))
+         
+         }*/
         
         webCallController.fetchRe{(isError, errorMessage, rewardsList) in
             if(isError){
@@ -70,27 +101,42 @@ class WalletViewController: UITableViewController{
                 return
             } else {
                 print("WALLET")
-                var newRewards = [Reward]()
+                let newRewards = [Reward]()
                 var i = 0
+                
+                var rewardIDs = [Int]()
+                
                 for dict in rewardsList! {
                     print("Event \(i):")
                     print(dict)
                     print("\n---\n")
                     //newEvents.append(Event(year: dict["date"] as! String, image: #imageLiteral(resourceName: "Image0"), title: dict["title"] as! String, des: dict["description"] as! String))
                     i = i+1
+                    
+                    if(dict["rewardable_type"] as! String == "Promotion"){
+                        rewardIDs.append(dict["rewardable_id"] as! Int)
+                    }
+                    
                 }
+                print(rewardIDs)
+                
+                let rewards = self.fetchPromotions(rewardIDs: rewardIDs)
+                
+                print(rewards)
+                
+                
                 
                 self.rewardArray = newRewards
                 // Make sure the UI update occurs on the MAIN thread
-                /*DispatchQueue.main.async(execute: { () -> Void in
-                    if self.eventArray.count > 0 {
-                        self.historyTableView.reloadData()
-                        self.historyTableView.backgroundView!.isHidden = true
+                DispatchQueue.main.async(execute: { () -> Void in
+                    if self.rewardArray.count > 0 {
+                        self.walletTableView.reloadData()
+                        self.walletTableView.backgroundView!.isHidden = true
                     }
                     else {
-                        self.historyTableView.backgroundView!.isHidden = false
+                        self.walletTableView.backgroundView!.isHidden = false
                     }
-                })*/
+                })
                 
             }
         }
@@ -98,8 +144,61 @@ class WalletViewController: UITableViewController{
             rewardArray.append(Reward(title: p.title, des: p.description))
         }
         
-        tableView.tableFooterView = UIView() // Create blank rows after filled in cells
     }
+    
+    
+    /*
+    func fetchPromotions(rewardIDs: [Int]) -> [[String:Any]] {
+        let webController = WebCallController()
+        var toReturn = [[String:Any]]()
+        
+        for id in rewardIDs {
+            let url = SERVER_HOST_URL + "/promotions/" + String(id)
+            webController.webCall(urlToCall: url, callback: { (serverResponse) in
+                if let error = serverResponse["error"] as? String {
+                    print("Error with fetching wallet rewards!" + error)
+                }
+                else {
+                    toReturn.append(serverResponse)
+                }
+            })
+        }
+        return toReturn
+    }*/
+    
+    func fetchPromotions(rewardIDs: [Int]) -> [String:Any] {
+        let webController = WebCallController()
+        
+        
+        
+        for id in rewardIDs {
+            let url = SERVER_HOST_URL + "/promotions/" + String(id)
+            webController.webCall(urlToCall: url, callback: { (serverResponse) in
+                if let error = serverResponse["error"] as? String {
+                    print("Error with fetching wallet rewards!" + error)
+                }
+                else {
+                    print("Adding: " + String(describing: serverResponse));
+                    self.rewardArray.append(Reward(title: serverResponse["title"] as! String, des: serverResponse["description"] as! String))
+                    self.walletTableView.reloadData()
+                }
+            })
+        }
+        
+        return ["nope": "hello no"]
+    }
+    
+    
+    
+    
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.walletTableView.reloadData()
+    }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rewardArray.count
