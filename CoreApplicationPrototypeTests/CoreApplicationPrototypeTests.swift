@@ -165,6 +165,29 @@ class CoreApplicationPrototypeTests: XCTestCase {
         let user = User(userEmail: "noUser")
         XCTAssertTrue(user.loggedIn() == false)
         
+        var result = user.loginUser(emailField: "edittest@edit.com", passwordField: "password123")
+        XCTAssert(result.0)
+        XCTAssertTrue(user.loggedIn())
         
+        result = user.editPhone(phone: "1234567890", currentPassword: "password123")
+        XCTAssert(result.0)
+        
+        result = user.logOut()
+        XCTAssert(user.loggedIn() == false)
+    }
+    
+    func testChangeAddressEditAccount() {
+        let user = User(userEmail: "noUser")
+        XCTAssertTrue(user.loggedIn() == false)
+        
+        var result = user.loginUser(emailField: "edittest@edit.com", passwordField: "password123")
+        XCTAssert(result.0)
+        XCTAssertTrue(user.loggedIn())
+        
+        result = user.editAddress(address: "12345 NorthPole Ave., North Pole, North 00000", currentPassword: "password123")
+        XCTAssert(result.0)
+        
+        result = user.logOut()
+        XCTAssert(user.loggedIn() == false)
     }
 }
