@@ -209,7 +209,8 @@ class WalletViewController: UITableViewController{
         let dequeued = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
         let cell = dequeued as! WalletTableViewCell
-        
+      
+        cell.reward = rewardArray[indexPath.row]
         cell.rewardTitle.text = rewardArray[indexPath.row].title
         cell.rewardDes.text = rewardArray[indexPath.row].des
         
@@ -241,5 +242,21 @@ class WalletViewController: UITableViewController{
         }
     }
     
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
+    if(segue.identifier == "WalletPopUp" && sender != nil){
+      let button = sender as! UIButton
+      let content = button.superview
+      let cell = content?.superview as! WalletTableViewCell
+      let nextScene = segue.destination as! WalletPopUpViewController
+      
+      nextScene.reward = cell.reward
+    }
+  }
+  
+  @IBAction func showPopUp(_ sender: Any?) {
+    self.performSegue(withIdentifier: "WalletPopUp", sender: sender as! UIButton)
+  }
+  
+  
 }
