@@ -847,6 +847,25 @@ class WebCallController: URLSession {
         return Date()
     }
     
+    func testReward(rewardId:Int) {
+        
+        let endString = String(rewardId) + "/status.json"
+        
+        let url = SERVER_HOST_URL + "/rewards/" + endString
+    
+        let data = ["status_method":"redeem"]
+        
+        patchRequest(urlToCall: url, data: data){ (dictionaryResponse) in
+            if let error = dictionaryResponse["error"] as? String {
+                print("Error with purchase reward request" + error)
+            }
+            else{
+                print("redeem response: " + String(describing: dictionaryResponse))
+                
+            }
+        }
+    }
+    
     /*
  func putRequest(urlToCall: String, data: Dictionary<String, Any>, */
     
