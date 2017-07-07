@@ -38,8 +38,6 @@ class CoreApplicationPrototypeUITests: XCTestCase {
         let app = XCUIApplication()
         app.navigationBars["Home"].buttons["Item"].tap()
         app.buttons["Log In"].tap()
-        
-        
     }
     
     

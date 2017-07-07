@@ -130,6 +130,7 @@ class CoreApplicationPrototypeTests: XCTestCase {
     func testUser() {
         let user = User(userEmail: "noUser")
         XCTAssertTrue(user.loggedIn() == false)
+        
         var result = user.loginUser(emailField: "edittest@edit.com", passwordField: "password123")
         XCTAssert(result.0)
         XCTAssert(user.loggedIn())
@@ -138,101 +139,32 @@ class CoreApplicationPrototypeTests: XCTestCase {
         XCTAssertTrue(user.loggedIn() == false)
     }
     
-    
-    
-    // test the functionality of the create account call.  This function attemps 3 creations, all
-    // invalid.  the first creates a new user with an existing email, the second creates a user
-    // with an invalid email, the final creates a user with an invalid password.
-    
-    /*
-    func testCreateAccount () {
-        let webCallController = WebCallController()
-        var result = webCallController.createNewUser(userDict: ["email": "example@example.com", "password": "example2"])
-        XCTAssert(result.0)
-        result = webCallController.createNewUser(userDict: ["email": "example", "password": "password"])
-        XCTAssert(result.0)
-        result = webCallController.createNewUser(userDict: ["email": "whargarbl@whargarbl.com", "password": "pass"])
-        XCTAssert(result.0)
-    }
-    */
-    
-
+    // Test if the user can change their password then change it back to the original
+    // so testUser() can sign in with the same credentials
     func testChangePasswordEditAccount() {
-        let webCallController = WebCallController()
         let user = User(userEmail: "noUser")
+        XCTAssertTrue(user.loggedIn() == false)
         
         var result = user.loginUser(emailField: "edittest@edit.com", passwordField: "password123")
         XCTAssert(result.0)
-        XCTAssert(user.loggedIn())
+        XCTAssertTrue(user.loggedIn())
         
-        result = webCallController.editUser(userDict: ["current_password": "password123", "password": "password321", "password_confirmation": "password321"])
+        result = user.editPassword(currentPassword: "password123", password: "password321", repeatPassword:"password321")
         XCTAssert(result.0)
-
-        result = user.logOut()
- 
-        var result = user.loginUser(emailField: "edittest@edit.com", passwordField: "password123")
-        XCTAssert(result.0)
-        XCTAssert(user.loggedIn())
         
-        result = webCallController.editUser(userDict: ["current_password": "password321", "password": "password123", "password_confirmation": "password123"])
+        
+        result = user.editPassword(currentPassword: "password321", password: "password123", repeatPassword:"password123")
         XCTAssert(result.0)
         
         result = user.logOut()
-        
+        XCTAssertTrue(user.loggedIn() == false)
 
     }
     
-    
-    // Test the edit account functionality of the web controller using an already created account
-    // get a user and webCallController.  Then, login a user whom exists, update their password
-    // to the reverse of current, assert the call was successful, then try to login with the old
-    // password, which should fail, then try to login with the new password, should succeeed.
-    // Reset the password to the original, then repeat that process.  Now, test trying to edit
-    // while not logged in, and test trying to edit with mismatched passwords and the wrong current
-    // password.  This should fail.  User functions return true if successful, webCall return true
-    // if unsuccessful.
-    func testEditAccount () {
-        let webCallController = WebCallController()
+    func testChangePhoneNumberEditAccount() {
         let user = User(userEmail: "noUser")
+        XCTAssertTrue(user.loggedIn() == false)
         
-        var result = user.loginUser(emailField: "capstone@capstone.com", passwordField: "enotspac")
-        XCTAssert(result.0)
-        XCTAssert(user.loggedIn())
         
-        result = webCallController.editUser(userDict: ["email": "capstone@capstone.com", "current_password": "enotspac", "password": "capstone", "password_confirmation": "capstone"])
-        XCTAssertFalse(result.0)
-        
-        result = user.logOut()
-        result = user.loginUser(emailField: "capstone@capstone.com", passwordField: "enotspac")
-        XCTAssertFalse(result.0)
-        XCTAssertFalse(user.loggedIn())
-        
-        result = user.loginUser(emailField: "capstone@capstone.com", passwordField: "capstone")
-        XCTAssert(result.0)
-        XCTAssert(user.loggedIn())
-        
-        result = webCallController.editUser(userDict: ["email": "capstone@capstone.com", "current_password": "capstone", "password": "enotspac", "password_confirmation": "enotspac"])
-        XCTAssertFalse(result.0)
-        
-        result = user.loginUser(emailField: "capstone@capstone.com", passwordField: "capstone")
-        XCTAssertFalse(result.0)
-        XCTAssertFalse(user.loggedIn())
-        
-        result = user.loginUser(emailField: "capstone@capstone.com", passwordField: "enotspac")
-        XCTAssert(result.0)
-        XCTAssert(user.loggedIn())
-        
-        result = user.logOut()
-        XCTAssertFalse(user.loggedIn())
-        
-        result = webCallController.editUser(userDict: ["email": "capstonasdfae@capstone.com", "current_password": "capstone", "password": "enotspac", "password_confirmation": "enotspac"])
-        XCTAssert(result.0)
-        
-        result = user.loginUser(emailField: "capstone@capstone.com", passwordField: "enotspac")
-        
-        result = webCallController.editUser(userDict: ["email": "capstone@capstone.com", "current_password": "capstone", "password": "enotsp", "password_confirmation": "etspac"])
-        XCTAssert(result.0)
-
-
     }
 }
