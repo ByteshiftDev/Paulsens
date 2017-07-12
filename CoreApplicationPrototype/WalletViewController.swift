@@ -111,7 +111,7 @@ class WalletViewController: UITableViewController{
                 for dict in rewardsList! {
                     print("Reward \(i):")
                     print(dict);
-                    if(dict["resource_state"] as! String == "pending" && dict["user_id"] as! Int == 1){
+                    if(dict["resource_state"] as! String == "pending"){
                 
                         print(dict["resource_state"] as! String)
                         let item = (dict["item"] as! [String: Any])
@@ -122,20 +122,11 @@ class WalletViewController: UITableViewController{
                         print("\n---\n")
                         newRewards.append(Reward(title: itemTitle, des: itemDesc, rewardId: itemId))
                     }
-                    /*
-                    let item = (dict["item"] as! [String: Any])
-                    let itemTitle = item["title"] as! String
-                    let itemDesc = item["description"] as! String
-                    let itemId = item["id"] as! Int
-                    print(itemTitle)
-                    print("\n---\n")
-                    newRewards.append(Reward(title: itemTitle, des: itemDesc, rewardId: itemId))
-                    */
+
                     i = i+1
         
                     
                 }
-                
                 
                 
                 self.rewardArray = newRewards
@@ -157,53 +148,6 @@ class WalletViewController: UITableViewController{
         }*/
         
     }
-    
-    
-    /*
-    func fetchPromotions(rewardIDs: [Int]) -> [[String:Any]] {
-        let webController = WebCallController()
-        var toReturn = [[String:Any]]()
-        
-        for id in rewardIDs {
-            let url = SERVER_HOST_URL + "/promotions/" + String(id)
-            webController.webCall(urlToCall: url, callback: { (serverResponse) in
-                if let error = serverResponse["error"] as? String {
-                    print("Error with fetching wallet rewards!" + error)
-                }
-                else {
-                    toReturn.append(serverResponse)
-                }
-            })
-        }
-        return toReturn
-    }
-    
-    func fetchPromotions(rewardIDs: [Int]) -> [String:Any] {
-        let webController = WebCallController()
-        
-        
-        
-        for id in rewardIDs {
-            let url = SERVER_HOST_URL + "/promotions/" + String(id)
-            webController.webCall(urlToCall: url, callback: { (serverResponse) in
-                if let error = serverResponse["error"] as? String {
-                    print("Error with fetching wallet rewards!" + error)
-                }
-                else {
-                    print("Adding: " + String(describing: serverResponse));
-                    self.rewardArray.append(Reward(title: serverResponse["title"] as! String, des: serverResponse["description"] as! String))
-                    self.walletTableView.reloadData()
-                }
-            })
-        }
-        
-        return ["nope": "hello no"]
-    }*/
-    
-    
-    
-    
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
