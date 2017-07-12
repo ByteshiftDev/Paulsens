@@ -106,11 +106,23 @@ class WalletViewController: UITableViewController{
                 var newRewards = [Reward]()
                 var i = 0
                 
-                var rewardIDs = [Int]()
+                //var rewardIDs = [Int]()
                 
                 for dict in rewardsList! {
                     print("Reward \(i):")
                     print(dict);
+                    if(dict["resource_state"] as! String == "pending" && dict["user_id"] as! Int == 1){
+                
+                        print(dict["resource_state"] as! String)
+                        let item = (dict["item"] as! [String: Any])
+                        let itemTitle = item["title"] as! String
+                        let itemDesc = item["description"] as! String
+                        let itemId = dict["id"] as! Int//item["id"] as! Int
+                        print(itemTitle)
+                        print("\n---\n")
+                        newRewards.append(Reward(title: itemTitle, des: itemDesc, rewardId: itemId))
+                    }
+                    /*
                     let item = (dict["item"] as! [String: Any])
                     let itemTitle = item["title"] as! String
                     let itemDesc = item["description"] as! String
@@ -118,20 +130,11 @@ class WalletViewController: UITableViewController{
                     print(itemTitle)
                     print("\n---\n")
                     newRewards.append(Reward(title: itemTitle, des: itemDesc, rewardId: itemId))
-                    
+                    */
                     i = i+1
-                    
-                    /*
-                     if(dict["rewardable_type"] as! String == "Promotion"){
-                     rewardIDs.append(dict["rewardable_id"] as! Int)
-                     }*/
+        
                     
                 }
-                //print(rewardIDs)
-                
-                //let rewards = self.fetchPromotions(rewardIDs: rewardIDs)
-                
-                //print(rewards)
                 
                 
                 

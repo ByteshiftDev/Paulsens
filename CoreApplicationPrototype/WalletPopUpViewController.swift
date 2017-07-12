@@ -50,7 +50,6 @@ class WalletPopUpViewController: UIViewController {
     
     let webCallController = WebCallController() // Create a web call controller object to make the call.
     webCallController.testReward(rewardId: (reward!.rewardId)!)
-    
 
    }
     
