@@ -28,76 +28,35 @@ class CoreApplicationPrototypeUITests: XCTestCase {
     }
     
     
-    
-
-    //Tests out the app(general): clicking all the tab bars, clicking history tabs, and clicking on deals
-    //This is recorded code.
-    func testExample() {
-        XCUIDevice.shared().orientation = .portrait
+    //This function tests out the user capability to log in and 
+    //log out. Want to log in and log out in one function due to 
+    //persistent data
+    func testLogInLogOut(){
         
         let app = XCUIApplication()
-        app.navigationBars["Home"].buttons["Item"].tap()
-        app.buttons["Log In"].tap()
-    }
+        let itemButton = app.navigationBars["Home"].buttons["Item"]
+        itemButton.tap()
+        
+        let logInButton = app.buttons["Log In"]
+        logInButton.tap()
     
-    
-    // Tests out functionality related to a user logging in
-    // These include the restriction to rewards, the settings login/logout and create/edit account buttons status, and whether these entries
-    // update upon moving to logged in or logged out status
-    func testLogin(){
-        let app = XCUIApplication()
-        app.navigationBars["Home"].buttons["Item"].tap()
         
-        let tabBarsQuery = app.tabBars
-   
-        // Rewards should pop an error if entering the app without logging in and trying to access it.
-        tabBarsQuery.buttons["Rewards"].tap()
-        XCTAssert(app.alerts["Error"].exists)
-        app.alerts["Error"].buttons["Cancel"].tap()
+        let emailAddressTextField = app.textFields["email address"]
+        emailAddressTextField.tap()
+        emailAddressTextField.typeText("edittest@edit.com")
         
+        let passwordSecureTextField = app.secureTextFields["password"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("password123")
         
-        tabBarsQuery.buttons["History"].tap()
-        tabBarsQuery.buttons["Home"].tap()
-        
-        // Assert the UI stuff on the settings page is set correctly
-        XCTAssert(app.buttons["Log In"].exists)
-        XCTAssert(app.buttons["Create Account"].exists)
-        
-        // tab the login button on settings
-        app.buttons["Log In"].tap()
-        
-        // This was recorded, enter a working account info
-        let emailTextField = app.textFields["email address"]
-        let passwordTextField = app.secureTextFields["password"]
-        emailTextField.tap()
-        emailTextField.typeText("example@example.com")
-        passwordTextField.tap()
-        passwordTextField.typeText("example")
-        
-        // Test the password visibility switch
         app.switches["0"].tap()
-        XCTAssert(passwordTextField.exists == false)
         app.switches["1"].tap()
-        XCTAssert(passwordTextField.exists)
-        
-        // Login to the app, then check rewards access for success
-        app.buttons["Log In"].tap()
-        tabBarsQuery.buttons["Rewards"].tap()
-        XCTAssert(app.staticTexts["Rewards"].exists)
-        
-        // Go back to settings, then make sure the buttons read correctly
-        tabBarsQuery.buttons["Home"].tap()
-        app.navigationBars["Home"].buttons["Item"].tap()
-        XCTAssert(app.buttons["Log Out"].exists)
-        XCTAssert(app.buttons["Edit Account"].exists)
-        
-        // Logout and make sure the login screen is displayed, and rewards is inaccessible.
+        logInButton.tap()
+        itemButton.tap()
         app.buttons["Log Out"].tap()
-        //XCTAssert(app.buttons["Log In"].exists)
-        tabBarsQuery.buttons["Rewards"].tap()
-        XCTAssert(app.alerts["Error"].exists)
-        app.alerts["Error"].buttons["Cancel"].tap()
+        
     }
+    
     
     
     // Test whether a user rushing to the login page can login
@@ -164,28 +123,46 @@ class CoreApplicationPrototypeUITests: XCTestCase {
     func testDailyDeals(){
         XCUIDevice.shared().orientation = .portrait
         
-        let cellsQuery = XCUIApplication().collectionViews.cells
-        let gulgowskiFadelAndVeum0Element = cellsQuery.otherElements.containing(.staticText, identifier:"Gulgowski, Fadel and Veum_0").element
-        gulgowskiFadelAndVeum0Element.swipeLeft()
+        let app = XCUIApplication()
+        let image = app.collectionViews.cells.otherElements.children(matching: .image).element
+        image.tap()
         
-        let walshKuhnAndBlick1Element = cellsQuery.otherElements.containing(.staticText, identifier:"Walsh, Kuhn and Blick_1").element
-        walshKuhnAndBlick1Element.swipeLeft()
+        let xButton = app.buttons["[X]"]
+        xButton.tap()
+        image.swipeLeft()
+        image.tap()
+        xButton.tap()
+        image.swipeRight()
+        
         
         
     }
     
-    
-    //THis test is the user trying to go to the online order page
-    func testOnlinePrescription(){
-        
 
-        
-    }
-    
     
     //This test is the user going paulsen's website through the about page
     func testAboutWeb(){
+        XCUIDevice.shared().orientation = .portrait
         
+        let app = XCUIApplication()
+        app.tabBars.buttons["About"].tap()
+        
+        let httpsWwwPaulsenspharmacyComTextView = app.textViews.containing(.link, identifier:"https://www.paulsenspharmacy.com").element
+        httpsWwwPaulsenspharmacyComTextView.swipeUp()
+        httpsWwwPaulsenspharmacyComTextView.tap()
+        
+        let websiteTransferAlert = app.alerts["WEBSITE TRANSFER"]
+        websiteTransferAlert.buttons["NO"].tap()
+        httpsWwwPaulsenspharmacyComTextView.tap()
+        websiteTransferAlert.buttons["YES"].tap()
+        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared().orientation = .portrait
+        app.statusBars.buttons["Return to CoreApplicationPrototype"].tap()
+        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared().orientation = .portrait
+        
+        
+        /*
         let app = XCUIApplication()
         app.tabBars.buttons["About"].tap()
         
@@ -202,8 +179,9 @@ class CoreApplicationPrototypeUITests: XCTestCase {
         app.statusBars.buttons["Return to CoreApplicationPrototype"].tap()
         XCUIDevice.shared().orientation = .portrait
         XCUIDevice.shared().orientation = .portrait
-        
+        */
 
+        
     }
     
     

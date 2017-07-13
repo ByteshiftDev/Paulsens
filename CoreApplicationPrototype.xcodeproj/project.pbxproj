@@ -27,6 +27,7 @@
 		7F70D6E11E76BA15004C207D /* DealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70D6E01E76BA15004C207D /* DealsViewController.swift */; };
 		7F70D6E31E76BAB1004C207D /* DealsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70D6E21E76BAB1004C207D /* DealsCollectionViewCell.swift */; };
 		7F70D6E71E76CAB0004C207D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70D6E61E76CAB0004C207D /* DetailsViewController.swift */; };
+		A360CEFD1F16A542000998D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF2556F51DE422EC006B3CC5 /* Main.storyboard */; };
 		A364DB541E469BAB00B38C11 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364DB531E469BAB00B38C11 /* User.swift */; };
 		A3C15B861E9565F9000785C8 /* EditAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C15B851E9565F9000785C8 /* EditAccountTableViewController.swift */; };
 		A3C2E9A31E63CF07001BC63B /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C2E9A21E63CF07001BC63B /* PopUpViewController.swift */; };
@@ -437,6 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A360CEFD1F16A542000998D6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
