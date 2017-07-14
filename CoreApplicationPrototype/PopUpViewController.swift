@@ -47,20 +47,20 @@ class PopUpViewController: UIViewController {
         let success = webController.purchaseReward(productID: (product?.id)!, cost: (product?.cost)!, userID: user.userID!)
         if(success){
             print("redeem Successful!")
+            print("Redeeming the reward")
+            print(user.userRewards)
+            self.dismiss(animated: true, completion: nil)
             
         }
         else {
             print("redeem not Successful!")
-            //now do something
+            self.dismiss(animated: true, completion: nil)
         }
         
         
         
         //user.userRewards.append(userReward(title: productTitle.text! , des: productDesc.text! ))
         
-        print("Redeeming the reward")
-        print(user.userRewards)
-        self.dismiss(animated: true, completion: nil)
     }
     
     

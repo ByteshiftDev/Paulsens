@@ -9,7 +9,9 @@
 import UIKit
 
 class WalletTableViewCell: UITableViewCell{
-    
+  
+    var reward : Reward? = nil
+  
     @IBOutlet weak var rewardTitle: UILabel!    //Reward Title
     
     @IBOutlet weak var rewardDes: UILabel!      //Reward description

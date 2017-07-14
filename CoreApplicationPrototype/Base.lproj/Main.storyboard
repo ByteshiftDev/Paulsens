@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zp1-tX-188">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zp1-tX-188">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -540,7 +540,7 @@ https://www.paulsenspharmacy.com
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kj7-9w-LpF">
-                                                    <rect key="frame" x="44" y="141" width="232" height="27"/>
+                                                    <rect key="frame" x="44" y="140" width="232" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" red="0.36470588235294116" green="0.36470588235294116" blue="0.36470588235294116" alpha="0.6933058647260274" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -667,7 +667,7 @@ https://www.paulsenspharmacy.com
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Current Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tog-ve-HEe">
-                                <rect key="frame" x="0.0" y="64" width="320" height="72.5"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="73"/>
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.3411764706" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Tog-ve-HEe" secondAttribute="height" multiplier="75:17" id="TUa-0S-c9T"/>
@@ -677,7 +677,7 @@ https://www.paulsenspharmacy.com
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kZv-IL-98K">
-                                <rect key="frame" x="16" y="178.5" width="288" height="332.5"/>
+                                <rect key="frame" x="16" y="179" width="288" height="332"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SdS-8Q-nFr">
                                     <size key="itemSize" width="160" height="160"/>
@@ -734,7 +734,7 @@ https://www.paulsenspharmacy.com
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMd-nh-ByA">
-                                <rect key="frame" x="0.0" y="136.5" width="320" height="34"/>
+                                <rect key="frame" x="0.0" y="137" width="320" height="34"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.60784313729999995" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vMd-nh-ByA" secondAttribute="height" multiplier="75:8" id="96H-tj-D75"/>
@@ -744,7 +744,7 @@ https://www.paulsenspharmacy.com
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sh-hf-ahT">
-                                <rect key="frame" x="244" y="88" width="60" height="24.5"/>
+                                <rect key="frame" x="244" y="88" width="60" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="ZD2-09-iqd"/>
                                 </constraints>
@@ -810,7 +810,9 @@ https://www.paulsenspharmacy.com
                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
                                             <connections>
+                                                <action selector="showPopUp:" destination="Vat-0P-Lgb" eventType="touchUpInside" id="AaH-yR-ZQb"/>
                                                 <action selector="useReward:" destination="Vat-0P-Lgb" eventType="touchUpInside" id="dgu-ZW-bJw"/>
+                                                <segue destination="AWh-jp-Z68" kind="presentation" identifier="WalletPopUp" id="KMv-BB-QEb"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deal Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7s-bk-stA">
@@ -840,6 +842,9 @@ https://www.paulsenspharmacy.com
                             <outlet property="delegate" destination="Vat-0P-Lgb" id="Ny4-c8-Eh0"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="walletTableView" destination="SJK-pn-L5Q" id="Ahs-bG-jX4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0t-z5-efh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -965,6 +970,102 @@ https://www.paulsenspharmacy.com
             </objects>
             <point key="canvasLocation" x="1065" y="2049.2957746478874"/>
         </scene>
+        <!--Wallet Pop Up View Controller-->
+        <scene sceneID="nYQ-Hb-7zC">
+            <objects>
+                <viewController id="AWh-jp-Z68" customClass="WalletPopUpViewController" customModule="CoreApplicationPrototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="101-cu-AX7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nxq-s0-yad"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rqn-SP-Zzg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzA-uA-At1">
+                                <rect key="frame" x="31" y="458" width="258" height="37"/>
+                                <color key="backgroundColor" red="0.7725490196" green="0.60784313729999995" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="4P1-e3-djv"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Redeem">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="redeemReward:" destination="9zM-Ep-aIe" eventType="touchUpInside" id="5KZ-ld-zuo"/>
+                                    <action selector="redeemReward:" destination="AWh-jp-Z68" eventType="touchUpInside" id="EZk-b5-ckC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckZ-mj-WEX">
+                                <rect key="frame" x="31" y="503" width="258" height="38"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="DNx-sY-cG3"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton" destination="AWh-jp-Z68" eventType="touchUpInside" id="eYo-um-0bq"/>
+                                    <action selector="dismissView" destination="9zM-Ep-aIe" eventType="touchUpInside" id="ORF-Ic-UwC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wA6-cX-QoG" userLabel="Description">
+                                <rect key="frame" x="31" y="240" width="258" height="116"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="116" id="k0e-2g-k0u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ola-Az-ZxV" userLabel="Product Label">
+                                <rect key="frame" x="31" y="53" width="258" height="35"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.3411764706" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="6fR-JR-x8k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="60 Seconds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Of-us-6Q0">
+                                <rect key="frame" x="114" y="155" width="92" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="bzA-uA-At1" secondAttribute="trailing" constant="15" id="23H-FR-nIK"/>
+                            <constraint firstItem="wA6-cX-QoG" firstAttribute="top" secondItem="rqn-SP-Zzg" secondAttribute="top" constant="240" id="Eea-KW-1YA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ckZ-mj-WEX" secondAttribute="trailing" constant="15" id="Fsz-QB-fIx"/>
+                            <constraint firstItem="ola-Az-ZxV" firstAttribute="trailing" secondItem="bzA-uA-At1" secondAttribute="trailing" id="Umy-OQ-To4"/>
+                            <constraint firstItem="ckZ-mj-WEX" firstAttribute="top" secondItem="bzA-uA-At1" secondAttribute="bottom" constant="8" id="YMb-9C-9UF"/>
+                            <constraint firstItem="ola-Az-ZxV" firstAttribute="leading" secondItem="bzA-uA-At1" secondAttribute="leading" id="cUc-QH-1AB"/>
+                            <constraint firstItem="ckZ-mj-WEX" firstAttribute="leading" secondItem="rqn-SP-Zzg" secondAttribute="leadingMargin" constant="15" id="gHO-be-4JK"/>
+                            <constraint firstItem="bzA-uA-At1" firstAttribute="leading" secondItem="rqn-SP-Zzg" secondAttribute="leadingMargin" constant="15" id="iot-2a-5EO"/>
+                            <constraint firstItem="ckZ-mj-WEX" firstAttribute="top" secondItem="bzA-uA-At1" secondAttribute="bottom" constant="8" id="it8-tD-E0n"/>
+                            <constraint firstItem="Nxq-s0-yad" firstAttribute="top" secondItem="ckZ-mj-WEX" secondAttribute="bottom" constant="27" id="jg6-cQ-6DN"/>
+                            <constraint firstItem="ola-Az-ZxV" firstAttribute="leading" secondItem="wA6-cX-QoG" secondAttribute="leading" id="nLF-NR-el3"/>
+                            <constraint firstItem="ola-Az-ZxV" firstAttribute="trailing" secondItem="wA6-cX-QoG" secondAttribute="trailing" id="oew-CE-sno"/>
+                            <constraint firstItem="ola-Az-ZxV" firstAttribute="top" secondItem="101-cu-AX7" secondAttribute="bottom" constant="33" id="wFe-oV-vZp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="rewardDesc" destination="wA6-cX-QoG" id="YKD-Zx-7rc"/>
+                        <outlet property="rewardRedeem" destination="bzA-uA-At1" id="8Bw-Sz-gYN"/>
+                        <outlet property="rewardTitle" destination="ola-Az-ZxV" id="ixW-ph-n5U"/>
+                        <outlet property="timerLabel" destination="7Of-us-6Q0" id="Au9-y9-nnu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nyv-UU-USu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2026.875" y="2066.1971830985917"/>
+        </scene>
         <!--Root Tab View Controller-->
         <scene sceneID="FQ2-wL-heF">
             <objects>
@@ -1078,7 +1179,7 @@ https://www.paulsenspharmacy.com
                             <tableViewSection headerTitle="Current Password" footerTitle="*Your current password must be filled to make any changes to your account." id="rsx-tG-pfi" userLabel="Current Password">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="47" id="N4r-0R-Fq0">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="47"/>
+                                        <rect key="frame" x="0.0" y="56" width="320" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N4r-0R-Fq0" id="6LV-XR-pca">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
@@ -1103,26 +1204,26 @@ https://www.paulsenspharmacy.com
                             <tableViewSection headerTitle="Edit Password" footerTitle="*Password must be a minimum of 6 characters." id="fms-cI-jwW" userLabel="Edit Password">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="123" id="bnN-uF-dJp">
-                                        <rect key="frame" x="0.0" y="194" width="320" height="123"/>
+                                        <rect key="frame" x="0.0" y="195" width="320" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnN-uF-dJp" id="ftE-oq-xu3">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="122.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F2z-fU-KmT">
-                                                    <rect key="frame" x="8" y="5.5" width="304" height="30"/>
+                                                    <rect key="frame" x="8" y="5" width="304" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2z-rQ-2qR">
-                                                    <rect key="frame" x="8" y="43.5" width="304" height="30"/>
+                                                    <rect key="frame" x="8" y="43" width="304" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TY1-th-Uyz">
-                                                    <rect key="frame" x="134" y="84.5" width="53" height="30"/>
+                                                    <rect key="frame" x="134" y="84" width="53" height="30"/>
                                                     <state key="normal" title="Submit"/>
                                                     <connections>
                                                         <action selector="editPasswordSubmit:" destination="auL-ip-QIT" eventType="touchUpInside" id="gE7-xl-yE5"/>
@@ -1149,7 +1250,7 @@ https://www.paulsenspharmacy.com
                             <tableViewSection headerTitle="Edit Phone Number" id="hhU-Gf-JZb" userLabel="Edit Phone Number">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="121" id="M4n-LB-1EH">
-                                        <rect key="frame" x="0.0" y="385" width="320" height="121"/>
+                                        <rect key="frame" x="0.0" y="387" width="320" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4n-LB-1EH" id="7ql-gp-WsD">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="120.5"/>
@@ -1196,7 +1297,7 @@ https://www.paulsenspharmacy.com
                             <tableViewSection headerTitle="Edit Address" id="0TK-Ax-u3t">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="235" id="Ey9-B1-Ehm">
-                                        <rect key="frame" x="0.0" y="562" width="320" height="235"/>
+                                        <rect key="frame" x="0.0" y="565" width="320" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ey9-B1-Ehm" id="OSN-QW-xAy">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="234.5"/>

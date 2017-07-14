@@ -29,8 +29,8 @@ import UIKit
 
 // Cache to hold images from web
 var imageCache = NSCache<AnyObject, AnyObject>()
-//var SERVER_HOST_URL = "https://ruby-drakkensaer.c9users.io"
-var SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
+var SERVER_HOST_URL = "https://ruby-drakkensaer.c9users.io"
+//var SERVER_HOST_URL = "http://paulsens-beacon.herokuapp.com"
 
 class WebCallController: URLSession {
     
@@ -829,7 +829,7 @@ class WebCallController: URLSession {
     
     
     //Redeem an already purchased reward. Web Server should be returning a date as to how long the reward will be active
-    func redeemReward() -> Date {
+    /*func redeemReward() -> Date {
         let url = SERVER_HOST_URL + "/orders.json"
         
         let data = ["key":"Value"]
@@ -845,6 +845,25 @@ class WebCallController: URLSession {
         }
         
         return Date()
+    }*/
+    
+    func testReward(rewardId:Int) {
+        
+        //let endString = String(rewardId) + "/status.json"
+        
+        let url = SERVER_HOST_URL + "/rewards/" + String(rewardId) + "/status.json"
+    
+        let data = ["status_method":"redeem"]
+        
+        patchRequest(urlToCall: url, data: data){ (dictionaryResponse) in
+            if let error = dictionaryResponse["error"] as? String {
+                print("Error with purchase reward request " + error)
+            }
+            else{
+                print("redeem response: " + String(describing: dictionaryResponse))
+                
+            }
+        }
     }
     
     /*

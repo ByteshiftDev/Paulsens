@@ -11,10 +11,12 @@ import UIKit
 struct Reward{
     let title : String!
     let des   : String!
+    let rewardId : Int!
     
-    init(title: String, des: String){
+    init(title: String, des: String, rewardId: Int){
         self.title = title
         self.des = des
+        self.rewardId = rewardId
     }
 }
 
@@ -23,7 +25,10 @@ struct Reward{
 
 class WalletViewController: UITableViewController{
     
+    
     @IBOutlet var walletTableView: UITableView!
+  
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     let cellID = "WalletCell"
     var selectedIndexPath = -1
@@ -41,14 +46,54 @@ class WalletViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rewardArray.append(Reward(title: "Dope reward" , des: "Cool Beans!" ))
-        /*
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let user = appDelegate.user
-        for dict in user.userRewards{
-            rewardArray.append(Reward(title: dict["title"] , des: dict["des"] ))
+        
+        
+        self.walletTableView.backgroundView = UILabel()
+        let bgView = self.walletTableView.backgroundView as! UILabel
+        
+        bgView.backgroundColor = UIColor.clear
+        bgView.textColor = UIColor.white
+        bgView.textAlignment = NSTextAlignment.center
+        bgView.numberOfLines = 0
+        bgView.adjustsFontSizeToFitWidth = true
+        //bgView.text = "It appears nothing is loaded"
+      
+        activityIndicator.center = bgView.center
+      
+        activityIndicator.hidesWhenStopped = true
+      
+        activityIndicator.activityIndicatorViewStyle = .gray
+      
+        bgView.addSubview(activityIndicator)
+      
+        activityIndicator.startAnimating()
+      
+        self.walletTableView!.alwaysBounceVertical = true
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
+        self.walletTableView.addSubview(self.refreshControl!)
+        
+        loadWallet()
+        
+        
+        tableView.tableFooterView = UIView() // Create blank rows after filled in cells
+    }
     
-        }*/
+    func loadData() {
+        loadWallet()
+        self.refreshControl!.endRefreshing()
+    }
+    
+    
+    func loadWallet() {
+        //rewardArray.append(Reward(title: "Dope reward" , des: "Cool Beans!" ))
+        /*
+         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+         let user = appDelegate.user
+         for dict in user.userRewards{
+         rewardArray.append(Reward(title: dict["title"] , des: dict["des"] ))
+         
+         }*/
         
         webCallController.fetchRe{(isError, errorMessage, rewardsList) in
             if(isError){
@@ -72,34 +117,57 @@ class WalletViewController: UITableViewController{
                 print("WALLET")
                 var newRewards = [Reward]()
                 var i = 0
+                
+                //var rewardIDs = [Int]()
+                
                 for dict in rewardsList! {
-                    print("Event \(i):")
-                    print(dict)
-                    print("\n---\n")
-                    //newEvents.append(Event(year: dict["date"] as! String, image: #imageLiteral(resourceName: "Image0"), title: dict["title"] as! String, des: dict["description"] as! String))
+                    print("Reward \(i):")
+                    print(dict);
+                    if(dict["resource_state"] as! String == "pending"){
+                
+                        print(dict["resource_state"] as! String)
+                        let item = (dict["item"] as! [String: Any])
+                        let itemTitle = item["title"] as! String
+                        let itemDesc = item["description"] as! String
+                        let itemId = dict["id"] as! Int//item["id"] as! Int
+                        print(itemTitle)
+                        print("\n---\n")
+                        newRewards.append(Reward(title: itemTitle, des: itemDesc, rewardId: itemId))
+                    }
+
                     i = i+1
+        
+                    
                 }
+                
                 
                 self.rewardArray = newRewards
                 // Make sure the UI update occurs on the MAIN thread
-                /*DispatchQueue.main.async(execute: { () -> Void in
-                    if self.eventArray.count > 0 {
-                        self.historyTableView.reloadData()
-                        self.historyTableView.backgroundView!.isHidden = true
+                DispatchQueue.main.async(execute: { () -> Void in
+                    if self.rewardArray.count > 0 {
+                        self.walletTableView.reloadData()
+                        self.walletTableView.backgroundView!.isHidden = true
                     }
                     else {
-                        self.historyTableView.backgroundView!.isHidden = false
+                        self.walletTableView.backgroundView!.isHidden = false
                     }
-                })*/
+                })
                 
             }
         }
-        for p in prod{
+        /*for p in prod{
             rewardArray.append(Reward(title: p.title, des: p.description))
         }
-        
-        tableView.tableFooterView = UIView() // Create blank rows after filled in cells
+      
+    activityIndicator.stopAnimating()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.walletTableView.reloadData()
+    }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rewardArray.count
@@ -110,7 +178,8 @@ class WalletViewController: UITableViewController{
         let dequeued = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
         let cell = dequeued as! WalletTableViewCell
-        
+      
+        cell.reward = rewardArray[indexPath.row]
         cell.rewardTitle.text = rewardArray[indexPath.row].title
         cell.rewardDes.text = rewardArray[indexPath.row].des
         
@@ -142,5 +211,21 @@ class WalletViewController: UITableViewController{
         }
     }
     
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
+    if(segue.identifier == "WalletPopUp" && sender != nil){
+      let button = sender as! UIButton
+      let content = button.superview
+      let cell = content?.superview as! WalletTableViewCell
+      let nextScene = segue.destination as! WalletPopUpViewController
+      
+      nextScene.reward = cell.reward
+    }
+  }
+  
+  @IBAction func showPopUp(_ sender: Any?) {
+    self.performSegue(withIdentifier: "WalletPopUp", sender: sender as! UIButton)
+  }
+  
+  
 }

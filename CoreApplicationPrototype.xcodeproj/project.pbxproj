@@ -14,6 +14,7 @@
 		2F83ACCC1E6298B000DDC9DD /* RootTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F83ACCB1E6298B000DDC9DD /* RootTabViewController.swift */; };
 		2F92EBCF1E66C35D00B8C699 /* ConfirmCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F92EBCE1E66C35D00B8C699 /* ConfirmCredentialsViewController.swift */; };
 		2FEDDAD41E2C4DC50095013F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2FEDDAD31E2C4DC50095013F /* .gitignore */; };
+		3D6D1E351F0F104E00B2A8C4 /* WalletPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6D1E341F0F104E00B2A8C4 /* WalletPopUpViewController.swift */; };
 		48CD79171E6BCCE900694253 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2556F81DE422EC006B3CC5 /* Assets.xcassets */; };
 		7E577B341E4E7912009B8BEA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E577B331E4E7912009B8BEA /* Notification.swift */; };
 		7E6F04001E2591DC00D0F41A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F03FF1E2591DC00D0F41A /* AboutViewController.swift */; };
@@ -70,6 +71,7 @@
 		2F83ACCB1E6298B000DDC9DD /* RootTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabViewController.swift; sourceTree = "<group>"; };
 		2F92EBCE1E66C35D00B8C699 /* ConfirmCredentialsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmCredentialsViewController.swift; sourceTree = "<group>"; };
 		2FEDDAD31E2C4DC50095013F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		3D6D1E341F0F104E00B2A8C4 /* WalletPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletPopUpViewController.swift; sourceTree = "<group>"; };
 		7E577B331E4E7912009B8BEA /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		7E6F03FF1E2591DC00D0F41A /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		7E6F04011E25920C00D0F41A /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				23F67DF81E25AEA000B0070E /* Supporting Files */,
 				DA1C0E371EA1499900E3584A /* WalletViewController.swift */,
 				DA1C0E391EA14CA700E3584A /* WalletTableViewCell.swift */,
+				3D6D1E341F0F104E00B2A8C4 /* WalletPopUpViewController.swift */,
 			);
 			path = CoreApplicationPrototype;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				7F70D6E11E76BA15004C207D /* DealsViewController.swift in Sources */,
 				7E6F04081E25949A00D0F41A /* SettingsViewController.swift in Sources */,
 				7F3A28401E53FE0300EFAE30 /* RewardsCollectionViewCell.swift in Sources */,
+				3D6D1E351F0F104E00B2A8C4 /* WalletPopUpViewController.swift in Sources */,
 				7E6F04061E25947800D0F41A /* LogInViewController.swift in Sources */,
 				DF2556F41DE422EC006B3CC5 /* HomeViewController.swift in Sources */,
 				DF2556F21DE422EC006B3CC5 /* AppDelegate.swift in Sources */,
