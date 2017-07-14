@@ -148,10 +148,14 @@ class CoreApplicationPrototypeUITests: XCTestCase {
         app.tabBars.buttons["About"].tap()
         
         let httpsWwwPaulsenspharmacyComTextView = app.textViews.containing(.link, identifier:"https://www.paulsenspharmacy.com").element
+        //XCTAssert(httpsWwwPaulsenspharmacyComTextView.)
+        let window = app.windows.element(boundBy: 0)
+        XCTAssert(window.frame.contains(httpsWwwPaulsenspharmacyComTextView.frame))
         httpsWwwPaulsenspharmacyComTextView.swipeUp()
         httpsWwwPaulsenspharmacyComTextView.tap()
         
         let websiteTransferAlert = app.alerts["WEBSITE TRANSFER"]
+        XCTAssert(app.alerts["WEBSITE TRANSFER"].exists)
         websiteTransferAlert.buttons["NO"].tap()
         httpsWwwPaulsenspharmacyComTextView.tap()
         websiteTransferAlert.buttons["YES"].tap()
@@ -231,7 +235,6 @@ class CoreApplicationPrototypeUITests: XCTestCase {
     
     //This test is for when the user clicks and close a daily deal
     func DailyDealClick(){
-        
         let app = XCUIApplication()
         let image = app.collectionViews.images["640x360_advil"]
         image.swipeLeft()
@@ -247,8 +250,10 @@ class CoreApplicationPrototypeUITests: XCTestCase {
         
     }
     
-    func testTrial(){
-        
+    
+    //Checks the reward button, when a user is not logged in, to 
+    //reject the user from two different location of the app
+    func testNotLoggedInUserRewardsCheck(){
         let app = XCUIApplication()
         let tabBarsQuery = app.tabBars
         let rewardsButton = tabBarsQuery.buttons["Rewards"]
@@ -261,9 +266,8 @@ class CoreApplicationPrototypeUITests: XCTestCase {
     }
     
     
-    //CLicking the setting button and back
+    //CLicking the setting button and back to home
     func testSettingButton(){
-        
         let app = XCUIApplication()
         app.navigationBars["Home"].buttons["Item"].tap()
         app.navigationBars["CoreApplicationPrototype.SettingsView"].buttons["Home"].tap()
