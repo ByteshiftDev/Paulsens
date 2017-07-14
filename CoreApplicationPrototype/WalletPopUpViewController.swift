@@ -20,7 +20,12 @@ class WalletPopUpViewController: UIViewController {
   /******************************/
   
   // Set upon passing control to this view by the external controller.
+    
+  var seconds = 6
+    
   var reward: Reward? = nil
+    
+  var timer = Timer()
   
   /****************************/
   /******* View Outlets *******/
@@ -31,11 +36,23 @@ class WalletPopUpViewController: UIViewController {
   @IBOutlet weak var rewardDesc: UILabel!
   @IBOutlet weak var rewardRedeem: UIButton!
   
+  @IBOutlet weak var timerLabel: UILabel!
+    
   /****************************/
   /******* View Actions *******/
   /****************************/
   
   
+   @IBAction func redeemReward(_ sender: Any) {
+    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(WalletPopUpViewController.counter), userInfo: nil, repeats: true)
+    
+    rewardRedeem.isHidden = true
+    
+    let webCallController = WebCallController() // Create a web call controller object to make the call.
+    webCallController.testReward(rewardId: (reward!.rewardId)!)
+
+   }
+    
   // Dismiss the popup
   @IBAction func cancelButton() {
     self.dismiss(animated: true, completion: nil)
@@ -45,6 +62,17 @@ class WalletPopUpViewController: UIViewController {
   /******* Default Controller Functions *******/
   /********************************************/
   
+    func counter(){
+        seconds -= 1
+        timerLabel.text = String(seconds) + " Seconds"
+        
+        if(seconds == 0)
+        {
+            timer.invalidate()
+            rewardRedeem.isHidden = false
+        }
+    }
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     // Set the color behind the popup, then, update the fields with the passed

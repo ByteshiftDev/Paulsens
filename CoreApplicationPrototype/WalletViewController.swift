@@ -11,10 +11,12 @@ import UIKit
 struct Reward{
     let title : String!
     let des   : String!
+    let rewardId : Int!
     
-    init(title: String, des: String){
+    init(title: String, des: String, rewardId: Int){
         self.title = title
         self.des = des
+        self.rewardId = rewardId
     }
 }
 
@@ -84,7 +86,7 @@ class WalletViewController: UITableViewController{
     
     
     func loadWallet() {
-        rewardArray.append(Reward(title: "Dope reward" , des: "Cool Beans!" ))
+        //rewardArray.append(Reward(title: "Dope reward" , des: "Cool Beans!" ))
         /*
          let appDelegate = UIApplication.shared.delegate as! AppDelegate
          let user = appDelegate.user
@@ -113,29 +115,30 @@ class WalletViewController: UITableViewController{
                 return
             } else {
                 print("WALLET")
-                let newRewards = [Reward]()
+                var newRewards = [Reward]()
                 var i = 0
                 
-                var rewardIDs = [Int]()
+                //var rewardIDs = [Int]()
                 
                 for dict in rewardsList! {
-                    print("Event \(i):")
-                    print(dict)
-                    print("\n---\n")
-                    //newEvents.append(Event(year: dict["date"] as! String, image: #imageLiteral(resourceName: "Image0"), title: dict["title"] as! String, des: dict["description"] as! String))
-                    i = i+1
-                    
-                    if(dict["rewardable_type"] as! String == "Promotion"){
-                        rewardIDs.append(dict["rewardable_id"] as! Int)
+                    print("Reward \(i):")
+                    print(dict);
+                    if(dict["resource_state"] as! String == "pending"){
+                
+                        print(dict["resource_state"] as! String)
+                        let item = (dict["item"] as! [String: Any])
+                        let itemTitle = item["title"] as! String
+                        let itemDesc = item["description"] as! String
+                        let itemId = dict["id"] as! Int//item["id"] as! Int
+                        print(itemTitle)
+                        print("\n---\n")
+                        newRewards.append(Reward(title: itemTitle, des: itemDesc, rewardId: itemId))
                     }
+
+                    i = i+1
+        
                     
                 }
-                print(rewardIDs)
-                
-                let rewards = self.fetchPromotions(rewardIDs: rewardIDs)
-                
-                print(rewards)
-                
                 
                 
                 self.rewardArray = newRewards
@@ -152,7 +155,7 @@ class WalletViewController: UITableViewController{
                 
             }
         }
-        for p in prod{
+        /*for p in prod{
             rewardArray.append(Reward(title: p.title, des: p.description))
         }
       
@@ -182,29 +185,7 @@ class WalletViewController: UITableViewController{
     func fetchPromotions(rewardIDs: [Int]) -> [String:Any] {
         let webController = WebCallController()
         
-        
-        
-        for id in rewardIDs {
-            let url = SERVER_HOST_URL + "/promotions/" + String(id)
-            webController.webCall(urlToCall: url, callback: { (serverResponse) in
-                if let error = serverResponse["error"] as? String {
-                    print("Error with fetching wallet rewards!" + error)
-                }
-                else {
-                    print("Adding: " + String(describing: serverResponse));
-                    self.rewardArray.append(Reward(title: serverResponse["title"] as! String, des: serverResponse["description"] as! String))
-                    self.walletTableView.reloadData()
-                }
-            })
-        }
-        
-        return ["nope": "hello no"]
     }
-    
-    
-    
-    
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
