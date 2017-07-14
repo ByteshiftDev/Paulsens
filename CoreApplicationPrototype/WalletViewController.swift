@@ -163,31 +163,6 @@ class WalletViewController: UITableViewController{
     }
     
     
-    /*
-    func fetchPromotions(rewardIDs: [Int]) -> [[String:Any]] {
-        let webController = WebCallController()
-        var toReturn = [[String:Any]]()
-        
-        for id in rewardIDs {
-            let url = SERVER_HOST_URL + "/promotions/" + String(id)
-            webController.webCall(urlToCall: url, callback: { (serverResponse) in
-                if let error = serverResponse["error"] as? String {
-                    print("Error with fetching wallet rewards!" + error)
-                }
-                else {
-                    toReturn.append(serverResponse)
-                }
-            })
-        }
-        return toReturn
-    }*/
-    
-    func fetchPromotions(rewardIDs: [Int]) -> [String:Any] {
-        let webController = WebCallController()
-        
-    }
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.walletTableView.reloadData()
