@@ -43,6 +43,8 @@ class RewardsViewController: UIViewController{
     /************ Class Varibles ********/
     
     private let refreshControl = UIRefreshControl()
+  
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     /************ View Outlets **********/
     
@@ -120,6 +122,7 @@ class RewardsViewController: UIViewController{
                 }
             })
         }
+    activityIndicator.stopAnimating()
     }
     
     /********* Refresh Control *********/
@@ -155,8 +158,19 @@ class RewardsViewController: UIViewController{
         backgroundView.numberOfLines = 0
         backgroundView.backgroundColor = UIColor.clear
         backgroundView.textAlignment = NSTextAlignment.center
-        backgroundView.text = "There appears to be nothing here"
-        
+        //backgroundView.text = "There appears to be nothing here"
+      
+        activityIndicator.center = backgroundView.center
+      
+        activityIndicator.hidesWhenStopped = true
+      
+        activityIndicator.activityIndicatorViewStyle = .gray
+      
+        backgroundView.addSubview(activityIndicator)
+      
+        activityIndicator.startAnimating()
+
+      
         self.rewardsCollectionView.delegate = self
         self.rewardsCollectionView.dataSource = self
         updateRewards()

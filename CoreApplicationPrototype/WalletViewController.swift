@@ -25,6 +25,8 @@ class WalletViewController: UITableViewController{
     
     
     @IBOutlet var walletTableView: UITableView!
+  
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     let cellID = "WalletCell"
     var selectedIndexPath = -1
@@ -52,8 +54,18 @@ class WalletViewController: UITableViewController{
         bgView.textAlignment = NSTextAlignment.center
         bgView.numberOfLines = 0
         bgView.adjustsFontSizeToFitWidth = true
-        bgView.text = "It appears nothing is loaded"
-        
+        //bgView.text = "It appears nothing is loaded"
+      
+        activityIndicator.center = bgView.center
+      
+        activityIndicator.hidesWhenStopped = true
+      
+        activityIndicator.activityIndicatorViewStyle = .gray
+      
+        bgView.addSubview(activityIndicator)
+      
+        activityIndicator.startAnimating()
+      
         self.walletTableView!.alwaysBounceVertical = true
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
@@ -143,7 +155,8 @@ class WalletViewController: UITableViewController{
         for p in prod{
             rewardArray.append(Reward(title: p.title, des: p.description))
         }
-        
+      
+    activityIndicator.stopAnimating()
     }
     
     

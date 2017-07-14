@@ -21,6 +21,8 @@ class DealsViewController: UIViewController {
     @IBOutlet weak var dealsCollectionView: UICollectionView!
     
     private let refreshControl = UIRefreshControl()
+  
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     var products = [Product]()
 
@@ -32,8 +34,18 @@ class DealsViewController: UIViewController {
         backgroundView.titleLabel?.numberOfLines = 0
         backgroundView.titleLabel?.adjustsFontSizeToFitWidth = true
         backgroundView.backgroundColor = UIColor(red: 0.24, green: 0.34, blue: 0.45, alpha: 1.0)
-        backgroundView.setTitle("Reload?", for: UIControlState.normal)
+        //backgroundView.setTitle("Reload?", for: UIControlState.normal)
         backgroundView.addTarget(self, action: #selector(refreshDeals), for: .touchUpInside)
+      
+        activityIndicator.center = backgroundView.center
+      
+        activityIndicator.hidesWhenStopped = true
+      
+        activityIndicator.activityIndicatorViewStyle = .gray
+      
+        backgroundView.addSubview(activityIndicator)
+      
+        activityIndicator.startAnimating()
         
         updateDeals()
         dealsCollectionView.delegate = self
@@ -115,6 +127,7 @@ class DealsViewController: UIViewController {
                 }
             })
         }
+    activityIndicator.stopAnimating()
     }
 }
 
